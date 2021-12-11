@@ -20,9 +20,13 @@ body {
 #container {
     display: flex;
     justify-content: center;
+    flex-direction:row;
+    align-items: flex-start;
     position: relative;
-    width: 500px;
+    width: 600px;
     height: 700px;
+    min-width: 500px;
+    min-height: 600px;
     z-index: 2;
     background: white;
     -webkit-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
@@ -34,5 +38,7 @@ body {
 img{
     width: 150px;
 }
+
+
 
 
