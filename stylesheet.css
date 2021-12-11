@@ -19,9 +19,7 @@ body {
 }
 #container {
     display: flex;
-    justify-content: center;
-    flex-direction:row;
-    align-items: flex-start;
+    flex-direction: column;
     position: relative;
     width: 600px;
     height: 700px;
