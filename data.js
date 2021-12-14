@@ -1,8 +1,3 @@
-
-
-
-// const send = document.querySelector('#send')
-// const date = document.querySelectorAll('input[type=date]')
 const data = [ 
     {
         "id" : 1,
@@ -72,16 +67,4 @@ const data = [
         "Oddział" : "Zachodniopomorski Oddział Wójewódzki NFZ", 
     },
 ]
-
-
-
-
-const dataList = data.map(({id, Oddział}) =>{
-    const select = document.getElementById("select")
-    const option = document.createElement("option")
-    option.text = Oddział
-    option.value = id
-    select.add(option)
-    console.log(id)
-    console.log(Oddział)
-})
+export const data;
