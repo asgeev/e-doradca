@@ -11,7 +11,8 @@
         <meta name="description" content="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="./css/stylesheet.css">
+        <link rel="shortcut icon" href="#">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -25,22 +26,21 @@
                     <img src="img/Logo_NFZ.svg">                 
                 </div>
                 <div id = "formContainer">
-                    <form>
+                    <form id = " form " method="POST">
                         <span><p>Wybierz oddział</p></span>
                         <div id = "selectContainer">
-                        <select id="select">
-                            
+                        <select id="select" required>
+                            <option selected="selected">Wybierz</option>                            
                           </select>
                           <span><p>Wybierz datę</p></span>
-                          <input type = "date">
+                          <label>Wybierz date</label>
+                          <input type = "date" required>
                           <span><p>Wybierz godzinę</p></span>
-                          <input type = "time">
+                          <input type = "time" required>
                           <span><p>Podaj adres e-mail</p></span>
-                          <input type = "email">
+                          <input type = "email" required>
                           <input id = "send" type = "submit" value="Prześlij">
                         </div>
-
-
                     </form>
                     
 
@@ -51,6 +51,6 @@
             </div>
 
         
-        <script src="index.js" async defer></script>
+        <script type="module" src="./js/index.js"  async defer></script>
     </body>
 </html>
