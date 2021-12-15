@@ -13,6 +13,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./css/stylesheet.css">
         <link rel="shortcut icon" href="#">
+        <script src="https://unpkg.com/lodash@4.17.20"></script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,7 +28,7 @@
                     <img src="img/Logo_NFZ.svg">                 
                 </div>
                 <div id = "formContainer">
-                    <form id = " form " method="POST">
+                    <form action = "" id = " form " method="POST">
                         <span><p>Wybierz oddział</p></span>
                         <div id = "selectContainer">
                         <select id="select" required>
@@ -51,6 +53,6 @@
             </div>
 
         
-        <script type="module" src="./js/index.js"  async defer></script>
+            <script src="./src/index.js" async defer></script>
     </body>
 </html>
