@@ -1,11 +1,11 @@
-import {data} from "./data"
+import { data } from './data'
 
 // const send = document.querySelector('#send')
 // const date = document.querySelectorAll('input[type=date]')
 
 console.log(data)
 
-
+/*
 const dataList = data.map(({id, Oddział}) =>{
     const select = document.getElementById("select")
     const option = document.createElement("option")
@@ -32,14 +32,14 @@ function load(){
 
 load()
 
-/*
+
 $.ajax({
     url: "https://e-doradca.nfz-lublin.pl:8080/",
     type: 'get',
     data: {
       action: 'get_branch_list()',
       event_name: 'test'
-    }*/
+    }
 
     $.ajax({
         url: "https://e-doradca.nfz-lublin.pl:8080/",
@@ -54,4 +54,4 @@ $.ajax({
 
 
 
-
+*/

@@ -1,4 +1,4 @@
-export const data = [ 
+const data = [ 
     {
         "id" : 1,
         "Oddział" : "Dolnośląski Oddział Wójewódzki NFZ",
@@ -68,3 +68,4 @@ export const data = [
     },
 ]
 
+export { data }
