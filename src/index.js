@@ -5,7 +5,7 @@ import { data } from './data'
 
 console.log(data)
 
-/*
+
 const dataList = data.map(({id, Oddział}) =>{
     const select = document.getElementById("select")
     const option = document.createElement("option")
@@ -14,7 +14,7 @@ const dataList = data.map(({id, Oddział}) =>{
     select.add(option)
 })
 
-
+/*
 
 function load(){
     const xhr = new XMLHttpRequest();
