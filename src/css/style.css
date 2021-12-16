@@ -1,0 +1,77 @@
+:root{
+    --leftBackgroundColor: #2C3F7C ;
+    --rightBackgroundColor: white;
+}
+
+html {
+    height: 100%;
+
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+body {
+    height: 100%;
+    background: linear-gradient(-45deg, var(--rightBackgroundColor) 50%, var(--leftBackgroundColor) 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 600px;
+    height: 700px;
+    min-width: 500px;
+    min-height: 600px;
+    z-index: 2;
+    background: white;
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    border-radius: 1%;
+    padding-top: 40px;
+}
+img{
+    width: 150px;
+}
+#formContainer{
+    margin-top: 50px;
+}
+
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  select {
+     outline: none;
+  }
+  #select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+
+
+

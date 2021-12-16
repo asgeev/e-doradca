@@ -1,3 +1,4 @@
+import './css/style.css'
 import { data } from './data'
 
 // const send = document.querySelector('#send')
