@@ -18,6 +18,7 @@
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@material/button": "^13.0.0",
+    "@material/textfield": "^13.0.0",
     "acorn": "^8.6.0",
     "acorn-import-assertions": "^1.8.0",
     "ajv": "^6.12.6",

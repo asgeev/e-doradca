@@ -43,16 +43,36 @@
                           <input type = "date" required>
                           <span><p>Wybierz godzinę</p></span>
                           <input type = "time" required>
-                          <span><p>Podaj adres e-mail</p></span>
-                          <input type = "email" required>
+                          
+                          <div>
+                            <h1>Podaj adres e-mail</h1>
+                            <label class="mdc-text-field mdc-text-field--outlined">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id" >Adres e-mail</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <input type="email" required minlength="5" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                            </label>
+                          </div>
                           
                         </div>
-                        <button class="mdc-button mdc-button--raised">
-                            <span class="mdc-button__label"><input type = "submit" hidden>Prześlij</span>
-                        </button>
-                        <button class="mdc-button mdc-button--raised">
-                            <span class="mdc-button__label">Contained Button</span>
-                          </button>
+                        <div>
+                            <h1>Zatwierdź</h1>
+                                <button class="mdc-button mdc-button--raised">
+                                <span class="mdc-button__label"><input type = "submit" hidden>Prześlij</span>
+                            </button>
+                            <button class="mdc-button mdc-button--raised">
+                                <span class="mdc-button__label">Contained Button</span>
+                            </button>
+                        </div>
+                        
+                          
+                          
+                         
+
                     </form>
                     
 

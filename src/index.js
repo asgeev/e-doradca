@@ -1,10 +1,13 @@
 import './scss/style.scss'
-import { data } from './data'
 import {MDCRipple} from '@material/ripple';
+import {MDCTextField} from '@material/textfield';
+
+import { data } from './data'
 
 
 
 const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
  
 // const send = document.querySelector('#send')
