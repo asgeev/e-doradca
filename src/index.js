@@ -1,11 +1,16 @@
-import './css/style.css'
+import './scss/style.scss'
 import { data } from './data'
+import {MDCRipple} from '@material/ripple';
 
+
+
+const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+
+ 
 // const send = document.querySelector('#send')
 // const date = document.querySelectorAll('input[type=date]')
 
 console.log(data)
-
 
 const dataList = data.map(({id, Oddział}) =>{
     const select = document.getElementById("select")
