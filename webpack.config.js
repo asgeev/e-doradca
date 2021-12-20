@@ -9,14 +9,22 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 
 
+
+
 module.exports = {
     mode: mode,
+    
+    watchOptions: {
+        poll: true,
+        ignored: /node_modules/
+      },
+      
 
-    // entry: './src/index.js',
-    // output: {
-    //     filename: 'bundle.js',
-    //     path: path.resolve(__dirname, 'public')
-    // },
+   entry: './src/index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
+    },
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
@@ -35,6 +43,10 @@ module.exports = {
                     "sass-loader"
                 ]
             },
+            {
+            test: /\.html$/i,
+            loader: "html-loader",
+            },
         ], 
     },
     optimization: {
@@ -46,7 +58,9 @@ module.exports = {
       },
     devtool: 'source-map',
     devServer: {
-        static: './dist',
+        port: 8080,
+        hot: true,
+        static:  './dist',
     },
 
 }

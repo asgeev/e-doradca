@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+/*
 const data = [ 
     {
         "id" : 1,
@@ -67,5 +76,6 @@ const data = [
         "Oddział" : "Zachodniopomorski Oddział Wójewódzki NFZ", 
     },
 ]
+*/
 
-export { data }
+
