@@ -1,14 +1,13 @@
 import './scss/style.scss'
 import {success} from './data';
-import {MDCRipple} from '@material/ripple';
-import {MDCTextField} from '@material/textfield';
+import { buttonRipple, textField, menu } from './material_ui';
 
 
 
 
 
-const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
-const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+
+const selectContainer = document.getElementById('selectContainer')
 
 
 
@@ -17,13 +16,16 @@ const render = (data) => {
         return;
     }else
     {
+        const fragment = document.createDocumentFragment();
         data.forEach(({id, name}) => {
-            const select = document.getElementById("select")
-            const option = document.createElement("option")
-            option.text = name
-            option.value = id
-            select.add(option)
+            const div = document.createElement('div')
+            div.classList.add('item');
+            div.innerHTML = `
+                    <p>${id} ${name}</p>
+                `
+                fragment.appendChild(div)
     })
+    selectContainer.appendChild(fragment)
     }
   
 

@@ -19,6 +19,7 @@
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@material/button": "^13.0.0",
+    "@material/menu": "^13.0.0",
     "@material/textfield": "^13.0.0",
     "babel-loader": "^8.2.3",
     "terser": "^5.10.0"
@@ -27,7 +28,7 @@
     "start": "webpack serve",
     "watch": "webpack --watch",
     "build": "NODE_ENV=production webpack",
-    "build-dev": "webpack" 
+    "build-dev": "webpack"
   },
   "repository": {
     "type": "git",
