@@ -1,81 +1,37 @@
+import { render } from "./index"
+
+const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchList/'
 
 
 
 
+const success = (data) => {
+    const request = JSON.parse(data.target.responseText)
+    render(request)
+}
+
+
+const error = (err) => {
+    console.log(err)
+}
+
+
+const xhr = new XMLHttpRequest();
+
+xhr.onload = success
+    
+xhr.onerror = error
+
+xhr.open('GET', API_URL, true)
+
+xhr.send();
 
 
 
+export {
+    success,
+    error,
+}
 
-/*
-const data = [ 
-    {
-        "id" : 1,
-        "Oddział" : "Dolnośląski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 2,
-        "Oddział" : "Kujawsko-Pomorski Oddział Wójewódzki NFZ",
-        
-    },
-    {
-        "id" : 3 ,
-        "Oddział" : "Lubelski Oddział Wójewódzki NFZ",
-
-    },
-    {
-        "id" : 4,
-        "Oddział" : "Lubuski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 5,
-        "Oddział" : "Łódzki Oddział Wójewódzki NFZ",
-
-    },
-    {
-        "id" : 6,
-        "Oddział" : "Małopolski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 7,
-        "Oddział" : "Mazowiecki Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 8,
-        "Oddział" : "Opolski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 9,
-        "Oddział" : "Podkarpacki Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 10,
-        "Oddział" : "Podlaski Oddział Wójewódzki NFZ", 
-    },
-    {
-        "id" : 11,
-        "Oddział" : "Pomorski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 12,
-        "Oddział" : "Śląski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 13,
-        "Oddział" : "Świętokrzyski Oddział Wójewódzki NFZ",
-    },
-    {
-        "id" : 14,
-        "Oddział" : "Warmińsko-Mazurski Oddział Wójewódzki NFZ", 
-    },
-    {
-        "id" : 15,
-        "Oddział" : "Wielkopolski Oddział Wójewódzki NFZ", 
-    },
-    {
-        "id" : 16,
-        "Oddział" : "Zachodniopomorski Oddział Wójewódzki NFZ", 
-    },
-]
-*/
 
 

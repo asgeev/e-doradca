@@ -1,8 +1,10 @@
 import './scss/style.scss'
+import {success} from './data';
 import {MDCRipple} from '@material/ripple';
 import {MDCTextField} from '@material/textfield';
 
-// import { data } from './data'
+
+
 
 
 const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
@@ -10,8 +12,34 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
 
 
+const render = (data) => {
+    if (!data.length) {
+        return;
+    }else
+    {
+        data.forEach(({id, name}) => {
+            const select = document.getElementById("select")
+            const option = document.createElement("option")
+            option.text = name
+            option.value = id
+            select.add(option)
+    })
+    }
+  
 
-const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchList/'
+}
+
+
+
+
+
+export {
+    render
+}
+
+
+
+
 
 
 
@@ -40,7 +68,7 @@ const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchList/'
 // console.log( success )
 
 /*
-const dataList = data.map(({id, Oddział}) =>{
+const dataList = data.map(({id, name}) =>{
     const select = document.getElementById("select")
     const option = document.createElement("option")
     option.text = Oddział
