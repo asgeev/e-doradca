@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.16.5",
     "@material/button": "^13.0.0",
     "@material/menu": "^13.0.0",
+    "@material/select": "^13.0.0",
     "@material/textfield": "^13.0.0",
     "babel-loader": "^8.2.3",
     "terser": "^5.10.0"

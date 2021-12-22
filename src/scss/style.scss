@@ -1,11 +1,13 @@
-@use "@material/button/styles";
+// @use "@material/button/styles";
 @use "@material/floating-label/mdc-floating-label";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
+
 @use "@material/list/mdc-list";
 @use "@material/menu-surface/mdc-menu-surface";
 @use "@material/menu/mdc-menu";
+@use "@material/select/styles";
 
 @include textfield.core-styles;
 
@@ -87,3 +89,8 @@ select {
 
 
 
+  .demo-width-class {
+    width: 800px;
+  }
+  
+  

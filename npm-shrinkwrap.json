@@ -13,6 +13,7 @@
         "@babel/preset-env": "^7.16.5",
         "@material/button": "^13.0.0",
         "@material/menu": "^13.0.0",
+        "@material/select": "^13.0.0",
         "@material/textfield": "^13.0.0",
         "babel-loader": "^8.2.3",
         "terser": "^5.10.0"
@@ -1694,6 +1695,30 @@
       "integrity": "sha512-nFGy3iQg7k+xLs67eb86mRFVLwa0yi7MusqRK4OM8DXcLO5yoVfUTPKpdSykcbRryp9imVHsxutox2tZawR4og==",
       "dependencies": {
         "@material/theme": "^13.0.0",
+        "tslib": "^2.1.0"
+      }
+    },
+    "node_modules/@material/select": {
+      "version": "13.0.0",
+      "resolved": "https://registry.npmjs.org/@material/select/-/select-13.0.0.tgz",
+      "integrity": "sha512-wVprsSMicU/l+LAqXdOU+qdzzdHupLXpWWQo2Rsk8G6AxL1Zna+/+ETnRlDdr2wHHK/KNDXSBdmuCcoEIRshcA==",
+      "dependencies": {
+        "@material/animation": "^13.0.0",
+        "@material/base": "^13.0.0",
+        "@material/density": "^13.0.0",
+        "@material/dom": "^13.0.0",
+        "@material/feature-targeting": "^13.0.0",
+        "@material/floating-label": "^13.0.0",
+        "@material/line-ripple": "^13.0.0",
+        "@material/list": "^13.0.0",
+        "@material/menu": "^13.0.0",
+        "@material/menu-surface": "^13.0.0",
+        "@material/notched-outline": "^13.0.0",
+        "@material/ripple": "^13.0.0",
+        "@material/rtl": "^13.0.0",
+        "@material/shape": "^13.0.0",
+        "@material/theme": "^13.0.0",
+        "@material/typography": "^13.0.0",
         "tslib": "^2.1.0"
       }
     },
@@ -8359,6 +8384,30 @@
       "integrity": "sha512-nFGy3iQg7k+xLs67eb86mRFVLwa0yi7MusqRK4OM8DXcLO5yoVfUTPKpdSykcbRryp9imVHsxutox2tZawR4og==",
       "requires": {
         "@material/theme": "^13.0.0",
+        "tslib": "^2.1.0"
+      }
+    },
+    "@material/select": {
+      "version": "13.0.0",
+      "resolved": "https://registry.npmjs.org/@material/select/-/select-13.0.0.tgz",
+      "integrity": "sha512-wVprsSMicU/l+LAqXdOU+qdzzdHupLXpWWQo2Rsk8G6AxL1Zna+/+ETnRlDdr2wHHK/KNDXSBdmuCcoEIRshcA==",
+      "requires": {
+        "@material/animation": "^13.0.0",
+        "@material/base": "^13.0.0",
+        "@material/density": "^13.0.0",
+        "@material/dom": "^13.0.0",
+        "@material/feature-targeting": "^13.0.0",
+        "@material/floating-label": "^13.0.0",
+        "@material/line-ripple": "^13.0.0",
+        "@material/list": "^13.0.0",
+        "@material/menu": "^13.0.0",
+        "@material/menu-surface": "^13.0.0",
+        "@material/notched-outline": "^13.0.0",
+        "@material/ripple": "^13.0.0",
+        "@material/rtl": "^13.0.0",
+        "@material/shape": "^13.0.0",
+        "@material/theme": "^13.0.0",
+        "@material/typography": "^13.0.0",
         "tslib": "^2.1.0"
       }
     },
