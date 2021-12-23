@@ -1,4 +1,5 @@
 import './scss/style.scss'
+import { success } from './data/data';
 
 import createSelectOddzial from './components/createSelectOddzial'
 import createSelectDate from './components/createSelectDate';
