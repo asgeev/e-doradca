@@ -13,6 +13,12 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
+/*! ./components/createSelectDate */
+
+/*! ./components/createSelectOddzial.js */
+
+/*! ./components/createSelectTime */
+
 /*! ./constants */
 
 /*! ./data */
@@ -26,8 +32,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./icon/component */
 
 /*! ./index */
-
-/*! ./material_ui */
 
 /*! ./scss/style.scss */
 
@@ -87,10 +91,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/index.js ***!
   \**********************/
 
-/*!****************************!*\
-  !*** ./src/material_ui.js ***!
-  \****************************/
-
 /*!*****************************!*\
   !*** ./src/scss/style.scss ***!
   \*****************************/
@@ -98,6 +98,14 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
   \*****************************************/
+
+/*!********************************************!*\
+  !*** ./src/components/createSelectDate.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/components/createSelectTime.js ***!
+  \********************************************/
 
 /*!**********************************************!*\
   !*** ./node_modules/@material/dom/events.js ***!
@@ -109,6 +117,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!***********************************************!*\
   !*** ./node_modules/@material/ripple/util.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./src/components/createSelectOddzial.js ***!
   \***********************************************/
 
 /*!************************************************!*\

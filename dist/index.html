@@ -34,11 +34,7 @@
                 <div id = "formContainer">
                     <form >
                         <span><p>Wybierz swój oddział </p></span>
-
-
-
-
-                        <div class="mdc-select mdc-select--outlined demo-width-class">
+                        <div id="selectOddzial" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                               <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
@@ -48,7 +44,7 @@
                                 <span class="mdc-notched-outline__trailing"></span>
                               </span>
                               <span class="mdc-select__selected-text-container">
-                                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+                                <span id="selected-text" class="mdc-select__selected-text"></span>
                               </span>
                               <span class="mdc-select__dropdown-icon">
                                 <svg
@@ -70,87 +66,170 @@
                               </span>
                             </div>
                             <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                                <ul id="oddzial" class="mdc-list" role="listbox" aria-label="Oddzial listbox">
-                                  
+                                <ul id="selectOddzialList" class="mdc-list" role="listbox" aria-label="Oddzial listbox">
                                     <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
                                         <span class="mdc-list-item__ripple"></span>
                                       </li>
                                   </ul>
         
                             </div>
-                          
                         </div>
 
-<!-- 
-                        <div class="mdc-select mdc-select--filled demo-width-class">
-                            <div class="mdc-select__anchor"
-                                 role="button"
-                                 aria-haspopup="listbox"
-                                 aria-expanded="false"
-                                 aria-labelledby="demo-label demo-selected-text">
-                              <span class="mdc-select__ripple"></span>
-                              <span id="demo-label" class="mdc-floating-label">Pick a Food Group</span>
-                              <span class="mdc-select__selected-text-container">
-                                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+                        <h1>Wybierz datę</h1>
+
+                        <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
+                          <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span id="outlined-select-label" class="mdc-floating-label">Wybiez datę</span>
                               </span>
-                              <span class="mdc-select__dropdown-icon">
-                                <svg
-                                    class="mdc-select__dropdown-icon-graphic"
-                                    viewBox="7 10 10 5" focusable="false">
-                                  <polygon
-                                      class="mdc-select__dropdown-icon-inactive"
-                                      stroke="none"
-                                      fill-rule="evenodd"
-                                      points="7 10 12 15 17 10">
-                                  </polygon>
-                                  <polygon
-                                      class="mdc-select__dropdown-icon-active"
-                                      stroke="none"
-                                      fill-rule="evenodd"
-                                      points="7 15 12 10 17 15">
-                                  </polygon>
-                                </svg>
-                              </span>
-                              <span class="mdc-line-ripple"></span>
-                            </div>
-                          
-                            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                              <ul class="mdc-list" role="listbox" aria-label=" listbox">
-                                <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-                                  <span class="mdc-list-item__ripple"></span>
-                                </li>
-                                <li class="mdc-list-item" aria-selected="false" data-value="grains" role="option">
-                                  <span class="mdc-list-item__ripple"></span>
-                                  <span class="mdc-list-item__text">
-                                    Bread, Cereal, Rice, and Pasta
-                                  </span>
-                                </li>
-                                <li class="mdc-list-item mdc-list-item--disabled" aria-selected="false" data-value="vegetables" aria-disabled="true" role="option">
-                                  <span class="mdc-list-item__ripple"></span>
-                                  <span class="mdc-list-item__text">
-                                    Vegetables
-                                  </span>
-                                </li>
-                                <li class="mdc-list-item" aria-selected="false" data-value="fruit" role="option">
-                                  <span class="mdc-list-item__ripple"></span>
-                                  <span class="mdc-list-item__text">
-                                    Fruit
-                                  </span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div> -->
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-select__selected-text-container">
+                              <span id="selected-text" class="mdc-select__selected-text"></span>
+                            </span>
+                            <span class="mdc-select__dropdown-icon">
+                              <svg
+                                  class="mdc-select__dropdown-icon-graphic"
+                                  viewBox="7 10 10 5" focusable="false">
+                                <polygon
+                                    class="mdc-select__dropdown-icon-inactive"
+                                    stroke="none"
+                                    fill-rule="evenodd"
+                                    points="7 10 12 15 17 10">
+                                </polygon>
+                                <polygon
+                                    class="mdc-select__dropdown-icon-active"
+                                    stroke="none"
+                                    fill-rule="evenodd"
+                                    points="7 15 12 10 17 15">
+                                </polygon>
+                              </svg>
+                            </span>
+                          </div>
+                          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                              <ul id="selectDateList" class="mdc-list" role="listbox" aria-label="Date listbox">
+                                  <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                    </li>
+                                    <li class="mdc-list-item" aria-selected="false" data-value="22-12-2021" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                      <span class="mdc-list-item__text">
+                                        22-12-2021
+                                      </span>
+                                    </li>
+                                    <li class="mdc-list-item" aria-selected="false" data-value="23-12-2021" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                      <span class="mdc-list-item__text">
+                                        23-12-2021
+                                      </span>
+                                    </li>
+                                    <li class="mdc-list-item" aria-selected="false" data-value="24-12-2021" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                      <span class="mdc-list-item__text">
+                                        24-12-2021
+                                      </span>
+                                    </li>
+                                    <li class="mdc-list-item" aria-selected="false" data-value="25-12-2021" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                      <span class="mdc-list-item__text">
+                                        25-12-2021
+                                      </span>
+                                    </li>
+                                    <li class="mdc-list-item" aria-selected="false" data-value="26-12-2021" role="option">
+                                      <span class="mdc-list-item__ripple"></span>
+                                      <span class="mdc-list-item__text">
+                                        26-12-2021
+                                      </span>
+                                    </li>
 
-
-                      
-
-
-
-
-                            <!-- <select id="select" required>
-                            <option selected="selected">Wybierz</option>                            
-                            </select> -->
+                                </ul>
+      
+                          </div>
                         
+                      </div>
+
+                      <h1>Wybierz godzinę</h1>
+                      <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
+                        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                          <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                              <span id="outlined-select-label" class="mdc-floating-label">Wybierz godzinę</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                          </span>
+                          <span class="mdc-select__selected-text-container">
+                            <span id="selected-text" class="mdc-select__selected-text"></span>
+                          </span>
+                          <span class="mdc-select__dropdown-icon">
+                            <svg
+                                class="mdc-select__dropdown-icon-graphic"
+                                viewBox="7 10 10 5" focusable="false">
+                              <polygon
+                                  class="mdc-select__dropdown-icon-inactive"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 10 12 15 17 10">
+                              </polygon>
+                              <polygon
+                                  class="mdc-select__dropdown-icon-active"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 15 12 10 17 15">
+                              </polygon>
+                            </svg>
+                          </span>
+                        </div>
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                            <ul id="selectTimeList" class="mdc-list" role="listbox" aria-label="Select time listbox">
+                              
+                                <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                  </li>
+                                  <li class="mdc-list-item" aria-selected="false" data-value="8:00" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">
+                                      8:00
+                                    </span>
+                                  </li>
+                                  <li class="mdc-list-item" aria-selected="false" data-value="9:00" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">
+                                      8:00
+                                    </span>
+                                  </li>
+                                  <li class="mdc-list-item" aria-selected="false" data-value="10:00" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">
+                                      8:00
+                                    </span>
+                                  </li>
+                                  <li class="mdc-list-item" aria-selected="false" data-value="11:00" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">
+                                      8:00
+                                    </span>
+                                  </li>
+                                  <li class="mdc-list-item" aria-selected="false" data-value="12:00" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">
+                                      8:00
+                                    </span>
+                                  </li>
+
+
+                              </ul>
+    
+                        </div>
+                      
+                    </div>
+
+
+
+
+
 <!--                           
                             <div>
                           <span><p>Wybierz datę</p></span>

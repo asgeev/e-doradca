@@ -1,9 +1,9 @@
 import './scss/style.scss'
 import {success} from './data';
-import { buttonRipple, textField } from './material_ui';
-import {MDCMenu} from '@material/menu';
-import {MDCSelect} from '@material/select';
 
+import createSelectOddzial from './components/createSelectOddzial.js'
+import createSelectDate from './components/createSelectDate';
+import createSelectTime from './components/createSelectTime';
 
 
 
@@ -31,21 +31,26 @@ const render = (data) => {
                 `
                 fragment.appendChild(li)
     })
-    const oddzial = document.getElementById('oddzial')
-    oddzial.appendChild(fragment)
+    const selectOddzialList = document.getElementById('selectOddzialList')
+    selectOddzialList.appendChild(fragment)
     }
 }
 
 
 
-window.addEventListener("load", function(){
-    
-    const selectOddzial = new MDCSelect(document.querySelector('.mdc-select'));
 
-    selectOddzial.listen('MDCSelect:change', () => {
-        alert(`Selected option at index ${selectOddzial.selectedIndex} with value "${selectOddzial.value}"`);
-    });
-});
+
+
+
+window.addEventListener("load", function(){
+    createSelectOddzial()
+    createSelectDate()
+    createSelectTime()
+})
+
+
+
+
 
 
 
