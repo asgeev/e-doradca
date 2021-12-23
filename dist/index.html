@@ -32,9 +32,10 @@
                     <img src="./img/Logo_NFZ.svg">                 
                 </div>
                 <div id = "formContainer">
-                    <form >
+                    <form>
+                      <div id = "departmentContainer">
                         <span><p>Wybierz swój oddział </p></span>
-                        <div id="selectOddzial" class="mdc-select mdc-select--outlined mdc-select--required">
+                        <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                               <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
@@ -66,7 +67,7 @@
                               </span>
                             </div>
                             <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                                <ul id="selectOddzialList" class="mdc-list" role="listbox" aria-label="Oddzial listbox">
+                                <ul id="selectDepartmentList" class="mdc-list" role="listbox" aria-label="Department listbox">
                                     <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
                                         <span class="mdc-list-item__ripple"></span>
                                       </li>
@@ -75,8 +76,9 @@
                             </div>
                         </div>
 
-                        <h1>Wybierz datę</h1>
-
+                        <div id = "dateTimeContainer">
+                        <div id = "dateContainer">
+                        <p>Wybierz datę</p>
                         <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                           <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                             <span class="mdc-notched-outline">
@@ -149,8 +151,9 @@
                           </div>
                         
                       </div>
-
-                      <h1>Wybierz godzinę</h1>
+                        </div>
+                        <div id = "timeContainer">
+                      <p>Wybierz godzinę</p>
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                           <span class="mdc-notched-outline">
@@ -184,10 +187,9 @@
                         </div>
                         <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
                             <ul id="selectTimeList" class="mdc-list" role="listbox" aria-label="Select time listbox">
-                              
                                 <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
                                     <span class="mdc-list-item__ripple"></span>
-                                  </li>
+                                </li>
                                   <li class="mdc-list-item" aria-selected="false" data-value="8:00" role="option">
                                     <span class="mdc-list-item__ripple"></span>
                                     <span class="mdc-list-item__text">
@@ -227,9 +229,9 @@
                     </div>
 
 
+                    </div>
 
-
-
+                        </div>
 <!--                           
                             <div>
                           <span><p>Wybierz datę</p></span>
@@ -238,9 +240,10 @@
                           <span><p>Wybierz godzinę</p></span>
                           <input type = "time" required>
                           
+                            -->
                           <div>
-                            <h1>Podaj adres e-mail</h1>
-                            <label class="mdc-text-field mdc-text-field--outlined">
+                            <p>Podaj adres e-mail</p>
+                            <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
@@ -253,27 +256,16 @@
                           </div>
                           
                         </div>
+                    
                         <div>
-                            <h1>Zatwierdź</h1>
-                                <button class="mdc-button mdc-button--raised">
+                            <p>Zatwierdź</p>
+                                <button id = "saveButton" class="mdc-button mdc-button--raised">
                                 <span class="mdc-button__label"><input type = "submit" hidden>Prześlij</span>
                             </button>
-                            <button class="mdc-button mdc-button--raised">
-                                <span class="mdc-button__label">Contained Button</span>
-                            </button>
+                            
                         </div>
-                        
-                           -->
-                          
-                         
-
                     </form>
-                    
-
-
-
                 </div>
-               
             </div>
 
         

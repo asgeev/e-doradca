@@ -14,53 +14,62 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
     mode: mode,
     
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+      },
+
     watchOptions: {
         poll: true,
         ignored: /node_modules/
       },
-      
 
    entry: './src/index.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
+
     plugins: [new MiniCssExtractPlugin()],
+    
     module: {
         rules: [
-            {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader'
-                }
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                            loader: 'babel-loader'
+                         }
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                            MiniCssExtractPlugin.loader, 
+                            "css-loader",
+                            "sass-loader",
+                         ]
+                },
+                {
+                    test: /\.html$/i,
+                    loader: "html-loader",
+                },
+               ], 
             },
-            {
-            test: /\.s[ac]ss$/i,
-            use: [
-                    MiniCssExtractPlugin.loader, 
-                    "css-loader",
-                    "sass-loader"
-                ]
-            },
-            {
-            test: /\.html$/i,
-            loader: "html-loader",
-            },
-        ], 
-    },
+
     optimization: {
-        minimize: true,
-        minimizer: [
-          new CssMinimizerPlugin(),
-          new TerserPlugin(),
-        ],
-      },
-    devtool: 'source-map',
+                    minimize: true,
+                    minimizer: [
+                    new CssMinimizerPlugin(),
+                    new TerserPlugin(),
+                    ],
+                },
+                
+    devtool: false,
+
     devServer: {
-        port: 8080,
-        hot: true,
-        static:  './dist',
-    },
+                    port: 8080,
+                    hot: true,
+                    static:  './dist',
+                },
 
 }

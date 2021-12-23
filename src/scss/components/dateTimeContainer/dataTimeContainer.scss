@@ -1,0 +1,9 @@
+@use "./dateContainer.scss";
+@use "./timeContainer.scss";
+
+
+#dateTimeContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

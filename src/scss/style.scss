@@ -1,15 +1,10 @@
-// @use "@material/button/styles";
-@use "@material/floating-label/mdc-floating-label";
-@use "@material/line-ripple/mdc-line-ripple";
-@use "@material/notched-outline/mdc-notched-outline";
-@use "@material/textfield";
+@use "./components/selectsComponents/selects.scss";
+@use "./components/dateTimeContainer/dataTimeContainer";
+@use "./components/emailField.scss";
+@use "./components/buttons/saveButton.scss";
 
-@use "@material/list/mdc-list";
-@use "@material/menu-surface/mdc-menu-surface";
-@use "@material/menu/mdc-menu";
-@use "@material/select/styles";
 
-@include textfield.core-styles;
+
 
 
 :root{
@@ -19,7 +14,6 @@
 
 html {
     height: 100%;
-
     text-align: center;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
@@ -31,9 +25,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 #container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
     width: 600px;
     height: 700px;
@@ -50,11 +47,17 @@ body {
 img{
     width: 150px;
 }
+
+
 #formContainer{
     margin-top: 50px;
-}
+    width: 75%;
+  }
 
-/*
+
+
+
+
 select {
     appearance: none;
     background-color: transparent;
@@ -88,9 +91,8 @@ select {
   }
 
 
-*/
-  #selectOddzial {
-    width: 70%;
-  }
+
   
   
+
+ 

@@ -9,6 +9,7 @@ const createSelectOddzial = () =>{
     selectOddzial.listen('MDCSelect:change', () => {
         console.log(`Selected option at index ${selectOddzial.selectedIndex} with value "${selectOddzial.value}"`);
     });
+
 }
 
 

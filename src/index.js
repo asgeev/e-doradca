@@ -1,9 +1,10 @@
 import './scss/style.scss'
-import {success} from './data';
 
-import createSelectOddzial from './components/createSelectOddzial.js'
+import createSelectOddzial from './components/createSelectOddzial'
 import createSelectDate from './components/createSelectDate';
 import createSelectTime from './components/createSelectTime';
+import createSaveButton from './components/createSaveButton';
+import createEmailField from './components/createEmailField';
 
 
 
@@ -37,15 +38,12 @@ const render = (data) => {
 }
 
 
-
-
-
-
-
 window.addEventListener("load", function(){
     createSelectOddzial()
     createSelectDate()
     createSelectTime()
+    createEmailField()
+    createSaveButton()
 })
 
 
