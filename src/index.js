@@ -1,11 +1,23 @@
 import './scss/style.scss'
-import { success } from './data/data';
 
-import createSelectOddzial from './components/createSelectOddzial'
+import createSelectDepartment from './components/createSelectDepartment'
 import createSelectDate from './components/createSelectDate';
 import createSelectTime from './components/createSelectTime';
 import createSaveButton from './components/createSaveButton';
 import createEmailField from './components/createEmailField';
+import success from './data/data';
+
+
+
+
+
+window.addEventListener("load", function(){
+    createSelectDepartment()
+    createSelectDate()
+    createSelectTime()
+    createEmailField()
+    createSaveButton()
+});
 
 
 
@@ -33,20 +45,10 @@ const render = (data) => {
                 `
                 fragment.appendChild(li)
     })
-    const selectOddzialList = document.getElementById('selectOddzialList')
+    const selectOddzialList = document.getElementById('selectDepartmentList')
     selectOddzialList.appendChild(fragment)
     }
 }
-
-
-window.addEventListener("load", function(){
-    createSelectOddzial()
-    createSelectDate()
-    createSelectTime()
-    createEmailField()
-    createSaveButton()
-})
-
 
 
 

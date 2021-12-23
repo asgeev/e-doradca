@@ -16,6 +16,7 @@ const error = (err) => {
 }
 
 
+
 const xhr = new XMLHttpRequest();
 
 xhr.onload = success
@@ -28,10 +29,7 @@ xhr.send();
 
 
 
-export {
-    success,
-    error,
-}
+export default success;
 
 
 
