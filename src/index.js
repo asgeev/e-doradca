@@ -16,14 +16,13 @@ const render = (data) => {
         return;
     }else
     {
-        const fragment = document.createDocumentFragment();
-        data.forEach(({id, name}) => {
+        const fragment = document.createDocumentFragment()
+        data.forEach(({id,name}) => {
             const li = document.createElement('li')
             li.classList.add("mdc-list-item")
             li.setAttribute("aria-selected", false)
             li.setAttribute("data-value", id)
             li.setAttribute("role", "option")
-
             li.innerHTML = `
                     <span class="mdc-list-item__ripple"></span>
                     <span class="mdc-list-item__text">
@@ -39,15 +38,14 @@ const render = (data) => {
 
 
 
+window.addEventListener("load", function(){
+    
+    const selectOddzial = new MDCSelect(document.querySelector('.mdc-select'));
 
-const select = new MDCSelect(document.querySelector('.mdc-select'));
-
-console.log(select)
-
-select.listen('MDCSelect:change', () => {
-  alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+    selectOddzial.listen('MDCSelect:change', () => {
+        alert(`Selected option at index ${selectOddzial.selectedIndex} with value "${selectOddzial.value}"`);
+    });
 });
-
 
 
 
