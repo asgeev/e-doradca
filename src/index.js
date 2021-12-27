@@ -5,6 +5,7 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
+import { map } from 'lodash';
 
 
 
@@ -16,7 +17,7 @@ const render = (data) => {
     }else
     {
         const fragment = document.createDocumentFragment()
-        data.map(({name}) => {
+        data.map(({id,name}) => {
             const li = document.createElement('li')
             li.classList.add("mdc-list-item")
             li.setAttribute("aria-selected", false)
@@ -25,7 +26,7 @@ const render = (data) => {
             li.innerHTML = `
                     <span class="mdc-list-item__ripple"></span>
                     <span class="mdc-list-item__text">
-                      ${name}
+                      ${id}. ${name}
                     </span>
                 `
                 fragment.append(li)
@@ -33,14 +34,31 @@ const render = (data) => {
     const selectOddzialList = document.getElementById('selectDepartmentList')
     selectOddzialList.appendChild(fragment) 
     selectDepartment.layoutOptions();
-    }
+    }   
+
 }
 
 
 
 
+const renderDate = (dane) => {
+    console.log(dane)
+    return dane
+}
+
+
+const a = renderDate
+console.log(a)
+
+const renderDateTest = (data) => {
+     console.log(data[a])
+}
+
+
 export {
     render,
+    renderDate,
+    renderDateTest,
 };
 
 
