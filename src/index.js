@@ -1,25 +1,10 @@
 import './scss/style.scss'
-
-import createSelectDepartment from './components/createSelectDepartment'
-import createSelectDate from './components/createSelectDate';
-import createSelectTime from './components/createSelectTime';
-import createSaveButton from './components/createSaveButton';
-import createEmailField from './components/createEmailField';
-import success from './data/data';
-
-
-
-
-
-window.addEventListener("load", function(){
-    createSelectDepartment()
-    createSelectDate()
-    createSelectTime()
-    createEmailField()
-    createSaveButton()
-});
-
-
+import { success } from './data';
+import {selectDepartment} from './components/createSelectDepartment'
+import {selectDate} from './components/createSelectDate';
+import {selectTime} from './components/createSelectTime';
+import {saveButton} from './components/createSaveButton';
+import {emailField} from './components/createEmailField';
 
 
 
@@ -31,11 +16,11 @@ const render = (data) => {
     }else
     {
         const fragment = document.createDocumentFragment()
-        data.forEach(({id,name}) => {
+        data.map(({name}) => {
             const li = document.createElement('li')
             li.classList.add("mdc-list-item")
             li.setAttribute("aria-selected", false)
-            li.setAttribute("data-value", id)
+            li.setAttribute("data-value", name)
             li.setAttribute("role", "option")
             li.innerHTML = `
                     <span class="mdc-list-item__ripple"></span>
@@ -43,23 +28,23 @@ const render = (data) => {
                       ${name}
                     </span>
                 `
-                fragment.appendChild(li)
+                fragment.append(li)
     })
     const selectOddzialList = document.getElementById('selectDepartmentList')
-    selectOddzialList.appendChild(fragment)
+    selectOddzialList.appendChild(fragment) 
+    selectDepartment.layoutOptions();
     }
 }
 
 
 
 
-
-
-
-
 export {
-    render
-}
+    render,
+};
+
+
+
 
 
 

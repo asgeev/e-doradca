@@ -1,9 +1,6 @@
-import { render } from "../index"
+import { render } from "./index"
 
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchList/'
-
-
-
 
 const success = (data) => {
     const request = JSON.parse(data.target.responseText)
@@ -23,13 +20,15 @@ xhr.onload = success
     
 xhr.onerror = error
 
-xhr.open('GET', API_URL, true)
+xhr.open('GET', API_URL)
 
 xhr.send();
 
 
 
-export default success;
+export {
+    success,
+}
 
 
 
