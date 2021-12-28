@@ -1,4 +1,4 @@
-import { render, renderDate, renderDateTest } from "./index"
+import { render, renderDate, renderDateTest, selectedDepartmentId } from "./index"
 
 
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithCalendar/'
@@ -6,8 +6,9 @@ const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithC
 const success = (data) => {
     const request = JSON.parse(data.target.responseText)
     render(request)
-    // renderDate(request)
+    renderDate(request)
     renderDateTest(request)
+    selectedDepartmentId(request)
 }
 
 

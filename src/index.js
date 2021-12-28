@@ -39,19 +39,41 @@ const render = (data) => {
 }
 
 
+selectDepartment.listen('MDCSelect:change', () => {
+    // console.log(`Selected option at index ${selectDepartment.selectedIndex} with value "${selectDepartment.value}"`);
+    let selectedId  = selectDepartment.selectedIndex
+    selectedDepartmentId(selectedId)
+});
 
 
-const renderDate = (dane) => {
-    console.log(dane)
-    return dane
+
+const selectedDepartmentId = (args, selectedId) => {
+    // console.log(args) 
+    if (args === undefined) {
+        console.log("Blad")
+    } else if ( args === 5) {
+        console.log(selectedId)
+        }
+    }
+    // return request
+    //     console.log(request)
+    // if ( args[0] === 5){
+    //     console.log(args[1])
+    // }
+
+
+
+const renderDate = (a) => {
+    // console.log(a[2])
 }
 
 
-const a = renderDate
-console.log(a)
+
 
 const renderDateTest = (data) => {
-     console.log(data[a])
+    //  console.log(data[a])
+  
+
 }
 
 
@@ -59,6 +81,7 @@ export {
     render,
     renderDate,
     renderDateTest,
+    selectedDepartmentId,
 };
 
 
