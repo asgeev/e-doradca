@@ -5,13 +5,13 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
-import { map } from 'lodash';
+import { map, values } from 'lodash';
 
 
 
 
 
-const render = (data) => {
+const renderDepartment = (data) => {
     if (!data.length) {
         return;
     }else
@@ -39,49 +39,54 @@ const render = (data) => {
 }
 
 
-selectDepartment.listen('MDCSelect:change', () => {
-    // console.log(`Selected option at index ${selectDepartment.selectedIndex} with value "${selectDepartment.value}"`);
-    let selectedId  = selectDepartment.selectedIndex
-    selectedDepartmentId(selectedId)
-});
+
+const renderDate = (data) => {
+    
+    if (!data.length) {
+        return;
+    }else
+    {   
+        let currentId = selectDepartment.selectedIndex
 
 
+        let currentDepartment = data[currentId].dates
+        
+        // console.log(currentDepartment)
 
-const selectedDepartmentId = (args, selectedId) => {
-    // console.log(args) 
-    if (args === undefined) {
-        console.log("Blad")
-    } else if ( args === 5) {
-        console.log(selectedId)
-        }
+        const currentDepartmentArray = Object.values(currentDepartment)
+
+        // console.log(currentDepartmentArray)
+
+        const fragmenta = document.createDocumentFragment()
+                currentDepartmentArray.map(({date, dayName}) => {
+                    const li = document.createElement('li')
+                    li.classList.add("mdc-list-item")
+                    li.setAttribute("aria-selected", false)
+                    li.setAttribute("data-value", date)
+                    li.setAttribute("role", "option")
+                    li.innerHTML = `
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text">
+                            ${date}, ${dayName}
+                            </span>
+                        `
+                        fragmenta.append(li)
+            })
+            const selectDateList = document.getElementById('selectDateList')
+            selectDateList.appendChild(fragmenta) 
+            selectDate.layoutOptions();
     }
-    // return request
-    //     console.log(request)
-    // if ( args[0] === 5){
-    //     console.log(args[1])
-    // }
-
-
-
-const renderDate = (a) => {
-    // console.log(a[2])
-}
+}  
 
 
 
 
-const renderDateTest = (data) => {
-    //  console.log(data[a])
-  
-
-}
 
 
 export {
-    render,
+    renderDepartment,
     renderDate,
-    renderDateTest,
-    selectedDepartmentId,
+    // selectedDepartmentId,
 };
 
 
