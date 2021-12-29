@@ -9,7 +9,12 @@ import { map, values } from 'lodash';
 
 
 
-
+// window.addEventListener('load', () => {
+//     const state = true
+//     // selectDate.disabled = state
+//     selectTime.disabled = state
+//     emailField.disabled = state
+// })
 
 const renderDepartment = (data) => {
     if (!data.length) {
@@ -31,24 +36,39 @@ const renderDepartment = (data) => {
                 `
                 fragment.append(li)
     })
-    const selectOddzialList = document.getElementById('selectDepartmentList')
-    selectOddzialList.appendChild(fragment) 
+    const selectDepartmentList = document.getElementById('selectDepartmentList')
+    selectDepartmentList.appendChild(fragment) 
     selectDepartment.layoutOptions();
     }   
 
 }
+var currentId = 0
 
 
-
-const renderDate = (data) => {
+selectDepartment.listen('MDCSelect:change', () => {
+    // console.log(`Selected option at index ${selectDepartment.selectedIndex} with value "${selectDepartment.value}"`);
+    // let selectedId  = selectDepartment.selectedIndex
+    // selectedDepartmentId(selectedId)
+        // console.log(selectDepartment.selectedIndex)
+        // let currentId = selectDepartment.selectedIndex
+        // console.log(selectDepartment.selectedIndex)
+        // currentId = selectDepartment.selectedIndex
+        console.log(selectDepartment.selectedIndex)
+        renderDate(selectDepartment.selectedIndex)
+        
+    });
+  
+const renderDate = (data, selectedIndex)   => {
     
     if (!data.length) {
         return;
     }else
     {   
-        let currentId = selectDepartment.selectedIndex
-
-
+        // let currentId = 0
+       
+        console.log(currentId)
+        let currentId = selectedIndex
+        
         let currentDepartment = data[currentId].dates
         
         // console.log(currentDepartment)
@@ -57,7 +77,7 @@ const renderDate = (data) => {
 
         // console.log(currentDepartmentArray)
 
-        const fragmenta = document.createDocumentFragment()
+        const fragment = document.createDocumentFragment()
                 currentDepartmentArray.map(({date, dayName}) => {
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
@@ -70,13 +90,14 @@ const renderDate = (data) => {
                             ${date}, ${dayName}
                             </span>
                         `
-                        fragmenta.append(li)
+                        fragment.append(li)
             })
             const selectDateList = document.getElementById('selectDateList')
-            selectDateList.appendChild(fragmenta) 
+            selectDateList.appendChild(fragment) 
             selectDate.layoutOptions();
+
     }
-}  
+``  }  
 
 
 
