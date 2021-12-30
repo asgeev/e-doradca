@@ -17,8 +17,7 @@ window.addEventListener('load', () => {
 
 
 
-// localStorage['data_all']=0
-const renderDepartment = (data) => {
+const render = (data) => {
     if (!data.length) {
         return;
     }else
@@ -38,60 +37,37 @@ const renderDepartment = (data) => {
                 `
                 fragment.append(li)
     })
-    const selectDepartmentList = document.getElementById('selectDepartmentList')
-    selectDepartmentList.appendChild(fragment) 
-    selectDepartment.layoutOptions();
+        const selectDepartmentList = document.getElementById('selectDepartmentList')
+        selectDepartmentList.appendChild(fragment) 
+        selectDepartment.layoutOptions();
+
+        selectDepartment.listen('MDCSelect:change',  () => {
+        // console.log(selectDepartment.selectedIndex)
+        // console.log(typeof(selectDepartment.selectedIndex))  
+        let currentId = selectDepartment.selectedIndex - 1
+        // currentId = undefined
+        if (currentId == undefined){
+            return
+        }else{
+            selectDate.disabled = false
+            renderDate(data,currentId)
+        }
+    })
     }   
 
 }
 
 
-
-selectDepartment.listen('MDCSelect:change', () => {
-    // console.log(`Selected option at index ${selectDepartment.selectedIndex} with value "${selectDepartment.value}"`);
-    // let selectedId  = selectDepartment.selectedIndex
-    // selectedDepartmentId(selectedId)
-        // console.log(selectDepartment.selectedIndex)
-        // let currentId = selectDepartment.selectedIndex
-        // console.log(selectDepartment.selectedIndex)
-        // currentId = selectDepartment.selectedIndex
-        // console.log(selectDepartment.selectedIndex)
-        // renderDate(selectDepartment.selectedIndex)
-        // localStorage['currentId']= selectDepartment.selectedIndex;
-
-
-        // renderDate2(localStorage['data_all'])
-        // const a = 1
-        // a = selectDepartment.selectedIndex
-        // console.log(a)
-        selectDate.disabled = false
-        
-        renderDate(JSON.parse(localStorage['data_all']),selectDepartment.selectedIndex-1);
-        // renderDate(a)
-    });
-
-    
-
-//     const renderDate2 = (data)   => {
-//         console.log(data)
-//     }
-
-
 const renderDate = (data,currentId)   => {
     
-        // console.log(data);
+    console.log(currentId);
       
     if (!data.length) {
         return;
-    }else
+    }else 
     {   
-        // let currentId = localStorage['currentId']
-        
-        console.log(currentId)
-        // let currentId = selectedIndex
-        
         let currentDepartment = data[currentId].dates
-        
+
         // console.log(currentDepartment)
 
         const currentDepartmentArray = Object.values(currentDepartment)
@@ -122,8 +98,7 @@ const renderDate = (data,currentId)   => {
             document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
             // selectDateList.remove()
             // console.log(selectDateList)
-            selectDate.layoutOptions();
-            // selectDate.onOptionUpdate(innerHeight='')
+            selectDate.layoutOptions();          
     }
 ``  }  
 
@@ -133,9 +108,7 @@ const renderDate = (data,currentId)   => {
 
 
 export {
-    renderDepartment,
-    renderDate,
-    // selectedDepartmentId,
+    render,
 };
 
 

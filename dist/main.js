@@ -9496,12 +9496,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _material_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/select */ "./node_modules/@material/select/component.js");
 
-// import { renderDate, selectedDepartmentId } from '../index'
-``
-    const selectDepartment = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectDepartment'));
-    
-    
 
+        const selectDepartment = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectDepartment'));
+    
 
 
 /***/ }),
@@ -9551,9 +9548,7 @@ const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithC
 const success = (data) => {
     localStorage['data_all']=data.target.responseText
     const request = JSON.parse(data.target.responseText)
-    ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.renderDepartment)(request)
-   // renderDate(request)
-    // jsonnn=request
+    ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.render)(request)
 }
 
 const error = (err) => {
@@ -9590,8 +9585,7 @@ xhr.send();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderDepartment": () => (/* binding */ renderDepartment),
-/* harmony export */   "renderDate": () => (/* binding */ renderDate)
+/* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/style.scss */ "./src/scss/style.scss");
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
@@ -9619,8 +9613,7 @@ window.addEventListener('load', () => {
 
 
 
-// localStorage['data_all']=0
-const renderDepartment = (data) => {
+const render = (data) => {
     if (!data.length) {
         return;
     }else
@@ -9640,60 +9633,37 @@ const renderDepartment = (data) => {
                 `
                 fragment.append(li)
     })
-    const selectDepartmentList = document.getElementById('selectDepartmentList')
-    selectDepartmentList.appendChild(fragment) 
-    _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.layoutOptions();
+        const selectDepartmentList = document.getElementById('selectDepartmentList')
+        selectDepartmentList.appendChild(fragment) 
+        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.layoutOptions();
+
+        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.listen('MDCSelect:change',  () => {
+        // console.log(selectDepartment.selectedIndex)
+        // console.log(typeof(selectDepartment.selectedIndex))  
+        let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
+        // currentId = undefined
+        if (currentId == undefined){
+            return
+        }else{
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
+            renderDate(data,currentId)
+        }
+    })
     }   
 
 }
 
 
-
-_components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.listen('MDCSelect:change', () => {
-    // console.log(`Selected option at index ${selectDepartment.selectedIndex} with value "${selectDepartment.value}"`);
-    // let selectedId  = selectDepartment.selectedIndex
-    // selectedDepartmentId(selectedId)
-        // console.log(selectDepartment.selectedIndex)
-        // let currentId = selectDepartment.selectedIndex
-        // console.log(selectDepartment.selectedIndex)
-        // currentId = selectDepartment.selectedIndex
-        // console.log(selectDepartment.selectedIndex)
-        // renderDate(selectDepartment.selectedIndex)
-        // localStorage['currentId']= selectDepartment.selectedIndex;
-
-
-        // renderDate2(localStorage['data_all'])
-        // const a = 1
-        // a = selectDepartment.selectedIndex
-        // console.log(a)
-        _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
-        
-        renderDate(JSON.parse(localStorage['data_all']),_components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex-1);
-        // renderDate(a)
-    });
-
-    
-
-//     const renderDate2 = (data)   => {
-//         console.log(data)
-//     }
-
-
 const renderDate = (data,currentId)   => {
     
-        // console.log(data);
+    console.log(currentId);
       
     if (!data.length) {
         return;
-    }else
+    }else 
     {   
-        // let currentId = localStorage['currentId']
-        
-        console.log(currentId)
-        // let currentId = selectedIndex
-        
         let currentDepartment = data[currentId].dates
-        
+
         // console.log(currentDepartment)
 
         const currentDepartmentArray = Object.values(currentDepartment)
@@ -9724,8 +9694,7 @@ const renderDate = (data,currentId)   => {
             document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
             // selectDateList.remove()
             // console.log(selectDateList)
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions();
-            // selectDate.onOptionUpdate(innerHeight='')
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions();          
     }
 ``  }  
 
