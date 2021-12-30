@@ -9641,12 +9641,13 @@ const render = (data) => {
         // console.log(selectDepartment.selectedIndex)
         // console.log(typeof(selectDepartment.selectedIndex))  
         let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
+        let currentDepartment = data[currentId].dates
         // currentId = undefined
         if (currentId == undefined){
             return
         }else{
             _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
-            renderDate(data,currentId)
+            renderDate(data,currentDepartment)
         }
     })
     }   
@@ -9654,15 +9655,14 @@ const render = (data) => {
 }
 
 
-const renderDate = (data,currentId)   => {
+const renderDate = (data,currentDepartment)   => {
     
-    console.log(currentId);
+    // console.log(currentId);
       
     if (!data.length) {
         return;
     }else 
     {   
-        let currentDepartment = data[currentId].dates
 
         // console.log(currentDepartment)
 
