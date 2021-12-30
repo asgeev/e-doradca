@@ -5,17 +5,19 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
-import { map, values } from 'lodash';
+// import { map, values } from 'lodash';
+
+
+window.addEventListener('load', () => {
+    const state = true
+    selectDate.disabled = state
+    selectTime.disabled = state
+    emailField.disabled = state
+})
 
 
 
-// window.addEventListener('load', () => {
-//     const state = true
-//     // selectDate.disabled = state
-//     selectTime.disabled = state
-//     emailField.disabled = state
-// })
-
+// localStorage['data_all']=0
 const renderDepartment = (data) => {
     if (!data.length) {
         return;
@@ -42,7 +44,7 @@ const renderDepartment = (data) => {
     }   
 
 }
-var currentId = 0
+
 
 
 selectDepartment.listen('MDCSelect:change', () => {
@@ -53,21 +55,40 @@ selectDepartment.listen('MDCSelect:change', () => {
         // let currentId = selectDepartment.selectedIndex
         // console.log(selectDepartment.selectedIndex)
         // currentId = selectDepartment.selectedIndex
-        console.log(selectDepartment.selectedIndex)
-        renderDate(selectDepartment.selectedIndex)
+        // console.log(selectDepartment.selectedIndex)
+        // renderDate(selectDepartment.selectedIndex)
+        // localStorage['currentId']= selectDepartment.selectedIndex;
+
+
+        // renderDate2(localStorage['data_all'])
+        // const a = 1
+        // a = selectDepartment.selectedIndex
+        // console.log(a)
+        selectDate.disabled = false
         
+        renderDate(JSON.parse(localStorage['data_all']),selectDepartment.selectedIndex-1);
+        // renderDate(a)
     });
-  
-const renderDate = (data, selectedIndex)   => {
+
     
+
+//     const renderDate2 = (data)   => {
+//         console.log(data)
+//     }
+
+
+const renderDate = (data,currentId)   => {
+    
+        // console.log(data);
+      
     if (!data.length) {
         return;
     }else
     {   
-        // let currentId = 0
-       
+        // let currentId = localStorage['currentId']
+        
         console.log(currentId)
-        let currentId = selectedIndex
+        // let currentId = selectedIndex
         
         let currentDepartment = data[currentId].dates
         
@@ -93,9 +114,16 @@ const renderDate = (data, selectedIndex)   => {
                         fragment.append(li)
             })
             const selectDateList = document.getElementById('selectDateList')
+            //selectDateList.innerHTML=""
+            let first=document.getElementById('selectDateList').firstElementChild
+            document.getElementById('selectDateList').innerHTML = ""
+            selectDateList.appendChild(first) 
             selectDateList.appendChild(fragment) 
+            document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
+            // selectDateList.remove()
+            // console.log(selectDateList)
             selectDate.layoutOptions();
-
+            // selectDate.onOptionUpdate(innerHeight='')
     }
 ``  }  
 

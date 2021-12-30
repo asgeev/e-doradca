@@ -7,12 +7,8 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 
-
-
-
-
 module.exports = {
-    mode: mode,
+    mode: 'development',
     
     performance: {
         maxEntrypointSize: 512000,
@@ -24,13 +20,13 @@ module.exports = {
         ignored: /node_modules/
       },
 
-   entry: './src/index.js',
-    output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
-    },
+//    entry: './src/index.js',
+//     output: {
+//         filename: 'main.js',
+//         path: path.resolve(__dirname, 'dist')
+//     },
 
-    plugins: [new MiniCssExtractPlugin()],
+    // plugins: [new MiniCssExtractPlugin()],
     
     module: {
         rules: [
@@ -44,27 +40,27 @@ module.exports = {
                 {
                     test: /\.s[ac]ss$/i,
                     use: [
-                            MiniCssExtractPlugin.loader, 
+                            // MiniCssExtractPlugin.loader, 
                             "css-loader",
                             "sass-loader",
                          ]
                 },
-                {
-                    test: /\.html$/i,
-                    loader: "html-loader",
-                },
+                // {
+                //     test: /\.html$/i,
+                //     loader: "html-loader",
+                // },
                ], 
             },
 
-    optimization: {
-                    minimize: true,
-                    minimizer: [
-                    new CssMinimizerPlugin(),
-                    new TerserPlugin(),
-                    ],
-                },
+    // optimization: {
+    //                 minimize: true,
+    //                 minimizer: [
+    //                 new CssMinimizerPlugin(),
+    //                 new TerserPlugin(),
+    //                 ],
+    //             },
                 
-    devtool: false,
+    devtool: 'source-map',
 
     devServer: {
                     port: 8080,
