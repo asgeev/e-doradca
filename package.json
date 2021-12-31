@@ -29,8 +29,8 @@
   "scripts": {
     "start": "webpack serve",
     "watch": "webpack --watch",
-    "build": "NODE_ENV=production webpack",
-    "build-dev": "webpack"
+    "build-dev": "webpack --config ./webpack.config.js",
+    "build-prod": "webpack --config ./webpack.config.prod.js"
   },
   "repository": {
     "type": "git",

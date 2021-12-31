@@ -9474,10 +9474,7 @@ __webpack_require__.r(__webpack_exports__);
 
     const selectDate = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectDate'));
     
-    selectDate.listen('MDCSelect:change', () => {
-        // console.log(`Selected option at index ${selectDate.selectedIndex} with value "${selectDate.value}"`);
-        console.log(selectDate.selectedIndex)
-    });
+   
 
 
 
@@ -9521,9 +9518,7 @@ __webpack_require__.r(__webpack_exports__);
 
     const selectTime = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectTime'));
     
-    selectTime.listen('MDCSelect:change', () => {
-        console.log(`Selected option at index ${selectTime.selectedIndex} with value "${selectTime.value}"`);
-    });
+    
 
 
 
@@ -9605,7 +9600,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('load', () => {
-    const state = true
+    const state = false
     _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = state
     _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = state
     _components_createEmailField__WEBPACK_IMPORTED_MODULE_6__.emailField.disabled = state
@@ -9642,6 +9637,7 @@ const render = (data) => {
         // console.log(typeof(selectDepartment.selectedIndex))  
         let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
         let currentDepartment = data[currentId].dates
+        console.log(currentDepartment)
         // currentId = undefined
         if (currentId == undefined){
             return
@@ -9671,7 +9667,7 @@ const renderDate = (data,currentDepartment)   => {
         // console.log(currentDepartmentArray)
 
         const fragment = document.createDocumentFragment()
-                currentDepartmentArray.map(({date, dayName}) => {
+                currentDepartmentArray.map(({date, dayName, avaiableTime}) => {
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
                     li.setAttribute("aria-selected", false)
@@ -9680,7 +9676,7 @@ const renderDate = (data,currentDepartment)   => {
                     li.innerHTML = `
                             <span class="mdc-list-item__ripple"></span>
                             <span class="mdc-list-item__text">
-                            ${date}, ${dayName}
+                            ${date}, ${dayName}, ${avaiableTime}
                             </span>
                         `
                         fragment.append(li)
@@ -9694,13 +9690,90 @@ const renderDate = (data,currentDepartment)   => {
             document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
             // selectDateList.remove()
             // console.log(selectDateList)
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions();          
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions();       
+            // console.log(currentDepartment)
+
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.listen('MDCSelect:change',  () => {
+                
+                let selectedDateId = _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.selectedIndex -1 
+                let selectedDate = currentDepartmentArray[selectedDateId]
+                console.log(selectedDate)
+                // currentId = undefined
+                if (selectedDateId == undefined){
+                    return
+                }else{
+                    // selectTime.disabled = false
+                    renderTime(selectedDate,selectedDateId)
+                }
+            })
     }
-``  }  
+}  
 
 
 
+const renderTime = (selectedDate, selectedDateId)   => {
 
+    // const a = Object.values(currentDepartmentArray[selectedDateId] ) 
+        console.log(selectedDate)
+        const a = selectedDate.avaiableTime
+        console.log(Object.keys(a) + Object.values(a))
+    // const b = Object.values(a)
+    // console.log(typeof(b))  
+    // const b = a
+    // console.log(selectedDateId)
+    // let currentSelectedDate = Object.values(selectedDate)
+    // console.log(currentSelectedDate)
+    console.log(a.map((item) => {
+        console.log(typeof(item))
+    }))
+    // for (let i = 0; i < a.length; i++ ){
+    //     console.log(i)
+    // }
+
+
+    // const b = a.map(sweetItem => {
+    //     console.log(sweetItem)
+    // })
+
+
+
+    // console.log(typeof(a))
+    // console.log(selectedDateId)
+    // console.log(currentSelectedDate)  
+    
+    
+    // if (!currentDate.length) {
+    //     return;
+    // }else 
+    // {   
+    // console.log(selectedDateArray)
+        // const fragment = document.createDocumentFragment()
+        //         a.map(timeItems => { 
+        //             const li = document.createElement('li')
+        //             li.classList.add("mdc-list-item")
+        //             li.setAttribute("aria-selected", false)
+        //             li.setAttribute("data-value", timeItems)
+        //             li.setAttribute("role", "option")
+        //             li.innerHTML = `
+        //                     <span class="mdc-list-item__ripple"></span>
+        //                     <span class="mdc-list-item__text">
+        //                     ${timeItems}
+        //                     </span>
+        //                 `
+        //                 fragment.append(li)
+        //     })
+        //     const selectTimeList = document.getElementById('selectTimeList')
+        //     //selectDateList.innerHTML=""
+        //     let first = document.getElementById('selectTimeList').firstElementChild
+        //     document.getElementById('selectTimeList').innerHTML = ""
+        //     selectTimeList.appendChild(first) 
+        //     selectTimeList.appendChild(fragment) 
+        //     document.getElementById('selectTime').querySelector(".mdc-select__selected-text").innerHTML="" 
+        //     // selectDateList.remove()
+        //     // console.log(selectDateList)
+        //     selectDate.layoutOptions();     
+    }
+ 
 
 
 

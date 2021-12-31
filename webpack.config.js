@@ -1,10 +1,10 @@
 const path = require('path');
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+// const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-const TerserPlugin = require("terser-webpack-plugin");
+// const TerserPlugin = require("terser-webpack-plugin");
 
 
 module.exports = {
@@ -20,11 +20,11 @@ module.exports = {
         ignored: /node_modules/
       },
 
-//    entry: './src/index.js',
-//     output: {
-//         filename: 'main.js',
-//         path: path.resolve(__dirname, 'dist')
-//     },
+   entry: './src/index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
+    },
 
     // plugins: [new MiniCssExtractPlugin()],
     
