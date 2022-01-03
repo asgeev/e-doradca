@@ -9469,14 +9469,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/select */ "./node_modules/@material/select/component.js");
 
 
-
-
-
     const selectDate = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectDate'));
     
-  
-
-
 
 
 /***/ }),
@@ -9513,18 +9507,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/select */ "./node_modules/@material/select/component.js");
 
 
-
-
-
     const selectTime = new _material_select__WEBPACK_IMPORTED_MODULE_0__.MDCSelect(document.getElementById('selectTime'));
     
-
-    selectTime.listen('MDCSelect:change', () => {
-        console.log(`Selected option at index ${selectTime.selectedIndex} with value "${selectTime.value}"`);
-      });
-
-    
-
 
 
 /***/ }),
@@ -9601,7 +9585,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { map, values } from 'lodash';
 
 
 window.addEventListener('load', () => {
@@ -9637,20 +9620,32 @@ const render = (data) => {
         selectDepartmentList.appendChild(fragment) 
         _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.layoutOptions();
 
-        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.listen('MDCSelect:change',  () => {
-        // console.log(selectDepartment.selectedIndex)
-        // console.log(typeof(selectDepartment.selectedIndex))
 
-        let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
-        let currentDepartment = data[currentId].dates
-        console.log(data[currentId])
-        // currentId = undefined
-        if (currentId == undefined){
-            return
-        }else{
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
-            renderDate(data,currentDepartment)
-        }
+        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.listen('MDCSelect:change',  () => {
+
+            // console.log(selectDepartment.selectedIndex)
+            // console.log(typeof(selectDepartment.selectedIndex))
+
+            let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
+            let currentDepartment = data[currentId].dates
+            console.log(data[currentId])
+            // currentId = undefined
+            if (currentId == undefined){
+                return
+            }else{  
+                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.setSelectedIndex(0) 
+                selectDateList.innerHTML = `<li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                <span class="mdc-list-item__ripple"></span>
+              </li>`
+
+                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
+                _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = true
+                renderDate(data,currentDepartment)
+
+        
+
+            }
+
     })
     }   
 
@@ -9658,22 +9653,15 @@ const render = (data) => {
 
 
 const renderDate = (data,currentDepartment)   => {
-    
-    // console.log(currentId);
-      
+
     if (!data.length) {
         return;
     }else 
-    {   
-
-        // console.log(currentDepartment)
-
+    {      
         const currentDepartmentArray = Object.values(currentDepartment)
 
-        // console.log(currentDepartmentArray)
-
         const fragment = document.createDocumentFragment()
-                currentDepartmentArray.map(({date, dayName, avaiableTime}) => {
+                currentDepartmentArray.map(({date, dayName}) => {
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
                     li.setAttribute("aria-selected", false)
@@ -9687,15 +9675,15 @@ const renderDate = (data,currentDepartment)   => {
                         `
                         fragment.append(li)
             })
-            const selectDateList = document.getElementById('selectDateList')
-            //selectDateList.innerHTML=""
-            // let first=document.getElementById('selectDateList').firstElementChild
-            // document.getElementById('selectDateList').innerHTML = ""
-            // selectDateList.appendChild(first) 
+            const selectDateList = document.getElementById('selectDateList') 
+
+
             selectDateList.appendChild(fragment) 
-            // document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions();    
+
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions()
+
             
+
             
             _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.listen('MDCSelect:change',  () => {
                 
@@ -9706,10 +9694,16 @@ const renderDate = (data,currentDepartment)   => {
                 if (selectedDateId == undefined){
                     return
                 }else{
+                    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.setSelectedIndex(0) 
+                    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.innerHTML = ""
+                    selectTimeList.innerHTML = `<li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                    <span class="mdc-list-item__ripple"></span>
+                  </li>`
                     _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = false
                     renderTime(selectedDate)
                 }
             })
+
 
     }
 }  
@@ -9718,11 +9712,14 @@ const renderDate = (data,currentDepartment)   => {
 
 const renderTime = (selectedDate)   => {
 
-        const timeItem = selectedDate.avaiableTime
-       console.log(timeItem)
+    if(selectedDate == undefined){
+        return
+    }else{
+
+        const timeItems = selectedDate.avaiableTime
    
         const fragment = document.createDocumentFragment()
-                timeItem.map(timeItems => { 
+                timeItems.map(timeItems => { 
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
                     li.setAttribute("aria-selected", false)
@@ -9737,15 +9734,20 @@ const renderTime = (selectedDate)   => {
                         fragment.append(li)
             })
             const selectTimeList = document.getElementById('selectTimeList')
-            //selectDateList.innerHTML=""
-            // let first = document.getElementById('selectTimeList').firstElementChild
-            // document.getElementById('selectTimeList').innerHTML = ""
+
             selectTimeList.appendChild(fragment) 
-            // document.getElementById('selectTime').querySelector(".mdc-select__selected-text").innerHTML="" 
-            // selectDateList.remove()
-            // console.log(selectDateList)
-            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.layoutOptions();     
+            
+            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.layoutOptions()
+            
+            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.listen('MDCSelect:change', () => {
+                
+                _components_createEmailField__WEBPACK_IMPORTED_MODULE_6__.emailField.disabled = false
+                console.log(_components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.selectedIndex, _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.value)
+
+            });
+
     }
+}
  
 
 
