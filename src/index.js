@@ -1,7 +1,7 @@
 import './scss/style.scss'
 import { success } from './data';
 import {selectDepartment} from './components/createSelectDepartment'
-import {selectDate} from './components/createSelectDate';
+import {selectDate,selectDateListen} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
@@ -9,7 +9,7 @@ import {emailField} from './components/createEmailField';
 
 
 window.addEventListener('load', () => {
-    const state = false
+    const state = true
     selectDate.disabled = state
     selectTime.disabled = state
     emailField.disabled = state
@@ -43,10 +43,11 @@ const render = (data) => {
 
         selectDepartment.listen('MDCSelect:change',  () => {
         // console.log(selectDepartment.selectedIndex)
-        // console.log(typeof(selectDepartment.selectedIndex))  
+        // console.log(typeof(selectDepartment.selectedIndex))
+
         let currentId = selectDepartment.selectedIndex - 1
         let currentDepartment = data[currentId].dates
-        console.log(currentDepartment)
+        console.log(data[currentId])
         // currentId = undefined
         if (currentId == undefined){
             return
@@ -85,102 +86,69 @@ const renderDate = (data,currentDepartment)   => {
                     li.innerHTML = `
                             <span class="mdc-list-item__ripple"></span>
                             <span class="mdc-list-item__text">
-                            ${date}, ${dayName}, ${avaiableTime}
+                            ${date}, ${dayName}
                             </span>
                         `
                         fragment.append(li)
             })
             const selectDateList = document.getElementById('selectDateList')
             //selectDateList.innerHTML=""
-            let first=document.getElementById('selectDateList').firstElementChild
-            document.getElementById('selectDateList').innerHTML = ""
-            selectDateList.appendChild(first) 
+            // let first=document.getElementById('selectDateList').firstElementChild
+            // document.getElementById('selectDateList').innerHTML = ""
+            // selectDateList.appendChild(first) 
             selectDateList.appendChild(fragment) 
-            document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
-            // selectDateList.remove()
-            // console.log(selectDateList)
-            selectDate.layoutOptions();       
-            // console.log(currentDepartment)
-
+            // document.getElementById('selectDate').querySelector(".mdc-select__selected-text").innerHTML="" 
+            selectDate.layoutOptions();    
+            
+            
             selectDate.listen('MDCSelect:change',  () => {
                 
                 let selectedDateId = selectDate.selectedIndex -1 
-                let selectedDate = currentDepartmentArray[selectedDateId]
+                let selectedDate = currentDepartment[selectedDateId]
                 console.log(selectedDate)
-                // currentId = undefined
+
                 if (selectedDateId == undefined){
                     return
                 }else{
-                    // selectTime.disabled = false
-                    renderTime(selectedDate,selectedDateId)
+                    selectTime.disabled = false
+                    renderTime(selectedDate)
                 }
             })
+
     }
 }  
 
 
 
-const renderTime = (selectedDate, selectedDateId)   => {
+const renderTime = (selectedDate)   => {
 
-    // const a = Object.values(currentDepartmentArray[selectedDateId] ) 
-        console.log(selectedDate)
-        const a = selectedDate.avaiableTime
-        console.log(Object.keys(a) + Object.values(a))
-    // const b = Object.values(a)
-    // console.log(typeof(b))  
-    // const b = a
-    // console.log(selectedDateId)
-    // let currentSelectedDate = Object.values(selectedDate)
-    // console.log(currentSelectedDate)
-    console.log(a.map((item) => {
-        console.log(typeof(item))
-    }))
-    // for (let i = 0; i < a.length; i++ ){
-    //     console.log(i)
-    // }
-
-
-    // const b = a.map(sweetItem => {
-    //     console.log(sweetItem)
-    // })
-
-
-
-    // console.log(typeof(a))
-    // console.log(selectedDateId)
-    // console.log(currentSelectedDate)  
-    
-    
-    // if (!currentDate.length) {
-    //     return;
-    // }else 
-    // {   
-    // console.log(selectedDateArray)
-        // const fragment = document.createDocumentFragment()
-        //         a.map(timeItems => { 
-        //             const li = document.createElement('li')
-        //             li.classList.add("mdc-list-item")
-        //             li.setAttribute("aria-selected", false)
-        //             li.setAttribute("data-value", timeItems)
-        //             li.setAttribute("role", "option")
-        //             li.innerHTML = `
-        //                     <span class="mdc-list-item__ripple"></span>
-        //                     <span class="mdc-list-item__text">
-        //                     ${timeItems}
-        //                     </span>
-        //                 `
-        //                 fragment.append(li)
-        //     })
-        //     const selectTimeList = document.getElementById('selectTimeList')
-        //     //selectDateList.innerHTML=""
-        //     let first = document.getElementById('selectTimeList').firstElementChild
-        //     document.getElementById('selectTimeList').innerHTML = ""
-        //     selectTimeList.appendChild(first) 
-        //     selectTimeList.appendChild(fragment) 
-        //     document.getElementById('selectTime').querySelector(".mdc-select__selected-text").innerHTML="" 
-        //     // selectDateList.remove()
-        //     // console.log(selectDateList)
-        //     selectDate.layoutOptions();     
+        const timeItem = selectedDate.avaiableTime
+       console.log(timeItem)
+   
+        const fragment = document.createDocumentFragment()
+                timeItem.map(timeItems => { 
+                    const li = document.createElement('li')
+                    li.classList.add("mdc-list-item")
+                    li.setAttribute("aria-selected", false)
+                    li.setAttribute("data-value", timeItems)
+                    li.setAttribute("role", "option")
+                    li.innerHTML = `
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text">
+                            ${timeItems}
+                            </span>
+                        `
+                        fragment.append(li)
+            })
+            const selectTimeList = document.getElementById('selectTimeList')
+            //selectDateList.innerHTML=""
+            // let first = document.getElementById('selectTimeList').firstElementChild
+            // document.getElementById('selectTimeList').innerHTML = ""
+            selectTimeList.appendChild(fragment) 
+            // document.getElementById('selectTime').querySelector(".mdc-select__selected-text").innerHTML="" 
+            // selectDateList.remove()
+            // console.log(selectDateList)
+            selectTime.layoutOptions();     
     }
  
 
