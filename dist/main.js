@@ -9513,15 +9513,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/data.js":
-/*!*********************!*\
-  !*** ./src/data.js ***!
-  \*********************/
+/***/ "./src/getData.js":
+/*!************************!*\
+  !*** ./src/getData.js ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "success": () => (/* binding */ success)
+/* harmony export */   "getSuccess": () => (/* binding */ getSuccess)
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 
@@ -9529,8 +9529,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithCalendar/'
 
-const success = (data) => {
-    localStorage['data_all']=data.target.responseText
+const getSuccess = (data) => {
     const request = JSON.parse(data.target.responseText)
     ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.render)(request)
 }
@@ -9543,7 +9542,7 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = success
+xhr.onload = getSuccess
     
 xhr.onerror = error
 
@@ -9572,12 +9571,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/style.scss */ "./src/scss/style.scss");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
-/* harmony import */ var _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/createSelectDepartment */ "./src/components/createSelectDepartment.js");
-/* harmony import */ var _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/createSelectDate */ "./src/components/createSelectDate.js");
-/* harmony import */ var _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/createSelectTime */ "./src/components/createSelectTime.js");
-/* harmony import */ var _components_createSaveButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/createSaveButton */ "./src/components/createSaveButton.js");
-/* harmony import */ var _components_createEmailField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/createEmailField */ "./src/components/createEmailField.js");
+/* harmony import */ var _getData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getData */ "./src/getData.js");
+/* harmony import */ var _postData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./postData */ "./src/postData.js");
+/* harmony import */ var _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/createSelectDepartment */ "./src/components/createSelectDepartment.js");
+/* harmony import */ var _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/createSelectDate */ "./src/components/createSelectDate.js");
+/* harmony import */ var _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/createSelectTime */ "./src/components/createSelectTime.js");
+/* harmony import */ var _components_createSaveButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/createSaveButton */ "./src/components/createSaveButton.js");
+/* harmony import */ var _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/createEmailField */ "./src/components/createEmailField.js");
+
 
 
 
@@ -9589,12 +9590,20 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('load', () => {
     const state = true
-    _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = state
-    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = state
-    _components_createEmailField__WEBPACK_IMPORTED_MODULE_6__.emailField.disabled = state
+    _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.disabled = state
+    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.disabled = state
+    _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__.emailField.disabled = state
 })
 
+const toSend = {
+    email: "adam.szymanski@nfz-lublin.pl",
+    date: "2022-01-05",
+    id: "4",
+    time: "09:00:00"
+}
 
+
+;(0,_postData__WEBPACK_IMPORTED_MODULE_2__.send)(toSend)
 
 const render = (data) => {
     if (!data.length) {
@@ -9618,32 +9627,29 @@ const render = (data) => {
     })
         const selectDepartmentList = document.getElementById('selectDepartmentList')
         selectDepartmentList.appendChild(fragment) 
-        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.layoutOptions();
+        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__.selectDepartment.layoutOptions();
 
 
-        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.listen('MDCSelect:change',  () => {
+        _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__.selectDepartment.listen('MDCSelect:change',  () => {
 
-            // console.log(selectDepartment.selectedIndex)
-            // console.log(typeof(selectDepartment.selectedIndex))
+            const currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__.selectDepartment.selectedIndex -1 
+            
+            const currentDepartment = data[currentId].dates
 
-            let currentId = _components_createSelectDepartment__WEBPACK_IMPORTED_MODULE_2__.selectDepartment.selectedIndex - 1
-            let currentDepartment = data[currentId].dates
             console.log(data[currentId])
-            // currentId = undefined
-            if (currentId == undefined){
+            
+            if (currentDepartment == undefined){
                 return
             }else{  
-                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.setSelectedIndex(0) 
-                selectDateList.innerHTML = `<li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-                <span class="mdc-list-item__ripple"></span>
-              </li>`
+                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.setSelectedIndex(0) 
+                selectDateList.innerHTML = `
+                        <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                        </li>`
 
-                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.disabled = false
-                _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = true
-                renderDate(data,currentDepartment)
-
-        
-
+                _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.disabled = false
+                _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.disabled = true
+                renderDate(currentDepartment)
             }
 
     })
@@ -9652,12 +9658,8 @@ const render = (data) => {
 }
 
 
-const renderDate = (data,currentDepartment)   => {
-
-    if (!data.length) {
-        return;
-    }else 
-    {      
+const renderDate = (currentDepartment)   => {
+    
         const currentDepartmentArray = Object.values(currentDepartment)
 
         const fragment = document.createDocumentFragment()
@@ -9677,44 +9679,36 @@ const renderDate = (data,currentDepartment)   => {
             })
             const selectDateList = document.getElementById('selectDateList') 
 
-
             selectDateList.appendChild(fragment) 
 
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.layoutOptions()
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.layoutOptions()
 
             
-
-            
-            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.listen('MDCSelect:change',  () => {
+            _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.listen('MDCSelect:change',  () => {
                 
-                let selectedDateId = _components_createSelectDate__WEBPACK_IMPORTED_MODULE_3__.selectDate.selectedIndex -1 
-                let selectedDate = currentDepartment[selectedDateId]
+                const selectedDateId = _components_createSelectDate__WEBPACK_IMPORTED_MODULE_4__.selectDate.selectedIndex -1
+                const selectedDate = currentDepartment[selectedDateId]
+
                 console.log(selectedDate)
 
-                if (selectedDateId == undefined){
-                    return
-                }else{
-                    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.setSelectedIndex(0) 
-                    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.innerHTML = ""
-                    selectTimeList.innerHTML = `<li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-                    <span class="mdc-list-item__ripple"></span>
-                  </li>`
-                    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.disabled = false
-                    renderTime(selectedDate)
-                }
+            
+                    renderTime(selectedDate)            
+                
             })
-
-
-    }
-}  
+        }  
 
 
 
 const renderTime = (selectedDate)   => {
 
-    if(selectedDate == undefined){
+    if (selectedDate == undefined){
         return
     }else{
+        
+        _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.setSelectedIndex(0) 
+
+        _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.disabled = false
+        _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__.emailField.disabled = false
 
         const timeItems = selectedDate.avaiableTime
    
@@ -9734,21 +9728,33 @@ const renderTime = (selectedDate)   => {
                         fragment.append(li)
             })
             const selectTimeList = document.getElementById('selectTimeList')
+            
+            selectTimeList.innerHTML = `
+                <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                <span class="mdc-list-item__ripple"></span>
+                </li>`
 
             selectTimeList.appendChild(fragment) 
             
-            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.layoutOptions()
+            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.layoutOptions()
             
-            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.listen('MDCSelect:change', () => {
-                
-                _components_createEmailField__WEBPACK_IMPORTED_MODULE_6__.emailField.disabled = false
-                console.log(_components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.selectedIndex, _components_createSelectTime__WEBPACK_IMPORTED_MODULE_4__.selectTime.value)
+            _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.listen('MDCSelect:change', () => {
+
+
+                    _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__.emailField.disabled = false
+
+                    console.log(_components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.selectedIndex, _components_createSelectTime__WEBPACK_IMPORTED_MODULE_5__.selectTime.value)
 
             });
 
+        }
     }
-}
  
+// saveButton.
+
+
+
+
 
 
 
@@ -9794,6 +9800,46 @@ const dataList = data.map(({id, name}) =>{
     option.value = id
     select.add(option)
 })*/
+
+
+
+/***/ }),
+
+/***/ "./src/postData.js":
+/*!*************************!*\
+  !*** ./src/postData.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "send": () => (/* binding */ send)
+/* harmony export */ });
+
+
+const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/saveReservation'
+
+
+const send = (data) => {
+
+        console.log(data)
+       
+        const jsonString = JSON.stringify(data)
+
+        console.log(jsonString)
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('POST', API_URL)
+
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
+
+        xhr.send(jsonString)
+        console.log(xhr)
+        
+}
+
 
 
 

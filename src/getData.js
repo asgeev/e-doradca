@@ -3,8 +3,7 @@ import { render } from "./index"
 
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithCalendar/'
 
-const success = (data) => {
-    localStorage['data_all']=data.target.responseText
+const getSuccess = (data) => {
     const request = JSON.parse(data.target.responseText)
     render(request)
 }
@@ -17,7 +16,7 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = success
+xhr.onload = getSuccess
     
 xhr.onerror = error
 
@@ -28,7 +27,7 @@ xhr.send();
 
 
 export {
-    success,
+    getSuccess,
 }
 
 
