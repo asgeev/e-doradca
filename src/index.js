@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
 
 
 const render = (data) => {
+
     if (!data.length) {
         return;
     }else
@@ -26,12 +27,12 @@ const render = (data) => {
             const li = document.createElement('li')
             li.classList.add("mdc-list-item")
             li.setAttribute("aria-selected", false)
-            li.setAttribute("data-value", name)
+            li.setAttribute("data-value", id)
             li.setAttribute("role", "option")
             li.innerHTML = `
                     <span class="mdc-list-item__ripple"></span>
                     <span class="mdc-list-item__text">
-                      ${id}. ${name}
+                      ${name}
                     </span>
                 `
                 fragment.append(li)
@@ -43,7 +44,13 @@ const render = (data) => {
 
         selectDepartment.listen('MDCSelect:change',  () => {
 
-            const currentId = selectDepartment.selectedIndex -1 
+            selectDepartment.valid = true
+
+            selectDate.setSelectedIndex(0)
+
+            selectDate.disabled = false
+
+            const currentId = selectDepartment.selectedIndex - 1
             
             const currentDepartment = data[currentId].dates
 
@@ -52,16 +59,11 @@ const render = (data) => {
             if (currentDepartment == undefined){
                 return
             }else{  
-                selectDate.setSelectedIndex(0) 
-                selectDateList.innerHTML = `
-                        <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-                        <span class="mdc-list-item__ripple"></span>
-                        </li>`
-
-                selectDate.disabled = false
+                
                 selectTime.disabled = true
                 emailField.disabled = true
                 renderDate(currentDepartment)
+
             }
 
     })
@@ -71,10 +73,11 @@ const render = (data) => {
 
 
 const renderDate = (currentDepartment)   => {
-    
-        const currentDepartmentArray = Object.values(currentDepartment)
 
-        emailField.disabled = true
+
+        const currentDepartmentArray = Object.values(currentDepartment)
+        console.log(currentDepartmentArray)
+
 
         const fragment = document.createDocumentFragment()
                 currentDepartmentArray.map(({date, dayName}) => {
@@ -91,7 +94,14 @@ const renderDate = (currentDepartment)   => {
                         `
                         fragment.append(li)
             })
-            const selectDateList = document.getElementById('selectDateList') 
+            const selectDateList = document.getElementById('selectDateList')
+            
+            selectDateList.innerHTML = `
+                <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                    <span class="mdc-list-item__ripple"></span>
+                </li>
+            `
+
 
             selectDateList.appendChild(fragment) 
 
@@ -100,17 +110,24 @@ const renderDate = (currentDepartment)   => {
             
             selectDate.listen('MDCSelect:change',  () => {
 
+                console.log(selectDate.selectedIndex)
+                selectTime.setSelectedIndex(0)
+                selectTime.disabled = true
                 emailField.disabled = true
                 
                 const selectedDateId = selectDate.selectedIndex -1
-                const selectedDate = currentDepartment[selectedDateId]
+                // const selectedDate = Object.values(currentDepartment.)
+                const selectedDate = currentDepartmentArray[selectedDateId]
+                console.log(selectedDate)
 
-
-                console.log(selectedDate)    
-
-                    renderTime(selectedDate)            
+                if(selectedDate == undefined){
+                    return
+                }else{
+                    renderTime(selectedDate)           
+                }
                 
             })
+        
         }  
 
 
@@ -120,15 +137,18 @@ const renderTime = (selectedDate)   => {
     if (selectedDate == undefined){
         return
     }else{
-        
-        selectTime.setSelectedIndex(0) 
-        
+
         selectTime.disabled = false
 
+        selectTime.setSelectedIndex(0) 
+        
+
+
         const timeItems = selectedDate.avaiableTime
+        const timeItemsArray = Object.values(timeItems)
    
         const fragment = document.createDocumentFragment()
-                timeItems.map(timeItems => { 
+                timeItemsArray.map(timeItems => { 
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
                     li.setAttribute("aria-selected", false)
@@ -171,25 +191,37 @@ const renderTime = (selectedDate)   => {
     
 const button = document.querySelector('#saveButton')
 
-button.addEventListener('click', (e) => {
-        e.preventDefault()
-        // const toSend = {
-        //     email: "asdas@wp.pl",
-        //     date: "2022-01-14",
-        //     id: "3",
-        //     time: "12:00:00",
-        // }
-        // send(toSend)
-        console.log(selectDepartment.selectedIndex)
-        console.log(selectDate.value)
-        console.log(selectTime.value)
-        console.log(emailField.value)
+button.addEventListener('click', (event) => {
+        event.preventDefault()
+        
+        if(selectDepartment.value == ""){
+            selectDepartment.valid = false
+        }if(selectDate.value == ""){
+            selectDate.valid = false
+        }if(selectTime.value == ""){
+            selectTime.valid = false
+        }if (emailField.value == ""){
+            // alert("Bledny email")
+            // emailField.classList.add("mdc-select--required")
+            emailField.valid = false
+            emailField.focus()
+        }else{
+            const toSend = {
+                email: emailField.value,
+                date: selectDate.value,
+                id: selectDepartment.value,
+                time: selectTime.value,
+            }
+            send(toSend)
+
+        }
+        
+
+        // console.log(selectDepartment.value)
+        // console.log(selectDate.value)
+        // console.log(selectTime.value)
+        // console.log(emailField.value)
 })
-
-
-    
-    
-
 
 export {
     render,
