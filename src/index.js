@@ -13,6 +13,9 @@ window.addEventListener('load', () => {
     selectDate.disabled = state
     selectTime.disabled = state
     emailField.disabled = state
+
+    
+
 })
 
 
@@ -186,14 +189,13 @@ const renderTime = (selectedDate)   => {
 
 
 
-
-
     
 const button = document.querySelector('#saveButton')
 
 button.addEventListener('click', (event) => {
+
         event.preventDefault()
-        
+
         if(selectDepartment.value == ""){
             selectDepartment.valid = false
         }if(selectDate.value == ""){
@@ -213,9 +215,11 @@ button.addEventListener('click', (event) => {
                 time: selectTime.value,
             }
             send(toSend)
-
+            
         }
         
+
+
 
         // console.log(selectDepartment.value)
         // console.log(selectDate.value)

@@ -26,6 +26,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
 
+    
+
     // plugins: [new MiniCssExtractPlugin()],
     
     module: {
@@ -40,7 +42,8 @@ module.exports = {
                 {
                     test: /\.s[ac]ss$/i,
                     use: [
-                            // MiniCssExtractPlugin.loader, 
+                            // MiniCssExtractPlugin.loader,
+                            "style-loader", 
                             "css-loader",
                             "sass-loader",
                          ]

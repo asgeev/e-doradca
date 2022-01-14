@@ -2,6 +2,7 @@
 @use "./components/dateTimeContainer/dataAndTimeContainer";
 @use "./components/emailField/emailField.scss";
 @use "./components/buttons/saveButton.scss";
+@use "./components/modal/modalWindow.scss";
 
 
 
@@ -14,12 +15,11 @@
 
 html {
     height: 100%;
-    text-align: center;
+    // text-align: center;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
 body {
-    height: 100%;
     background: linear-gradient(-45deg, var(--rightBackgroundColor) 50%, var(--leftBackgroundColor) 50%);
     display: flex;
     justify-content: center;
@@ -31,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    // position: relative;
     width: 600px;
     height: 700px;
     min-width: 500px;
@@ -53,8 +53,6 @@ img{
     margin-top: 50px;
     width: 75%;
   }
-
-
 
 
 
@@ -96,3 +94,5 @@ select {
   
 
  
+
+

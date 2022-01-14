@@ -1,4 +1,4 @@
-import { modalWindow } from "./components/modal"
+import { openModal } from "./components/modal"
 
 
 
@@ -26,10 +26,10 @@ const send = (data) => {
                 const status = xhr.status
                 if(status === 0 || (status >= 200 && status < 400)){
                     // const statusText = xhr.statusText
-                    modalWindow()
+                    openModal()
                 }else{
                     const responseText = JSON.parse(xhr.responseText)
-                    modalWindow(responseText)
+                    openModal(responseText)
                 }
             }
         }

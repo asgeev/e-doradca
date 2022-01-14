@@ -12,6 +12,10 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+
+
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="#">
@@ -160,9 +164,7 @@
 
 
                     </div>
-
                         </div>
-
                           <div>
                             <p>Podaj adres e-mail</p>
                             <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
@@ -187,16 +189,27 @@
                             
                         </div>
                     </form>
+                   
+        
                 </div>
-            </div>
-
-            <div id = "modal">
-              <div>
                 
+            </div>
+            <div id="modal" class="modal modalInactive">
+              <div class="modalHeader">
+                <div id="title" class="title">
+                  Informacja
+                </div>
               </div>
-
+              <div id="modalBody" class="modalBody">  
+              </div>
+              <div>
+              <button id="okButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">OK</span>
+              </button>
+              <div>
             </div>
 
+            
         
             <script src="./main.js"></script>
     </body>
