@@ -61,10 +61,10 @@ module.exports = {
                 
     // devtool: 'source-map',
 
-    devServer: {
-                    port: 8081,
-                    hot: true,
-                    static:  './public',
-                },
+    // devServer: {
+    //                 port: 8081,
+    //                 hot: true,
+    //                 static:  './public',
+    //             },
 
 }

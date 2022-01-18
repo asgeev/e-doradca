@@ -10869,7 +10869,6 @@ window.addEventListener('load', () => {
 
 })
 
-
 const render = (data) => {
 
     if (!data.length) {
@@ -11058,6 +11057,10 @@ button.addEventListener('click', (event) => {
             // emailField.classList.add("mdc-select--required")
             _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__.emailField.valid = false
             // emailField.focus()
+        }else if (_components_createCheckbox__WEBPACK_IMPORTED_MODULE_8__.checkbox_1.checked == false){
+            alert("Zaakceptuj oświadczenie nr 1" )
+        }else if (_components_createCheckbox__WEBPACK_IMPORTED_MODULE_8__.checkbox_2.checked == false) {
+            alert("Zaakceptuj oświadczenie nr 2" )
         }else{
             const toSend = {
                 email: _components_createEmailField__WEBPACK_IMPORTED_MODULE_7__.emailField.value,

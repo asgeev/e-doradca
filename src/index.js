@@ -6,7 +6,7 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
-import {checkbox} from './components/createCheckbox';
+import {checkbox_1, checkbox_2} from './components/createCheckbox';
 
 
 window.addEventListener('load', () => {
@@ -18,7 +18,6 @@ window.addEventListener('load', () => {
     
 
 })
-
 
 const render = (data) => {
 
@@ -208,6 +207,10 @@ button.addEventListener('click', (event) => {
             // emailField.classList.add("mdc-select--required")
             emailField.valid = false
             // emailField.focus()
+        }else if (checkbox_1.checked == false){
+            alert("Zaakceptuj oświadczenie nr 1" )
+        }else if (checkbox_2.checked == false) {
+            alert("Zaakceptuj oświadczenie nr 2" )
         }else{
             const toSend = {
                 email: emailField.value,

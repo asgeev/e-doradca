@@ -12,6 +12,10 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+
+
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="#">
@@ -27,13 +31,14 @@
     
         
         <div id = "container"> 
-                <div id = "logo">
-                    <img src="./img/Logo_NFZ.svg">                 
+                <div id = "logoBox">
+                    <!-- <img src="./img/Logo_NFZ.svg">                  -->
+                  <img src = "./img/e-doradca.png">
                 </div>
                 <div id = "formContainer">
                     <form action="">
                       <div id = "departmentContainer">
-                        <span><p>Wybierz swój oddział </p></span>
+                        <p>Wybierz swój oddział </p>
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                               <span class="mdc-notched-outline">
@@ -73,12 +78,13 @@
                                   </ul>
         
                             </div>
+                          </div>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
                             <p>Wybierz datę</p>
-                            <div id="selectDate" class="mdc-select mdc-select--outlined">
+                            <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                               <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                             <span class="mdc-notched-outline">
                               <span class="mdc-notched-outline__leading"></span>
@@ -115,8 +121,9 @@
                           </div>
                         </div>
                       </div>
+                
                       
-                        <div id = "timeContainer">
+                      <div id = "timeContainer">
                       <p>Wybierz godzinę</p>
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
@@ -153,43 +160,129 @@
                             <ul id="selectTimeList" class="mdc-list" role="listbox" aria-label="Select time listbox">
                              
                               </ul>
-    
-                        </div>
-                      
+                        
+                        </div>  
                     </div>
-
-
-                    </div>
-
-                        </div>
-
-                          <div>
-                            <p>Podaj adres e-mail</p>
-                            <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="my-label-id" >Adres e-mail</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                                </span>
+                  </div>
+                  </div>
+                        
+                    <div id = "emailContainer">
+                        <p>Podaj adres e-mail</p>
+                          <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
+                              <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                              <span class="mdc-floating-label" id="my-label-id" >Adres e-mail</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                              </span>
                                 <input type="email" required minlength="5" class="mdc-text-field__input" aria-labelledby="my-label-id">
                             </label>
-                          </div>
-                          
-                        </div>
+                    </div>
                     
-                        <div>
-                            <p>Zatwierdź</p>
-                                <button id = "saveButton" class="mdc-button mdc-button--raised">
-                                <span class="mdc-button__label"><input type = "submit" hidden>Prześlij</span>
-                            </button>
-                            
+                          
+                    <div id = "regulationsBox" class="regulationBox">
+                      
+                      <div id = "checkbox-2" class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                          <input type="checkbox"
+                                 class="mdc-checkbox__native-control"
+                                 id="checkbox-2"/>
+                          <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                              <path class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <label for="checkbox-2"><strong>* Oświadczam, że wyrażam zgodę na:</strong></label>
+                      </div>
+                      <div class = "regulationsListBox">
+                        <ul class="regulationsList">
+                          <li>przetwarzanie moich danych osobowych podanych podczas rezerwacji e-wizyty - zgodnie z art. 6 ust. 1 lit. a rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO),</li>
+                          <li>nagrywanie dźwięku podczas e-wizyty.</li>
+                        </ul>
+                      </div>
 
+                        <div id = "checkbox-1"class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                          <input type="checkbox"
+                                 class="mdc-checkbox__native-control"
+                                 id="checkbox-1"/>
+                          <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                              <path class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <div>
+                          <label for="checkbox-1"><strong>* Oświadczam, że jestem świadomy/świadoma, że:</strong></label>
+                        </div>
+                        
+                      </div>
+                      <div class = "regulationsListBox">
+                        <ul class="regulationsList">
+                          <li>rozpowszechnianie wizerunku pracownika ZUS prowadzącego e-wizytę wymaga zezwolenia pracownika.</li>
+                        </ul>
+                      </div>
+                    </div>  
+                    
+                        <div id = "reservationBox">
+                                <button id = "saveButton" class="mdc-button mdc-button--raised">
+                                <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>
+                                </button> 
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+    
+
+        <div id= "okModal" class="modal okModal okModalInactive">
+              <div class="okModalHeader">
+                <div id="title" class="title">
+                  Informacja
+                </div>
+              </div>
+              <div id="okModalBody" class="okModalBody">  
+              </div>
+              <div>
+              <button id="okButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Zatwierdź</span>
+              </button>
+              <button id="cancelButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Anuluj</span>
+              </button>
+            </div>
+        </div>
+            
+        <div id= "errorModal" class="modal errorModal errorModalInactive">
+              <div class="errorModalHeader">
+                <div id="title" class="title">
+                  <h1>Błąd</h1>
+                </div>
+              </div>
+              <div id="errorModalBody" class="errorModalBody">  
+              </div>
+              <div>
+                <button id="errorButton" class="mdc-button mdc-button--raised">
+                  <span class="mdc-button__label">Anuluj</span>
+                </button>
+              </div>
+        </div>
+
+        <div id = "overlay"></div>
+
+            
         
             <script src="./main.js"></script>
     </body>
