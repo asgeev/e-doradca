@@ -7,9 +7,6 @@
 @use "./components/regulationsBox/regulationsBox.scss";
 
 
-
-
-
 :root{
     --leftBackgroundColor: #2C3F7C ;
     --rightBackgroundColor: white;
@@ -18,6 +15,7 @@
 html {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
 body {
     height: 100%;
@@ -32,11 +30,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // position: relative;
     width: 600px;
-    height: 700px;
     min-width: 500px;
-    min-height: 600px;
     z-index: 2;
     background: white;
     -webkit-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
@@ -46,16 +41,16 @@ body {
 }
 
 img{
-    width: 75%;
+    width: 60%;
 }
 
 
 #formContainer{
-    margin-top: 50px;
+    margin-top: 10px;
     width: 75%;
 }
 
-p {
+p{
   text-align: left;
 }
 
@@ -94,10 +89,10 @@ select {
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
-.regulationBox{
-  display: flex;
-  justify-content: flex-start;
 
+#logoBox{
+    margin-top: 30px;
+    text-align: center;
 }
 
 

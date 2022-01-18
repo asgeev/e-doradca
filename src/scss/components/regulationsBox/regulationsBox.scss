@@ -1,6 +1,31 @@
+@use "@material/checkbox";
+@use "@material/form-field";
+
+@include checkbox.core-styles;
+@include form-field.core-styles;
+
+
 
 
 #regulationsBox{
     display: flex;
     flex-direction: column ;
 }
+
+.regulationsListBox{
+    margin-left: 18px;
+}
+
+
+.regulationsList{
+    margin: 0;
+    margin-bottom: 10px;
+}
+.regulationsList > li{
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+  
