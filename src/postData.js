@@ -1,7 +1,7 @@
-import { openModal } from "./components/modal"
+import { openOkModal, openErrorModal } from "./components/modal"
 
 
-
+// const API_URL = 'https://e-doradca.nfz.gov.pl:8080/Booking/saveReservation'
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/saveReservation'
 
 
@@ -26,10 +26,10 @@ const send = (data) => {
                 const status = xhr.status
                 if(status === 0 || (status >= 200 && status < 400)){
                     // const statusText = xhr.statusText
-                    openModal()
+                    openOkModal()
                 }else{
                     const responseText = JSON.parse(xhr.responseText)
-                    openModal(responseText)
+                    openErrorModal(responseText)
                 }
             }
         }

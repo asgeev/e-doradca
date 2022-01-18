@@ -2,7 +2,9 @@
 @use "./components/dateTimeContainer/dataAndTimeContainer";
 @use "./components/emailField/emailField.scss";
 @use "./components/buttons/saveButton.scss";
-@use "./components/modal/modalWindow.scss";
+@use "./components/modal/modalWindows.scss";
+@use "./components/checkboxs/checkbox.scss";
+@use "./components/regulationsBox/regulationsBox.scss";
 
 
 
@@ -15,11 +17,10 @@
 
 html {
     height: 100%;
-    // text-align: center;
-    font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
 body {
+    height: 100%;
     background: linear-gradient(-45deg, var(--rightBackgroundColor) 50%, var(--leftBackgroundColor) 50%);
     display: flex;
     justify-content: center;
@@ -42,17 +43,21 @@ body {
     -moz-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
     box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
     border-radius: 1%;
-    padding-top: 40px;
 }
+
 img{
-    width: 150px;
+    width: 75%;
 }
 
 
 #formContainer{
     margin-top: 50px;
     width: 75%;
-  }
+}
+
+p {
+  text-align: left;
+}
 
 
 
@@ -74,6 +79,7 @@ select {
   select {
      outline: none;
   }
+
   #select {
     width: 100%;
     min-width: 15ch;
@@ -86,7 +92,16 @@ select {
     line-height: 1.1;
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
-  }
+}
+
+.regulationBox{
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+
+
 
 
 

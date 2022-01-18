@@ -32,12 +32,13 @@
         
         <div id = "container"> 
                 <div id = "logo">
-                    <img src="./img/Logo_NFZ.svg">                 
+                    <!-- <img src="./img/Logo_NFZ.svg">                  -->
+                  <img src = "./img/e-doradca.png">
                 </div>
                 <div id = "formContainer">
                     <form action="">
                       <div id = "departmentContainer">
-                        <span><p>Wybierz swój oddział </p></span>
+                        <p>Wybierz swój oddział </p>
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                               <span class="mdc-notched-outline">
@@ -77,12 +78,13 @@
                                   </ul>
         
                             </div>
+                          </div>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
                             <p>Wybierz datę</p>
-                            <div id="selectDate" class="mdc-select mdc-select--outlined">
+                            <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                               <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                             <span class="mdc-notched-outline">
                               <span class="mdc-notched-outline__leading"></span>
@@ -119,8 +121,9 @@
                           </div>
                         </div>
                       </div>
+                
                       
-                        <div id = "timeContainer">
+                      <div id = "timeContainer">
                       <p>Wybierz godzinę</p>
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
@@ -157,57 +160,120 @@
                             <ul id="selectTimeList" class="mdc-list" role="listbox" aria-label="Select time listbox">
                              
                               </ul>
-    
-                        </div>
-                      
+                        
+                        </div>  
                     </div>
-
-
-                    </div>
-                        </div>
-                          <div>
-                            <p>Podaj adres e-mail</p>
-                            <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="my-label-id" >Adres e-mail</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                                </span>
+                  </div>
+                  </div>
+                        
+                    <div>
+                        <p>Podaj adres e-mail</p>
+                          <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
+                              <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                              <span class="mdc-floating-label" id="my-label-id" >Adres e-mail</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                              </span>
                                 <input type="email" required minlength="5" class="mdc-text-field__input" aria-labelledby="my-label-id">
                             </label>
-                          </div>
+                    </div>
                           
+                    <div id = "regulationsBox" class="regulationBox">
+                      
+                        <div id = "checkbox-1"class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                          <input type="checkbox"
+                                 class="mdc-checkbox__native-control"
+                                 id="checkbox-1"/>
+                          <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                              <path class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
                         </div>
+                        <div>
+                          <label for="checkbox-1"><strong>* Oświadczam, że jestem świadomy/świadoma, że:</strong></label>
+                        </div>
+                        <ul>
+                          <li>asdasd</li>
+                          <li>bdfbfdb</li>
+                        </ul>
+                      </div>
+                  
+
+                    
+                      <div id = "checkbox-2" class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                          <input type="checkbox"
+                                 class="mdc-checkbox__native-control"
+                                 id="checkbox-2"/>
+                          <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                              <path class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                          </div>
+                          <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <label for="checkbox-2">* Oświadczam, że wyrażam zgodę na:</label>
+                      </div>
+                    </div>  
                     
                         <div>
-                            <p>Zatwierdź</p>
                                 <button id = "saveButton" class="mdc-button mdc-button--raised">
-                                <span class="mdc-button__label"><input type = "submit" hidden>Prześlij</span>
-                            </button>
-                            
+                                <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>
+                                </button> 
                         </div>
+                        
                     </form>
-                   
-        
-                </div>
-                
             </div>
-            <div id="modal" class="modal modalInactive">
-              <div class="modalHeader">
+        </div>
+    
+
+        <div id= "okModal" class="modal okModal okModalInactive">
+              <div class="okModalHeader">
                 <div id="title" class="title">
                   Informacja
                 </div>
               </div>
-              <div id="modalBody" class="modalBody">  
+              <div id="okModalBody" class="okModalBody">  
               </div>
               <div>
               <button id="okButton" class="mdc-button mdc-button--raised">
-                <span class="mdc-button__label">OK</span>
+                <span class="mdc-button__label">Zatwierdź</span>
               </button>
-              <div>
+              <button id="cancelButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Anuluj</span>
+              </button>
             </div>
+        </div>
+            
+        <div id= "errorModal" class="modal errorModal errorModalInactive">
+              <div class="errorModalHeader">
+                <div id="title" class="title">
+                  <h1>Błąd</h1>
+                </div>
+              </div>
+              <div id="errorModalBody" class="errorModalBody">  
+              </div>
+              <div>
+                <button id="errorButton" class="mdc-button mdc-button--raised">
+                  <span class="mdc-button__label">Anuluj</span>
+                </button>
+              </div>
+        </div>
+
+        <div id = "overlay"></div>
 
             
         

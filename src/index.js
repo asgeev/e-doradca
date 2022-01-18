@@ -6,6 +6,7 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
+import {checkbox} from './components/createCheckbox';
 
 
 window.addEventListener('load', () => {
@@ -190,7 +191,7 @@ const renderTime = (selectedDate)   => {
 
 
     
-const button = document.querySelector('#saveButton')
+const button = document.getElementById('saveButton')
 
 button.addEventListener('click', (event) => {
 
@@ -198,15 +199,15 @@ button.addEventListener('click', (event) => {
 
         if(selectDepartment.value == ""){
             selectDepartment.valid = false
-        }if(selectDate.value == ""){
+        }else if(selectDate.value == ""){
             selectDate.valid = false
-        }if(selectTime.value == ""){
+        }else if(selectTime.value == ""){
             selectTime.valid = false
-        }if (emailField.value == ""){
+        }else if (emailField.valid !== true){
             // alert("Bledny email")
             // emailField.classList.add("mdc-select--required")
             emailField.valid = false
-            emailField.focus()
+            // emailField.focus()
         }else{
             const toSend = {
                 email: emailField.value,
@@ -215,16 +216,8 @@ button.addEventListener('click', (event) => {
                 time: selectTime.value,
             }
             send(toSend)
-            
         }
         
-
-
-
-        // console.log(selectDepartment.value)
-        // console.log(selectDate.value)
-        // console.log(selectTime.value)
-        // console.log(emailField.value)
 })
 
 export {

@@ -1,0 +1,72 @@
+
+.modal{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 9999;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    border-radius: 1%;
+  }
+
+#okButton{
+    width: min-content;
+    padding: 5px;
+}
+
+.okModal{
+  width: 650px;
+  height: 550px;
+}
+
+.okModalBody{
+  width: 60%;
+}
+
+.okModalInactive{
+  display: none;
+  }
+  
+.errorModalInactive{
+  display: none;
+}
+
+.errorModal{
+
+  padding: 40px;
+}
+
+.errorModalBody{
+  padding: 15px;
+}
+
+
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0, .8);
+  pointer-events: none;
+  z-index: 90;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
+
+
