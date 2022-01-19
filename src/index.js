@@ -4,10 +4,8 @@ import { send } from './postData'
 import {selectDepartment} from './components/createSelectDepartment'
 import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
-import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
-import { get } from 'lodash';
 
 
 window.addEventListener('load', () => {
