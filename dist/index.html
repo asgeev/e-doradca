@@ -181,61 +181,66 @@
                     </div>
                     
                           
-                    <div id = "regulationsBox" class="regulationBox">
+                    <div id = "regulationsContainer" class="regulationBox">
+                     
+                      <div id = "checkbox-1Box">
+                        <div id = "checkbox-1" class="mdc-form-field ">
+                          <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="checkbox-1Input"/>
+                            <div class="mdc-checkbox__background">
+                              <svg class="mdc-checkbox__checkmark"
+                                   viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                              </svg>
+                              <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                          </div>
+                          <label id = "checkbox-1Label" for="checkbox-1"><strong>* Oświadczam, że wyrażam zgodę na:</strong></label>
+                        </div>
+                        <div class = "regulationsListBox">
+                          <ul id = "regulationsList1" class="regulationsList checkbox-1Regulations">
+                            <li>przetwarzanie moich danych osobowych podanych podczas rezerwacji e-wizyty - zgodnie z art. 6 ust. 1 lit. a rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO),</li>
+                            <li>nagrywanie dźwięku podczas e-wizyty.</li>
+                          </ul>
+                        </div>
+  
+                      </div>
+                      <div id = "checkbox-2Box">
+                        <div id = "checkbox-2"class="mdc-form-field errorCheckbox">
+                          <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="checkbox-2Input"/>
+                            <div class="mdc-checkbox__background">
+                              <svg class="mdc-checkbox__checkmark"
+                                   viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                              </svg>
+                              <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                          </div>
+                          <div>
+                            <label id = "checkbox-2Label" for="checkbox-2"><strong>* Oświadczam, że jestem świadomy/świadoma, że:</strong></label>
+                          </div>
+                          
+                        </div>
                       
-                      <div id = "checkbox-1" class="mdc-form-field">
-                        <div class="mdc-checkbox">
-                          <input type="checkbox"
-                                 class="mdc-checkbox__native-control"
-                                 id="checkbox-1"/>
-                          <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                              <path class="mdc-checkbox__checkmark-path"
-                                    fill="none"
-                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                          </div>
-                          <div class="mdc-checkbox__ripple"></div>
-                        </div>
-                        <label for="checkbox-1"><strong>* Oświadczam, że wyrażam zgodę na:</strong></label>
-                      </div>
-                      <div class = "regulationsListBox">
-                        <ul class="regulationsList">
-                          <li>przetwarzanie moich danych osobowych podanych podczas rezerwacji e-wizyty - zgodnie z art. 6 ust. 1 lit. a rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO),</li>
-                          <li>nagrywanie dźwięku podczas e-wizyty.</li>
-                        </ul>
-                      </div>
-
-                        <div id = "checkbox-2"class="mdc-form-field">
-                        <div class="mdc-checkbox">
-                          <input type="checkbox"
-                                 class="mdc-checkbox__native-control"
-                                 id="checkbox-2"/>
-                          <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                              <path class="mdc-checkbox__checkmark-path"
-                                    fill="none"
-                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                          </div>
-                          <div class="mdc-checkbox__ripple"></div>
-                        </div>
-                        <div>
-                          <label for="checkbox-2"><strong>* Oświadczam, że jestem świadomy/świadoma, że:</strong></label>
-                        </div>
                         
-                      </div>
                       <div class = "regulationsListBox">
-                        <ul class="regulationsList">
+                        <ul id = "regulationsList2"class="regulationsList checkbox-2Regulations">
                           <li>rozpowszechnianie wizerunku pracownika NFZ prowadzącego e-wizytę wymaga zezwolenia pracownika.</li>
                         </ul>
                       </div>
                     </div>  
-                    
+                    </div>
                         <div id = "reservationBox">
                                 <button id = "saveButton" class="mdc-button mdc-button--raised">
                                 <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>

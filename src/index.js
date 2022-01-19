@@ -7,6 +7,7 @@ import {selectTime} from './components/createSelectTime';
 import {saveButton} from './components/createSaveButton';
 import {emailField} from './components/createEmailField';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
+import { get } from 'lodash';
 
 
 window.addEventListener('load', () => {
@@ -145,8 +146,6 @@ const renderTime = (selectedDate)   => {
 
         selectTime.setSelectedIndex(0) 
         
-
-
         const timeItems = selectedDate.avaiableTime
         const timeItemsArray = Object.values(timeItems)
    
@@ -208,9 +207,23 @@ button.addEventListener('click', (event) => {
             emailField.valid = false
             // emailField.focus()
         }else if (checkbox_1.checked == false){
-            alert("Zaakceptuj oświadczenie nr 1" )
+            // alert("Zaakceptuj oświadczenie nr 1" )
+            checkbox_1Box.classList.add('error')
+            
+            if(checkbox_2.checked == false){
+                checkbox_2Box.classList.add('error')
+            }else{
+                return
+            }
         }else if (checkbox_2.checked == false) {
-            alert("Zaakceptuj oświadczenie nr 2" )
+            // alert("Zaakceptuj oświadczenie nr 2" )
+            checkbox_2Box.classList.add('error')
+            
+            if(checkbox_1.checked == false){
+                checkbox_1Box.classList.add('error')
+            }else{
+                return
+            }
         }else{
             const toSend = {
                 email: emailField.value,
@@ -222,6 +235,39 @@ button.addEventListener('click', (event) => {
         }
         
 })
+
+
+const errorRegulationsCheckbox1 = document.getElementById('checkbox-1Input')
+const checkbox_1Box = document.getElementById("checkbox-1Box")
+
+errorRegulationsCheckbox1.addEventListener("click", () => {
+
+        if(checkbox_1.checked == true){
+            checkbox_1Box.classList.remove('error')
+        }else if(checkbox_1.checked == false) {
+            checkbox_1Box.classList.add('error')
+        }
+        
+})
+
+
+const errorRegulationsCheckbox2 = document.getElementById('checkbox-2Input')
+const checkbox_2Box = document.getElementById("checkbox-2Box")
+
+
+errorRegulationsCheckbox2.addEventListener("click", () => {
+
+        if(checkbox_2.checked == true){
+            checkbox_2Box.classList.remove('error')
+        }else if(checkbox_2.checked == false) {
+            checkbox_2Box.classList.add('error')
+        }
+        
+})
+
+
+
+
 
 export {
     render,

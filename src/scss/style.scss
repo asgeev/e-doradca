@@ -5,6 +5,7 @@
 @use "./components/modal/modalWindows.scss";
 @use "./components/checkboxs/checkbox.scss";
 @use "./components/regulationsBox/regulationsBox.scss";
+@use "./components/logoBox.scss";
 
 
 :root{
@@ -46,7 +47,7 @@ img{
 
 
 #formContainer{
-    margin-top: 10px;
+    margin-top: 20px;
     width: 75%;
 }
 
@@ -87,12 +88,6 @@ select {
     line-height: 1.1;
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
-}
-
-
-#logoBox{
-    margin-top: 30px;
-    text-align: center;
 }
 
 
