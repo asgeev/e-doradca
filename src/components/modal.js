@@ -2,6 +2,8 @@ import { emailField } from "./createEmailField"
 import { selectDate } from "./createSelectDate"
 import { selectTime } from "./createSelectTime"
 import { selectDepartment } from "./createSelectDepartment"
+import { checkbox_1, checkbox_2} from "./createCheckbox"
+import { helperText } from "./helperText"
 
 
 const overlay = () => {
@@ -57,18 +59,27 @@ const openErrorModal = (responseText) => {
     overlay()
     
     console.log(responseText) 
-
+    
     const errorModal = document.getElementById('errorModal')
 
     const errorModalBody = document.getElementById("errorModalBody")
 
     const p = document.createElement('p')
-
+    
     errorModal.classList.toggle("errorModalInactive")
 
     errorModalBody.innerHTML = ""
     
-    p.innerHTML = `${responseText.message}`
+    if( checkbox_1.checked == false || checkbox_2.checked == false){
+        
+        p.innerHTML =`Zaakceptuj wszystkie oświadczenia!`
+
+    } else {
+        p.innerHTML = `${responseText.message}`
+    }
+
+
+    
     
     errorModalBody.appendChild(p)
 

@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>E-DORADCA</title>
+        <title>e-Doradca</title>
         <meta name="description" content="">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="#">
+        <link rel="icon" type="image/png" href="./img/favicon.png"/>
         <!-- <link rel="stylesheet" href="./main.css" type="text/css"> -->
 
 
@@ -40,7 +40,10 @@
                       <div id = "departmentContainer">
                         <p>Wybierz swój oddział </p>
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
-                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                            <div class="mdc-select__anchor" 
+                                 aria-labelledby="outlined-select-label" 
+                                 aria-controls="selectDepartmentHelperText"
+                                 aria-describedby="selectDepartmentHelperText">
                               <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
@@ -79,13 +82,17 @@
         
                             </div>
                           </div>
+                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg"></p>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
                             <p>Wybierz datę</p>
                             <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
-                              <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                              <div class="mdc-select__anchor" 
+                                   aria-labelledby="outlined-select-label"
+                                   aria-controls="selectDateHelperText"
+                                   aria-describedby="selectDateHelperText">
                             <span class="mdc-notched-outline">
                               <span class="mdc-notched-outline__leading"></span>
                               <span class="mdc-notched-outline__notch">
@@ -120,13 +127,18 @@
                                 </ul>
                           </div>
                         </div>
+                        <p id="selectDateHelperText" class="mdc-select-helper-text--validation-msg"></p>
+
                       </div>
                 
                       
                       <div id = "timeContainer">
                       <p>Wybierz godzinę</p>
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
-                        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                        <div class="mdc-select__anchor" 
+                             aria-labelledby="outlined-select-label"
+                             aria-controls="selectTimeHelperText"
+                             aria-describedby="selectTimeHelperText">
                           <span class="mdc-notched-outline">
                             <span class="mdc-notched-outline__leading"></span>
                             <span class="mdc-notched-outline__notch">
@@ -163,12 +175,17 @@
                         
                         </div>  
                     </div>
+                    <p id="selectTimeHelperText" class="mdc-select-helper-text--validation-msg"></p>
+
                   </div>
                   </div>
                         
                     <div id = "emailContainer">
                         <p>Podaj adres e-mail</p>
-                          <label id = "emailField" class="mdc-text-field mdc-text-field--outlined">
+                          <label id = "emailField" 
+                                 class="mdc-text-field mdc-text-field--outlined"
+                                 aria-controls="emailFieldHelperText"
+                                 aria-describedby="emailFieldHelperText">
                               <span class="mdc-notched-outline">
                                   <span class="mdc-notched-outline__leading"></span>
                                   <span class="mdc-notched-outline__notch">
@@ -178,7 +195,11 @@
                               </span>
                                 <input type="email" required minlength="5" class="mdc-text-field__input" aria-labelledby="my-label-id">
                             </label>
+                            <div class="mdc-text-field-helper-line">
+                              <div class="mdc-text-field-helper-text" id="emailFieldHelperText" aria-hidden="true"></div>
+                            </div>
                     </div>
+
                     
                           
                     <div id = "regulationsContainer" class="regulationBox">

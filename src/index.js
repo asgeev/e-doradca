@@ -6,6 +6,8 @@ import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {emailField} from './components/createEmailField';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
+import { openErrorModal } from './components/modal';
+import { helperText } from './components/helperText';
 
 
 window.addEventListener('load', () => {
@@ -45,6 +47,8 @@ const render = (data) => {
 
 
         selectDepartment.listen('MDCSelect:change',  () => {
+
+            selectDepartment.helperTextContent = ""
 
             selectDepartment.valid = true
 
@@ -91,7 +95,7 @@ const renderDate = (currentDepartment)   => {
                     li.innerHTML = `
                             <span class="mdc-list-item__ripple"></span>
                             <span class="mdc-list-item__text">
-                            ${date}, ${dayName}
+                            ${date}
                             </span>
                         `
                         fragment.append(li)
@@ -111,6 +115,8 @@ const renderDate = (currentDepartment)   => {
 
             
             selectDate.listen('MDCSelect:change',  () => {
+
+                selectDate.helperTextContent = ""
 
                 console.log(selectDate.selectedIndex)
                 selectTime.setSelectedIndex(0)
@@ -175,6 +181,8 @@ const renderTime = (selectedDate)   => {
             
             selectTime.listen('MDCSelect:change', () => {
 
+                    selectTime.helperTextContent = ""
+
                     emailField.disabled = false
 
                     console.log(selectTime.selectedIndex, selectTime.value)
@@ -194,20 +202,36 @@ button.addEventListener('click', (event) => {
         event.preventDefault()
 
         if(selectDepartment.value == ""){
+            
             selectDepartment.valid = false
+            selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
+
         }else if(selectDate.value == ""){
+            
             selectDate.valid = false
+            selectDate.helperTextContent = "*Wybierz datę"
+
+        
         }else if(selectTime.value == ""){
+            
             selectTime.valid = false
+            selectTime.helperTextContent = "*Wybierz godzinę"
+
+        
         }else if (emailField.valid !== true){
+            
             // alert("Bledny email")
             // emailField.classList.add("mdc-select--required")
             emailField.valid = false
+            emailField.focus()
+            emailField.helperTextContent = "Nieprawidłowy adres e-mail"
+            
             // emailField.focus()
+        
         }else if (checkbox_1.checked == false){
             // alert("Zaakceptuj oświadczenie nr 1" )
             checkbox_1Box.classList.add('error')
-            
+            openErrorModal()
             if(checkbox_2.checked == false){
                 checkbox_2Box.classList.add('error')
             }else{
@@ -216,7 +240,7 @@ button.addEventListener('click', (event) => {
         }else if (checkbox_2.checked == false) {
             // alert("Zaakceptuj oświadczenie nr 2" )
             checkbox_2Box.classList.add('error')
-            
+            openErrorModal()
             if(checkbox_1.checked == false){
                 checkbox_1Box.classList.add('error')
             }else{
