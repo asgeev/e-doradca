@@ -194,26 +194,30 @@ const renderTime = (selectedDate)   => {
 
 
 
-    
 const button = document.getElementById('saveButton')
 
 button.addEventListener('click', (event) => {
 
+        const top = document.getElementById('container') 
+
         event.preventDefault()
 
         if(selectDepartment.value == ""){
-            
+
+            top.scrollIntoView(top)
             selectDepartment.valid = false
             selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
 
         }else if(selectDate.value == ""){
             
+            top.scrollIntoView(top)
             selectDate.valid = false
             selectDate.helperTextContent = "*Wybierz datę"
 
         
         }else if(selectTime.value == ""){
             
+            top.scrollIntoView(top)
             selectTime.valid = false
             selectTime.helperTextContent = "*Wybierz godzinę"
 

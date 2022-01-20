@@ -72,7 +72,7 @@ const openErrorModal = (responseText) => {
     
     if( checkbox_1.checked == false || checkbox_2.checked == false){
         
-        p.innerHTML =`Zaakceptuj wszystkie oświadczenia!`
+        p.innerHTML =`Proszę o akceptację wszystkich oświadczeń w celu rezerwacji wizyty!`
 
     } else {
         p.innerHTML = `${responseText.message}`
