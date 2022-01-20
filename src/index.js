@@ -207,7 +207,7 @@ button.addEventListener('click', (event) => {
             top.scrollIntoView(top)
             selectDepartment.valid = false
             selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
-
+        
         }else if(selectDate.value == ""){
             
             top.scrollIntoView(top)
@@ -228,7 +228,7 @@ button.addEventListener('click', (event) => {
             // emailField.classList.add("mdc-select--required")
             emailField.valid = false
             emailField.focus()
-            emailField.helperTextContent = "Nieprawidłowy adres e-mail"
+            emailField.helperTextContent = "*Nieprawidłowy adres e-mail"
             
             // emailField.focus()
         

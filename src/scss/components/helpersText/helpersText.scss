@@ -1,11 +1,18 @@
 
 .mdc-select-helper-text--validation-msg{
     font-size: .9rem;
+    font-weight: 400;
     margin-left: 10px;
     margin-top:5px;
     margin-bottom:5px;
 }
 
 .mdc-text-field-helper-text{
-    color: red;
+    color: #b00020 !important;
+    font-size: .9rem;
+    font-weight: 400;
+    margin-top:5px;
+    margin-bottom:5px;
 }
+
+
