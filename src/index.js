@@ -1,23 +1,22 @@
 import './scss/style.scss'
-import { getSuccess } from './getData';
-import { send } from './postData'
-import {selectDepartment} from './components/createSelectDepartment'
+import {getSuccess} from './getData';
+import {getSuccessSubjects} from './getSubjects';
+import {send} from './postData';
+import {selectDepartment} from './components/createSelectDepartment';
 import {selectDate} from './components/createSelectDate';
 import {selectTime} from './components/createSelectTime';
 import {emailField} from './components/createEmailField';
+import {selectSubject} from './components/createSelectSubject';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
-import { openErrorModal } from './components/modal';
-import { helperText } from './components/helperText';
+import {openErrorModal} from './components/modal';
+import {helperText} from './components/helperText';
 
 
 window.addEventListener('load', () => {
     const state = true
     selectDate.disabled = state
     selectTime.disabled = state
-    emailField.disabled = state
-
-    
-
+    // emailField.disabled = state
 })
 
 const render = (data) => {
@@ -67,7 +66,7 @@ const render = (data) => {
             }else{  
                 
                 selectTime.disabled = true
-                emailField.disabled = true
+                // emailField.disabled = true
                 renderDate(currentDepartment)
 
             }
@@ -86,7 +85,7 @@ const renderDate = (currentDepartment)   => {
 
 
         const fragment = document.createDocumentFragment()
-                currentDepartmentArray.map(({date, dayName}) => {
+                currentDepartmentArray.map(({date}) => {
                     const li = document.createElement('li')
                     li.classList.add("mdc-list-item")
                     li.setAttribute("aria-selected", false)
@@ -121,7 +120,7 @@ const renderDate = (currentDepartment)   => {
                 console.log(selectDate.selectedIndex)
                 selectTime.setSelectedIndex(0)
                 selectTime.disabled = true
-                emailField.disabled = true
+                // emailField.disabled = true
                 
                 const selectedDateId = selectDate.selectedIndex -1
                 // const selectedDate = Object.values(currentDepartment.)
@@ -183,7 +182,7 @@ const renderTime = (selectedDate)   => {
 
                     selectTime.helperTextContent = ""
 
-                    emailField.disabled = false
+                    // emailField.disabled = false
 
                     console.log(selectTime.selectedIndex, selectTime.value)
 
@@ -191,6 +190,47 @@ const renderTime = (selectedDate)   => {
 
         }
     }
+
+const renderSubjects = (subjectList) => {
+
+        if (!subjectList.length) {
+            return;
+        }else
+        {
+            // const subjectListArray = Object.values(subjectList)
+            const fragment = document.createDocumentFragment()
+            subjectList.map(({id,name}) => {
+                const li = document.createElement('li')
+                li.classList.add("mdc-list-item")
+                li.setAttribute("aria-selected", false)
+                li.setAttribute("data-value", id)
+                li.setAttribute("role", "option")
+                li.innerHTML = `
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                          ${name}
+                        </span>
+                    `
+                    fragment.append(li)
+        })
+
+            const selectSubjectList = document.getElementById('selectSubjectList')
+            
+            selectSubjectList.appendChild(fragment) 
+            
+            selectSubject.layoutOptions()
+    
+        }
+    
+            selectSubject.listen('MDCSelect:change', () => {
+                
+                selectSubject.helperTextContent = ""
+                
+                console.log(`${selectSubject.selectedIndex}, ${selectSubject.value}`)
+            
+            })
+    }
+
 
 
 
@@ -222,6 +262,11 @@ button.addEventListener('click', (event) => {
             selectTime.helperTextContent = "*Wybierz godzinę"
 
         
+        }else if(selectSubject.valid == false){
+
+            selectSubject.valid = false
+            selectSubject.helperTextContent = "*Musisz wybrać temat spotkania"
+
         }else if (emailField.valid !== true){
             
             // alert("Bledny email")
@@ -254,8 +299,9 @@ button.addEventListener('click', (event) => {
             const toSend = {
                 email: emailField.value,
                 date: selectDate.value,
-                id: selectDepartment.value,
-                time: selectTime.value,
+                branchId: selectDepartment.value,
+                subjectId: selectSubject.value,
+                time: selectTime.value, 
             }
             send(toSend)
         }
@@ -297,6 +343,7 @@ errorRegulationsCheckbox2.addEventListener("click", () => {
 
 export {
     render,
+    renderSubjects,
 };
 
 

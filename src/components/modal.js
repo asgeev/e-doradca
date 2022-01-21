@@ -31,7 +31,16 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
         
     p.innerHTML = `
-        Zarezerwowano termin ${selectDate.value} na godzinę ${selectTime.value} w oddziale ${selectDepartment.value} na adres ${emailField.value}`
+            Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.<br>
+            Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.<br>
+            Termin spotkania: <strong>${selectDate.value}</strong>, godzina <strong>${selectTime.value}</strong><br>   
+            Temat spotkania: .........................<br>
+
+            Link do spotkania przyślemy do Ciebie na adres e-mail <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<br>
+
+            Do zobaczenia<br>
+
+            Zespół e-Doradców NFZ<br>`
     
     okModalBody.appendChild(p)
 
