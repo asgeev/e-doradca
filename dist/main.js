@@ -11065,7 +11065,6 @@ const renderDate = (currentDepartment)   => {
                 // emailField.disabled = true
                 
                 const selectedDateId = _components_createSelectDate__WEBPACK_IMPORTED_MODULE_5__.selectDate.selectedIndex -1
-                // const selectedDate = Object.values(currentDepartment.)
                 const selectedDate = currentDepartmentArray[selectedDateId]
                 console.log(selectedDate)
 
@@ -11101,6 +11100,7 @@ const renderTime = (selectedDate)   => {
                     li.setAttribute("aria-selected", false)
                     li.setAttribute("data-value", timeItems)
                     li.setAttribute("role", "option")
+                    timeItems = timeItems.slice(0, 5) 
                     li.innerHTML = `
                             <span class="mdc-list-item__ripple"></span>
                             <span class="mdc-list-item__text">
