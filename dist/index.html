@@ -31,7 +31,7 @@
                 <div id = "formContainer">
                     <form action="">
                       <div id = "departmentContainer">
-                        <p>Wybierz swój oddział </p>
+                        <!-- <p>Wybierz swój oddział </p> -->
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" 
                                  aria-labelledby="outlined-select-label" 
@@ -75,12 +75,12 @@
         
                             </div>
                           </div>
-                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz oddział z rozwijanej listy</p>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
-                            <p>Wybierz datę</p>
+                            <!-- <p>Wybierz datę</p> -->
                             <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                               <div class="mdc-select__anchor" 
                                    aria-labelledby="outlined-select-label"
@@ -120,13 +120,13 @@
                                 </ul>
                           </div>
                         </div>
-                        <p id="selectDateHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                        <p id="selectDateHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz datę</p>
 
                       </div>
                 
                       
                       <div id = "timeContainer">
-                      <p>Wybierz godzinę</p>
+                      <!-- <p>Wybierz godzinę</p> -->
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" 
                              aria-labelledby="outlined-select-label"
@@ -168,12 +168,12 @@
                         
                         </div>  
                     </div>
-                    <p id="selectTimeHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                    <p id="selectTimeHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz godzinę</p>
 
                   </div>
                   </div>
                   <div id = "subjectsContainer">
-                    <p>Wybierz temat spotkania </p>
+                    <!-- <p>Wybierz temat spotkania </p> -->
                     <div id="selectSubject" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" 
                              aria-labelledby="outlined-select-label" 
@@ -217,11 +217,11 @@
     
                         </div>
                       </div>
-                      <p id="selectSubjectHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                      <p id="selectSubjectHelperText" class="mdc-select-helper-text--validation-msg">*Musisz wybrać temat spotkania</p>
                     </div>
                         
                     <div id = "emailContainer">
-                        <p>Podaj adres e-mail</p>
+                        <!-- <p>Podaj adres e-mail</p>   -->
                           <label id = "emailField" 
                                  class="mdc-text-field mdc-text-field--outlined"
                                  aria-controls="emailFieldHelperText"
@@ -243,10 +243,10 @@
                     
                           
                     <div id = "regulationsContainer" class="regulationBox">
-                     
+    
                       <div id = "checkbox-1Box">
-                        <div id = "checkbox-1" class="mdc-form-field ">
-                          <div class="mdc-checkbox">
+                        <div id = "checkbox-1" class="mdc-form-field">
+                          <div class="mdc-checkbox mdc-checkbox--touch">
                             <input type="checkbox"
                                    class="mdc-checkbox__native-control"
                                    id="checkbox-1Input"/>
@@ -272,8 +272,8 @@
   
                       </div>
                       <div id = "checkbox-2Box">
-                        <div id = "checkbox-2"class="mdc-form-field errorCheckbox">
-                          <div class="mdc-checkbox">
+                        <div id = "checkbox-2"class="mdc-form-field">
+                          <div class="mdc-checkbox mdc-checkbox--touch">
                             <input type="checkbox"
                                    class="mdc-checkbox__native-control"
                                    id="checkbox-2Input"/>
@@ -291,9 +291,7 @@
                           <div>
                             <label id = "checkbox-2Label" for="checkbox-2" class= "checkboxesLabel">* Oświadczam, że jestem świadomy/świadoma, że:</label>
                           </div>
-                          
                         </div>
-                      
                         
                       <div class = "regulationsListBox">
                         <ul id = "regulationsList2"class="regulationsList checkbox-2Regulations">
@@ -306,6 +304,7 @@
                                 <button id = "saveButton" class="mdc-button mdc-button--raised">
                                 <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>
                                 </button> 
+                               
                         </div>
                         
                     </form>

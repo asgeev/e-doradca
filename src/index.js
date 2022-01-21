@@ -47,7 +47,7 @@ const render = (data) => {
 
         selectDepartment.listen('MDCSelect:change',  () => {
 
-            selectDepartment.helperTextContent = ""
+            // selectDepartment.helperTextContent = ""
 
             selectDepartment.valid = true
 
@@ -115,7 +115,7 @@ const renderDate = (currentDepartment)   => {
             
             selectDate.listen('MDCSelect:change',  () => {
 
-                selectDate.helperTextContent = ""
+                // selectDate.helperTextContent = ""
 
                 console.log(selectDate.selectedIndex)
                 selectTime.setSelectedIndex(0)
@@ -180,7 +180,7 @@ const renderTime = (selectedDate)   => {
             
             selectTime.listen('MDCSelect:change', () => {
 
-                    selectTime.helperTextContent = ""
+                    // selectTime.helperTextContent = ""
 
                     // emailField.disabled = false
 
@@ -224,7 +224,7 @@ const renderSubjects = (subjectList) => {
     
             selectSubject.listen('MDCSelect:change', () => {
                 
-                selectSubject.helperTextContent = ""
+                // selectSubject.helperTextContent = ""
                 
                 console.log(`${selectSubject.selectedIndex}, ${selectSubject.value}`)
             
@@ -246,36 +246,32 @@ button.addEventListener('click', (event) => {
 
             top.scrollIntoView(top)
             selectDepartment.valid = false
-            selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
+            // selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
         
         }else if(selectDate.value == ""){
             
             top.scrollIntoView(top)
             selectDate.valid = false
-            selectDate.helperTextContent = "*Wybierz datę"
+            // selectDate.helperTextContent = "*Wybierz datę"
 
         
         }else if(selectTime.value == ""){
             
             top.scrollIntoView(top)
             selectTime.valid = false
-            selectTime.helperTextContent = "*Wybierz godzinę"
+            // selectTime.helperTextContent = "*Wybierz godzinę"
 
         
         }else if(selectSubject.valid == false){
 
             selectSubject.valid = false
-            selectSubject.helperTextContent = "*Musisz wybrać temat spotkania"
+            // selectSubject.helperTextContent = "*Musisz wybrać temat spotkania"
 
-        }else if (emailField.valid !== true){
-            
-            // alert("Bledny email")
-            // emailField.classList.add("mdc-select--required")
-            emailField.valid = false
-            emailField.focus()
-            emailField.helperTextContent = "*Nieprawidłowy adres e-mail"
-            
-            // emailField.focus()
+        }else if (emailField.valid == false && emailField.value == ""){
+
+            // emailField.valid = false 
+            emailField.focus()   
+            // emailField.helperTextContent = "*Nieprawidłowy adres e-mail"
         
         }else if (checkbox_1.checked == false){
             // alert("Zaakceptuj oświadczenie nr 1" )

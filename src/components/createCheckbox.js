@@ -6,6 +6,8 @@ import {MDCCheckbox} from '@material/checkbox';
     const checkbox_2 = new MDCCheckbox(document.querySelector('#checkbox-2'));
 
     const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+
+    // const checkbox = new MDCCheckbox(document.querySelectorAll('div.mdc-checkbox'));
     
     formField.input = checkbox_1;
     formField.input = checkbox_2;
