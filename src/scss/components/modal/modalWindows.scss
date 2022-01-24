@@ -22,12 +22,13 @@
 }
 
 .okModal{
-  width: 650px;
-  height: 550px;
-}
-
-.okModalBody{
-  width: 60%;
+  padding: 30px;
+  padding-left: 50px;
+  min-width: 300px;
+  max-width: 600px;
+  line-height: 1.5;
+  text-align: justify;
+  font-weight: 400;
 }
 
 .okModalInactive{
@@ -64,6 +65,11 @@
 #overlay.active{
   opacity: 1;
   pointer-events: all;
+}
+
+.okModalHeader > .title > img{
+  width: 100px;
+  height: 100px;
 }
 
 

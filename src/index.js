@@ -203,7 +203,7 @@ const renderSubjects = (subjectList) => {
                 const li = document.createElement('li')
                 li.classList.add("mdc-list-item")
                 li.setAttribute("aria-selected", false)
-                li.setAttribute("data-value", id)
+                li.setAttribute("data-value", name)
                 li.setAttribute("role", "option")
                 li.innerHTML = `
                         <span class="mdc-list-item__ripple"></span>
@@ -296,7 +296,7 @@ button.addEventListener('click', (event) => {
                 email: emailField.value,
                 date: selectDate.value,
                 branchId: selectDepartment.value,
-                subjectId: selectSubject.value,
+                subjectId: selectSubject.selectedIndex,
                 time: selectTime.value, 
             }
             send(toSend)

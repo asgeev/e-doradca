@@ -11,24 +11,18 @@
         <meta name="description" content="">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
-
-
-
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="./img/favicon1.png"/>
         <!-- <link rel="stylesheet" href="./main.css" type="text/css"> -->
-
-
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-    
         
         <div id = "container"> 
                 <div id = "logoBox">
@@ -38,7 +32,7 @@
                 <div id = "formContainer">
                     <form action="">
                       <div id = "departmentContainer">
-                        <p>Wybierz swój oddział </p>
+                        <!-- <p>Wybierz swój oddział </p> -->
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor" 
                                  aria-labelledby="outlined-select-label" 
@@ -82,12 +76,12 @@
         
                             </div>
                           </div>
-                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz oddział z rozwijanej listy</p>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
-                            <p>Wybierz datę</p>
+                            <!-- <p>Wybierz datę</p> -->
                             <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                               <div class="mdc-select__anchor" 
                                    aria-labelledby="outlined-select-label"
@@ -96,7 +90,7 @@
                             <span class="mdc-notched-outline">
                               <span class="mdc-notched-outline__leading"></span>
                               <span class="mdc-notched-outline__notch">
-                                <span id="outlined-select-label" class="mdc-floating-label">Wybiez datę</span>
+                                <span id="outlined-select-label" class="mdc-floating-label">Wybierz datę</span>
                               </span>
                               <span class="mdc-notched-outline__trailing"></span>
                             </span>
@@ -127,13 +121,13 @@
                                 </ul>
                           </div>
                         </div>
-                        <p id="selectDateHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                        <p id="selectDateHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz datę</p>
 
                       </div>
                 
                       
                       <div id = "timeContainer">
-                      <p>Wybierz godzinę</p>
+                      <!-- <p>Wybierz godzinę</p> -->
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" 
                              aria-labelledby="outlined-select-label"
@@ -175,13 +169,60 @@
                         
                         </div>  
                     </div>
-                    <p id="selectTimeHelperText" class="mdc-select-helper-text--validation-msg"></p>
+                    <p id="selectTimeHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz godzinę</p>
 
                   </div>
                   </div>
+                  <div id = "subjectsContainer">
+                    <!-- <p>Wybierz temat spotkania </p> -->
+                    <div id="selectSubject" class="mdc-select mdc-select--outlined mdc-select--required">
+                        <div class="mdc-select__anchor" 
+                             aria-labelledby="outlined-select-label" 
+                             aria-controls="selectSubjectHelperText"
+                             aria-describedby="selectSubjectHelperText">
+                          <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                              <span id="outlined-select-label" class="mdc-floating-label">Wybierz temat</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                          </span>
+                          <span class="mdc-select__selected-text-container">
+                            <span id="selected-text" class="mdc-select__selected-text"></span>
+                          </span>
+                          <span class="mdc-select__dropdown-icon">
+                            <svg
+                                class="mdc-select__dropdown-icon-graphic"
+                                viewBox="7 10 10 5" focusable="false">
+                              <polygon
+                                  class="mdc-select__dropdown-icon-inactive"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 10 12 15 17 10">
+                              </polygon>
+                              <polygon
+                                  class="mdc-select__dropdown-icon-active"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 15 12 10 17 15">
+                              </polygon>
+                            </svg>
+                          </span>
+                        </div>
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                            <ul id="selectSubjectList" class="mdc-list" role="listbox" aria-label="Subjects listbox">
+                                <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
+                                    <span class="mdc-list-item__ripple"></span>
+                                  </li>
+                              </ul>
+    
+                        </div>
+                      </div>
+                      <p id="selectSubjectHelperText" class="mdc-select-helper-text--validation-msg">*Musisz wybrać temat spotkania</p>
+                    </div>
                         
                     <div id = "emailContainer">
-                        <p>Podaj adres e-mail</p>
+                        <!-- <p>Podaj adres e-mail</p>   -->
                           <label id = "emailField" 
                                  class="mdc-text-field mdc-text-field--outlined"
                                  aria-controls="emailFieldHelperText"
@@ -203,10 +244,10 @@
                     
                           
                     <div id = "regulationsContainer" class="regulationBox">
-                     
+    
                       <div id = "checkbox-1Box">
-                        <div id = "checkbox-1" class="mdc-form-field ">
-                          <div class="mdc-checkbox">
+                        <div id = "checkbox-1" class="mdc-form-field">
+                          <div class="mdc-checkbox mdc-checkbox--touch">
                             <input type="checkbox"
                                    class="mdc-checkbox__native-control"
                                    id="checkbox-1Input"/>
@@ -232,8 +273,8 @@
   
                       </div>
                       <div id = "checkbox-2Box">
-                        <div id = "checkbox-2"class="mdc-form-field errorCheckbox">
-                          <div class="mdc-checkbox">
+                        <div id = "checkbox-2"class="mdc-form-field">
+                          <div class="mdc-checkbox mdc-checkbox--touch">
                             <input type="checkbox"
                                    class="mdc-checkbox__native-control"
                                    id="checkbox-2Input"/>
@@ -251,9 +292,7 @@
                           <div>
                             <label id = "checkbox-2Label" for="checkbox-2" class= "checkboxesLabel">* Oświadczam, że jestem świadomy/świadoma, że:</label>
                           </div>
-                          
                         </div>
-                      
                         
                       <div class = "regulationsListBox">
                         <ul id = "regulationsList2"class="regulationsList checkbox-2Regulations">
@@ -266,6 +305,7 @@
                                 <button id = "saveButton" class="mdc-button mdc-button--raised">
                                 <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>
                                 </button> 
+                               
                         </div>
                         
                     </form>
@@ -276,18 +316,30 @@
         <div id= "okModal" class="modal okModal okModalInactive">
               <div class="okModalHeader">
                 <div id="title" class="title">
-                  Informacja
+                  <img src = "./icons/confirm_icon.png">
                 </div>
               </div>
               <div id="okModalBody" class="okModalBody">  
+                <!-- <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ. </p></n>
+                <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p></n>
+                <p>Termin spotkania: <strong>${selectDate.value}</strong>,</n><br> 
+                   Godzina: <strong>${selectTime.value}</strong></p></n>   
+                <p>Temat spotkania:<br>
+                <strong>${selectSubject.value}</strong></p></n>
+    
+                <p>Link do spotkania przyślemy do Ciebie na adres e-mail: <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<p></n>
+                <br>
+                <p>Do zobaczenia</p></n>
+    
+                <p><strong>Zespół e-Doradców NFZ</strong></p> -->
               </div>
               <div>
               <button id="okButton" class="mdc-button mdc-button--raised">
-                <span class="mdc-button__label">Zatwierdź</span>
+                <span class="mdc-button__label">OK</span>
               </button>
-              <button id="cancelButton" class="mdc-button mdc-button--raised">
+              <!-- <button id="cancelButton" class="mdc-button mdc-button--raised">
                 <span class="mdc-button__label">Anuluj</span>
-              </button>
+              </button> -->
             </div>
         </div>
             
@@ -306,10 +358,8 @@
               </div>
         </div>
 
-        <div id = "overlay"></div>
+        <div id = "overlay"></div> 
 
-            
-        
-            <script src="./main.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>

@@ -4,6 +4,7 @@ import { selectTime } from "./createSelectTime"
 import { selectDepartment } from "./createSelectDepartment"
 import { checkbox_1, checkbox_2} from "./createCheckbox"
 import { helperText } from "./helperText"
+import { selectSubject } from "./createSelectSubject"
 
 
 const overlay = () => {
@@ -31,16 +32,18 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
         
     p.innerHTML = `
-            Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.<br>
-            Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.<br>
-            Termin spotkania: <strong>${selectDate.value}</strong>, godzina <strong>${selectTime.value}</strong><br>   
-            Temat spotkania: .........................<br>
+                <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ. </p></n>
+                <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p></n>
+                <p>Termin spotkania: <strong>${selectDate.value}</strong>,</n><br> 
+                Godzina: <strong>${selectTime.value}</strong></p></n>   
+                <p>Temat spotkania:<br>
+                <strong>${selectSubject.value}</strong></p></n>
 
-            Link do spotkania przyślemy do Ciebie na adres e-mail <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<br>
+                <p>Link do spotkania przyślemy do Ciebie na adres e-mail: <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<p></n>
+                <br>
+                <p>Do zobaczenia</p></n>
 
-            Do zobaczenia<br>
-
-            Zespół e-Doradców NFZ<br>`
+                <p><strong>Zespół e-Doradców NFZ</strong></p>`
     
     okModalBody.appendChild(p)
 
