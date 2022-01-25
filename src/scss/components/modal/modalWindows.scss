@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    overflow: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
@@ -25,7 +26,8 @@
   padding: 30px;
   padding-left: 50px;
   min-width: 300px;
-  max-width: 600px;
+  width: 600px;
+  max-width: 100%;
   line-height: 1.5;
   text-align: justify;
   font-weight: 400;
@@ -70,6 +72,15 @@
 .okModalHeader > .title > img{
   width: 100px;
   height: 100px;
+}
+
+.errorModalHeader > .title > img{
+  width: 100px;
+  height: 100px;
+}
+
+.errorModalBody{
+  text-align: justify;
 }
 
 

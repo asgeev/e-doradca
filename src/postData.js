@@ -1,8 +1,8 @@
 import { openOkModal, openErrorModal } from "./components/modal"
 
 
-// const API_URL = 'https://e-doradca.nfz.gov.pl:8080/Booking/saveReservation'
-const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/saveReservation'
+const API_URL = 'http://e-doradca.nfz.gov.pl:8080/Booking/saveReservation'
+// const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/saveReservation'
 
 
 
