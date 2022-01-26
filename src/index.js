@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
     const state = true
     selectDate.disabled = state
     selectTime.disabled = state
-    // emailField.disabled = state
 })
 
 const render = (data) => {
@@ -47,7 +46,6 @@ const render = (data) => {
 
         selectDepartment.listen('MDCSelect:change',  () => {
 
-            // selectDepartment.helperTextContent = ""
 
             selectDepartment.valid = true
 
@@ -58,15 +56,12 @@ const render = (data) => {
             const currentId = selectDepartment.selectedIndex - 1
             
             const currentDepartment = data[currentId].dates
-
-            console.log(data[currentId])
             
             if (currentDepartment == undefined){
                 return
             }else{  
                 
                 selectTime.disabled = true
-                // emailField.disabled = true
                 renderDate(currentDepartment)
 
             }
@@ -79,10 +74,7 @@ const render = (data) => {
 
 const renderDate = (currentDepartment)   => {
 
-
         const currentDepartmentArray = Object.values(currentDepartment)
-        console.log(currentDepartmentArray)
-
 
         const fragment = document.createDocumentFragment()
                 currentDepartmentArray.map(({date}) => {
@@ -107,24 +99,19 @@ const renderDate = (currentDepartment)   => {
                 </li>
             `
 
-
             selectDateList.appendChild(fragment) 
 
             selectDate.layoutOptions()
 
-            
             selectDate.listen('MDCSelect:change',  () => {
 
-                // selectDate.helperTextContent = ""
-
-                console.log(selectDate.selectedIndex)
                 selectTime.setSelectedIndex(0)
+
                 selectTime.disabled = true
-                // emailField.disabled = true
                 
                 const selectedDateId = selectDate.selectedIndex -1
+                
                 const selectedDate = currentDepartmentArray[selectedDateId]
-                console.log(selectedDate)
 
                 if(selectedDate == undefined){
                     return
@@ -149,6 +136,7 @@ const renderTime = (selectedDate)   => {
         selectTime.setSelectedIndex(0) 
         
         const timeItems = selectedDate.avaiableTime
+        
         const timeItemsArray = Object.values(timeItems)
    
         const fragment = document.createDocumentFragment()
@@ -177,17 +165,6 @@ const renderTime = (selectedDate)   => {
             selectTimeList.appendChild(fragment) 
             
             selectTime.layoutOptions()
-            
-            selectTime.listen('MDCSelect:change', () => {
-
-                    // selectTime.helperTextContent = ""
-
-                    // emailField.disabled = false
-
-                    console.log(selectTime.selectedIndex, selectTime.value)
-
-            });
-
         }
     }
 
@@ -197,9 +174,9 @@ const renderSubjects = (subjectList) => {
             return;
         }else
         {
-            // const subjectListArray = Object.values(subjectList)
             const fragment = document.createDocumentFragment()
-            subjectList.map(({id,name}) => {
+            
+            subjectList.map(({name}) => {
                 const li = document.createElement('li')
                 li.classList.add("mdc-list-item")
                 li.setAttribute("aria-selected", false)
@@ -221,14 +198,6 @@ const renderSubjects = (subjectList) => {
             selectSubject.layoutOptions()
     
         }
-    
-            selectSubject.listen('MDCSelect:change', () => {
-                
-                // selectSubject.helperTextContent = ""
-                
-                console.log(`${selectSubject.selectedIndex}, ${selectSubject.value}`)
-            
-            })
     }
 
 
@@ -246,35 +215,29 @@ button.addEventListener('click', (event) => {
 
             top.scrollIntoView(top)
             selectDepartment.valid = false
-            // selectDepartment.helperTextContent = "*Wybierz oddział z rozwijanej listy"
         
         }else if(selectDate.value == ""){
             
             top.scrollIntoView(top)
             selectDate.valid = false
-            // selectDate.helperTextContent = "*Wybierz datę"
 
         
         }else if(selectTime.value == ""){
             
             top.scrollIntoView(top)
             selectTime.valid = false
-            // selectTime.helperTextContent = "*Wybierz godzinę"
 
         
         }else if(selectSubject.valid == false){
 
             selectSubject.valid = false
-            // selectSubject.helperTextContent = "*Musisz wybrać temat spotkania"
 
         }else if (emailField.valid == false && emailField.value == ""){
 
-            // emailField.valid = false 
             emailField.focus()   
-            // emailField.helperTextContent = "*Nieprawidłowy adres e-mail"
         
         }else if (checkbox_1.checked == false){
-            // alert("Zaakceptuj oświadczenie nr 1" )
+           
             checkbox_1Box.classList.add('error')
             openErrorModal()
             if(checkbox_2.checked == false){
@@ -283,7 +246,7 @@ button.addEventListener('click', (event) => {
                 return
             }
         }else if (checkbox_2.checked == false) {
-            // alert("Zaakceptuj oświadczenie nr 2" )
+            
             checkbox_2Box.classList.add('error')
             openErrorModal()
             if(checkbox_1.checked == false){
@@ -306,6 +269,7 @@ button.addEventListener('click', (event) => {
 
 
 const errorRegulationsCheckbox1 = document.getElementById('checkbox-1Input')
+
 const checkbox_1Box = document.getElementById("checkbox-1Box")
 
 errorRegulationsCheckbox1.addEventListener("click", () => {
@@ -320,8 +284,8 @@ errorRegulationsCheckbox1.addEventListener("click", () => {
 
 
 const errorRegulationsCheckbox2 = document.getElementById('checkbox-2Input')
-const checkbox_2Box = document.getElementById("checkbox-2Box")
 
+const checkbox_2Box = document.getElementById("checkbox-2Box")
 
 errorRegulationsCheckbox2.addEventListener("click", () => {
 
@@ -334,53 +298,7 @@ errorRegulationsCheckbox2.addEventListener("click", () => {
 })
 
 
-
-
-
 export {
     render,
     renderSubjects,
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-// const send = document.querySelector('#send')
-// const date = document.querySelectorAll('input[type=date]')
-
-// console.log( success )
-
-/*
-const dataList = data.map(({id, name}) =>{
-    const select = document.getElementById("select")
-    const option = document.createElement("option")
-    option.text = Oddział
-    option.value = id
-    select.add(option)
-})*/
-

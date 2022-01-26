@@ -101,7 +101,11 @@ select {
     }
   }
 
-
+@media only screen and ( max-width: 450px ) {
+    body {
+      display: inline-block;
+    }
+}
   
   
 

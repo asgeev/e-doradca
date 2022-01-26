@@ -5,16 +5,18 @@ import {MDCCheckbox} from '@material/checkbox';
 
     const checkbox_2 = new MDCCheckbox(document.querySelector('#checkbox-2'));
 
-    const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+    const formField1 = new MDCFormField(document.querySelector('#checkbox-1'));
+
+    const formField2 = new MDCFormField(document.querySelector('.mdc-form-field'));
 
     // const checkbox = new MDCCheckbox(document.querySelectorAll('div.mdc-checkbox'));
     
-    formField.input = checkbox_1;
-    formField.input = checkbox_2;
+    formField1.input = checkbox_1;
+    formField2.input = checkbox_2;
 
 
 
 export{
     checkbox_1,
-    checkbox_2,
+    // checkbox_2,
 }
