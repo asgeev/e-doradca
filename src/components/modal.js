@@ -28,6 +28,7 @@ const openOkModal = () => {
     okModal.classList.toggle("okModalInactive")
 
     const p = document.createElement('p')
+
     
     okModalBody.innerHTML = ""
         
