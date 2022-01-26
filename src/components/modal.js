@@ -21,6 +21,7 @@ const openOkModal = () => {
     
     overlay()
 
+
     const okModal = document.getElementById("okModal")
 
     const okModalBody = document.getElementById('okModalBody')
@@ -28,8 +29,7 @@ const openOkModal = () => {
     okModal.classList.toggle("okModalInactive")
 
     const p = document.createElement('p')
-
-    
+                                    
     okModalBody.innerHTML = ""
         
     p.innerHTML = `
@@ -71,8 +71,6 @@ const openErrorModal = (responseText) => {
 
     overlay()
     
-    console.log(responseText) 
-    
     const errorModal = document.getElementById('errorModal')
 
     const errorModalBody = document.getElementById("errorModalBody")
@@ -99,7 +97,7 @@ const openErrorModal = (responseText) => {
 }
 
 
-const errorButton = document.getElementById("errorButton")
+    const errorButton = document.getElementById("errorButton")
 
         errorButton.addEventListener('click', () => {
     
@@ -107,7 +105,6 @@ const errorButton = document.getElementById("errorButton")
 
         overlay()
 })
-
 
 
 
