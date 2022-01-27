@@ -11,7 +11,12 @@ const overlay = () => {
     const overlay = document.getElementById("overlay")
 
     overlay.classList.toggle("active")
+
+    const body = document.querySelector('body')
+
+    body.classList.toggle("modalOpen")
 }
+
 
 
 

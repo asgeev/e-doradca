@@ -33,22 +33,17 @@
   font-weight: 400;
 }
 
+.okModalHeader > .title > img{
+  width: 100px;
+  height: 100px;
+}
+
 .okModalInactive{
   display: none;
-  }
+}
+
+
   
-
-.errorModalInactive{
-  display: none;
-}
-
-.errorModal{
-  padding: 40px;
-}
-
-.errorModalBody{
-  padding: 15px;
-}
 
 
 
@@ -59,7 +54,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0, .8);
+  background-color: rgba(0,0,0, .9);
   pointer-events: none;
   z-index: 90;
 }
@@ -69,9 +64,17 @@
   pointer-events: all;
 }
 
-.okModalHeader > .title > img{
-  width: 100px;
-  height: 100px;
+.errorModalInactive{
+  display: none;
+}
+
+.errorModal{
+  max-width: 400px;
+  padding: 40px;
+}
+
+.errorModalBody{
+  margin: 20px 0 20px 0px;
 }
 
 .errorModalHeader > .title > img{
@@ -83,6 +86,9 @@
   text-align: justify;
 }
 
+#errorButtonBox{
+  width: 100%;
+}
 
 
 
