@@ -8,9 +8,12 @@
 @use "./components/helpersText/helpersText.scss";
 @use "./components/selectSubject/subjectsContainer.scss";
 
+
 :root{
     --leftBackgroundColor: #2C3F7C ;
     --rightBackgroundColor: white;
+    --buttonPrimaryColor: rgb(48, 63, 159);
+
 }
 
 html {

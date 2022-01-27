@@ -1,7 +1,52 @@
 @use "@material/button/styles" as button-styles;
 
 
+
+
 #reservationBox{
     text-align: right;
-    margin: 20px 10px 30px 10px;
+    margin: 20px 0 30px 10px;
 }
+
+
+
+
+#saveButton{
+    background-color: var(--buttonPrimaryColor);
+    padding: 20px 50px 20px 50px;
+}
+
+
+
+#errorButton{
+    background-color: var(--buttonPrimaryColor);
+    width: 80%;
+}
+
+
+#saveButton:focus-visible,
+#errorButton:focus-visible,
+#okButton:focus-visible{
+    outline: 2px solid black;
+    background-color: white;
+    color: black;           
+}
+
+
+#saveButton:hover,
+#errorButton:hover,
+#okButton:hover{
+    background-color: rgba(48, 63, 159, .8);
+    outline: none;
+    color: white;
+}
+
+#saveButton:active,
+#errorButton:active,
+#okButton:active    {
+    background-color: rgba(48, 63, 159, .95);
+    outline: none;
+    color: white;
+}
+
+

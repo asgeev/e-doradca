@@ -248,11 +248,10 @@ button.addEventListener('click', (event) => {
             }
         }else if (checkbox_2.checked == false) {
             
-            checkbox_2Box.classList.add('error')
             openErrorModal()
             
-            openErrorModal.focus(true)
-
+            checkbox_2Box.classList.add('error')
+            
             if(checkbox_1.checked == false){
                 checkbox_1Box.classList.add('error')
             }else{
