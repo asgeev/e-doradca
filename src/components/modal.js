@@ -10,9 +10,9 @@ import { selectSubject } from "./createSelectSubject"
 const overlay = () => {
     const overlay = document.getElementById("overlay")
 
-    overlay.classList.toggle("active")
-
     const body = document.querySelector('body')
+
+    overlay.classList.toggle("active")
 
     body.classList.toggle("modalOpen")
 }

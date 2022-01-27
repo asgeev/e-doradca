@@ -31,7 +31,7 @@
 }
 
 .error > div{
-    color:red;
+    color: var(--errorColor);
 }
 
 #regulationsList1 > li:first-child{
