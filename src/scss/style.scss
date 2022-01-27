@@ -14,7 +14,8 @@
     --rightBackgroundColor: white;
     --buttonPrimaryColor: rgb(48, 63, 159);
     --errorColor: #C20020;
-
+    --mdc-checkbox-checked-color: var(--buttonPrimaryColor);
+    --mdc-ripple-color: var(--buttonPrimaryColor);
 }
 
 html {

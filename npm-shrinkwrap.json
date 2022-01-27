@@ -17,6 +17,7 @@
         "@material/menu": "^13.0.0",
         "@material/select": "^13.0.0",
         "@material/textfield": "^13.0.0",
+        "@material/theme": "^13.0.0",
         "babel-loader": "^8.2.3",
         "lodash": "^4.17.21",
         "terser": "^5.10.0"
