@@ -7,7 +7,31 @@ import { helperText } from "./helperText"
 import { selectSubject } from "./createSelectSubject"
 
 
+
+const disableAllFields = (state) =>{
+        
+    const link = document.querySelector('a')
+
+    selectDepartment.disabled = state
+    selectDate.disabled = state
+    selectTime.disabled = state
+    selectSubject.disabled = state
+    emailField.disabled = state 
+    checkbox_1.disabled = state
+    checkbox_2.disabled = state
+    saveButton.disabled = state
+
+    if(state == true){
+        link.setAttribute("tabindex", "-1")
+    }else if (state == false){
+        link.removeAttribute("tabindex")
+    }
+
+}
+
+
 const overlay = () => {
+
     const overlay = document.getElementById("overlay")
 
     const body = document.querySelector('body')
@@ -15,6 +39,7 @@ const overlay = () => {
     overlay.classList.toggle("active")
 
     body.classList.toggle("modalOpen")
+
 }
 
 
@@ -26,6 +51,7 @@ const openOkModal = () => {
     
     overlay()
 
+    disableAllFields(true)  
 
     const okModal = document.getElementById("okModal")
 
@@ -75,6 +101,8 @@ const openOkModal = () => {
 const openErrorModal = (responseText) => {
 
     overlay()
+
+    disableAllFields(true)
     
     const errorModal = document.getElementById('errorModal')
 
@@ -109,6 +137,8 @@ const openErrorModal = (responseText) => {
         errorModal.classList.toggle("errorModalInactive")
 
         overlay()
+
+        disableAllFields(false)
 })
 
 
