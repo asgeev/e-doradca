@@ -8,21 +8,19 @@
     margin: 20px 0 30px 10px;
 }
 
-
-
-
-#saveButton{
+#errorButton, #okButton, #saveButton{
     background-color: var(--buttonPrimaryColor);
+}
+
+
+
+#saveButton, #okButton{
     padding: 20px 50px 20px 50px;
 }
 
-
-
 #errorButton{
-    background-color: var(--buttonPrimaryColor);
     width: 100%;
 }
-
 
 
 #saveButton:focus-visible,
@@ -49,5 +47,10 @@
     outline: none;
     color: white;
 }
+
+
+
+
+
 
 

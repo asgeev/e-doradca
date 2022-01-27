@@ -121,9 +121,9 @@ select {
 
 .animation{
   animation-name: slideIn ;
-  animation-duration: 1s;
+  animation-duration: 400ms;
   animation-fill-mode: both;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in-out;
 }
 
 

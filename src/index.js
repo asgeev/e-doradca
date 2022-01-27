@@ -197,6 +197,8 @@ const renderSubjects = (subjectList) => {
             selectSubjectList.appendChild(fragment) 
             
             selectSubject.layoutOptions()
+
+
     
         }
     }
@@ -208,7 +210,7 @@ const animation = (field) => {
             
     setTimeout(() => {
                 field.classList.remove("animation")
-            }, 1000)
+            }, 400)
 }
 
 
@@ -268,6 +270,8 @@ button.addEventListener('click', (event) => {
             emailField.valid = false
 
             emailField.focus()
+
+            emailField.helperTextContent = "*Niepoprawny adres e-mail"
             
             const emailFieldHelperText = document.querySelector("#emailFieldHelperText")
             
@@ -276,6 +280,7 @@ button.addEventListener('click', (event) => {
         }else if (checkbox_1.checked == false){
            
             checkbox_1Box.classList.add('error')
+
             openErrorModal()
 
             if(checkbox_2.checked == false){
@@ -319,7 +324,6 @@ errorRegulationsCheckbox1.addEventListener("click", () => {
         }else if(checkbox_1.checked == false) {
             checkbox_1Box.classList.add('error')
         }
-        
 })
 
 
