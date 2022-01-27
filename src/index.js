@@ -10,6 +10,7 @@ import {selectSubject} from './components/createSelectSubject';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
 import {openErrorModal} from './components/modal';
 import {helperText} from './components/helperText';
+import { delay } from 'lodash';
 
 
 window.addEventListener('load', () => {
@@ -201,11 +202,21 @@ const renderSubjects = (subjectList) => {
     }
 
 
+const animation = (field) => {
+    
+    field.classList.add("animation")
+            
+    setTimeout(() => {
+                field.classList.remove("animation")
+            }, 1000)
+}
 
 
 const button = document.getElementById('saveButton')
 
 button.addEventListener('click', (event) => {
+
+
 
         const top = document.getElementById('container') 
 
@@ -213,29 +224,55 @@ button.addEventListener('click', (event) => {
 
         if(selectDepartment.value == ""){
 
-            top.scrollIntoView(top)
-            selectDepartment.valid = false
+            selectDepartment.valid = false   
+
+            const selectDepartmentHelperText = document.querySelector('#selectDepartmentHelperText')
         
+            animation(selectDepartmentHelperText)
+    
+            top.scrollIntoView(top)
+
         }else if(selectDate.value == ""){
             
             top.scrollIntoView(top)
+
             selectDate.valid = false
+            
+            const selectDateHelperText = document.querySelector("#selectDateHelperText")
+            
+            animation(selectDateHelperText)
 
         
         }else if(selectTime.value == ""){
             
             top.scrollIntoView(top)
+            
             selectTime.valid = false
 
+            const selectTimeHelperText = document.querySelector("#selectTimeHelperText")
         
+            animation(selectTimeHelperText)
+
         }else if(selectSubject.valid == false){
+
+            top.scrollIntoView(top)
 
             selectSubject.valid = false
 
+            const selectSubjectHelperText = document.querySelector("#selectSubjectHelperText")
+            
+            animation(selectSubjectHelperText)
+        
         }else if (emailField.valid == false && emailField.value == ""){
 
-            emailField.focus()   
-        
+            emailField.valid = false
+
+            emailField.focus()
+            
+            const emailFieldHelperText = document.querySelector("#emailFieldHelperText")
+            
+            animation(emailFieldHelperText)
+
         }else if (checkbox_1.checked == false){
            
             checkbox_1Box.classList.add('error')

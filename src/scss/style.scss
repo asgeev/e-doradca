@@ -39,6 +39,7 @@ body {
     align-items: center;
     width: 600px;
     min-width: 400px;
+    min-height: 600px;
     z-index: 2;
     margin: 20px;
     background: white;
@@ -114,4 +115,24 @@ select {
     body {
       display: inline-block;
     }
+}
+
+
+
+.animation{
+  animation-name: slideIn ;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+  }
+  to{
+    transform: translateX(0px);
+  }
+  
 }

@@ -54,7 +54,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0, .6);
+  background-color: rgba(0,0,0, .9);
   pointer-events: none;
   z-index: 90;
 }
@@ -70,22 +70,20 @@
 
 .errorModal{
   max-width: 400px;
+  min-width: 300px;
   padding: 40px;
 }
 
 .errorModalBody{
-  margin: 20px 0 20px 0px;
+  margin: 60px 0 20px 0px;
+  font-size: 18px;
+  text-align: center;
 }
 
 .errorModalHeader > .title > img{
   width: 100px;
   height: 100px;
 }
-
-.errorModalBody{
-  text-align: justify;
-}
-
 #errorButtonBox{
   width: 100%;
 }
