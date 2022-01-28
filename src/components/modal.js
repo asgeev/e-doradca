@@ -5,6 +5,7 @@ import { selectDepartment } from "./createSelectDepartment"
 import { checkbox_1, checkbox_2} from "./createCheckbox"
 import { helperText } from "./helperText"
 import { selectSubject } from "./createSelectSubject"
+import { over } from "lodash"
 
 
 
@@ -81,22 +82,29 @@ const openOkModal = () => {
 
     const okButton = document.getElementById('okButton')
 
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape'){
+            
+            okModal.classList.add("okModalInactive")
+
+            overlay()
+        
+            window.location.reload(true)
+        }
+    })
+    
+
     okButton.addEventListener('click', () => {
         
         okModal.classList.toggle("okModalInactive")
+
+        overlay()
         
-        location.reload()
+        window.location.reload(true)
     })
 
 
 }
-    
-
-
-
-
-
-
 
 const openErrorModal = (responseText) => {
 
@@ -110,7 +118,7 @@ const openErrorModal = (responseText) => {
 
     const p = document.createElement('p')
     
-    errorModal.classList.toggle("errorModalInactive")
+    errorModal.classList.remove("errorModalInactive")
 
     errorModalBody.innerHTML = ""
     
@@ -127,29 +135,38 @@ const openErrorModal = (responseText) => {
     
     errorModalBody.appendChild(p)
 
+       
 }
 
 
-    const errorButton = document.getElementById("errorButton")
+const errorButton = document.getElementById("errorButton")
 
-        errorButton.addEventListener('click', () => {
-    
-        errorModal.classList.toggle("errorModalInactive")
+errorButton.addEventListener('click', () => {
 
-        overlay()
+    errorModal.classList.add("errorModalInactive")
 
-        disableAllFields(false)
+    overlay()
+
+    disableAllFields(false)
 })
 
 
+//  document.addEventListener('keydown', (event) => {
+        
+//         if (event.key === 'Escape'){
 
-
-
-
-
-
-
+//             errorModal.classList.add("okModalInactive")
     
+//             const overlay = document.getElementById("overlay")
+
+//             overlay.classList.remove('active')
+
+//             disableAllFields(false)
+
+//         }})
+
+
+ 
 
 
 

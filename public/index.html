@@ -16,7 +16,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="./img/favicon.png"/>
-        <!-- <link rel="stylesheet" href="./main.css" type="text/css"> -->
+        <link rel="stylesheet" href="./main.css" type="text/css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -25,13 +25,11 @@
         
         <div id = "container"> 
                 <div id = "logoBox">
-                    <!-- <img src="./img/Logo_NFZ.svg">                  -->
                   <img src = "./img/e-doradca.png">
                 </div>
                 <div id = "formContainer">
                     <form  action="">
                       <div id = "departmentContainer">
-                        <!-- <p>Wybierz swój oddział </p> -->
                         <div id="selectDepartment" class="mdc-select mdc-select--outlined mdc-select--required">
                             <div class="mdc-select__anchor"
                                  aria-required="true" 
@@ -76,12 +74,11 @@
         
                             </div>
                           </div>
-                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz oddział z rozwijanej listy</p>
+                          <p id="selectDepartmentHelperText" class="mdc-select-helper-text--validation-msg">*Wybierz oddział z listy</p>
                         </div>
 
                         <div id = "dateAndTimeContainer">
                           <div id = "dateContainer">
-                            <!-- <p>Wybierz datę</p> -->
                             <div id="selectDate" class="mdc-select mdc-select--outlined mdc-select--required">
                               <div class="mdc-select__anchor" 
                                    aria-labelledby="outlined-select-label"
@@ -127,7 +124,6 @@
                 
                       
                       <div id = "timeContainer">
-                      <!-- <p>Wybierz godzinę</p> -->
                       <div id="selectTime" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" 
                              aria-labelledby="outlined-select-label"
@@ -174,7 +170,6 @@
                   </div>
                   </div>
                   <div id = "subjectsContainer">
-                    <!-- <p>Wybierz temat spotkania </p> -->
                     <div id="selectSubject" class="mdc-select mdc-select--outlined mdc-select--required">
                         <div class="mdc-select__anchor" 
                              aria-labelledby="outlined-select-label" 
@@ -236,7 +231,7 @@
                                 <input type="email" required minlength="5" class="mdc-text-field__input" aria-labelledby="my-label-id">
                             </label>
                             <div class="mdc-text-field-helper-line">
-                              <div class="mdc-text-field-helper-text" id="emailFieldHelperText" aria-hidden="true"></div>
+                              <div class="mdc-text-field-helper-text" id="emailFieldHelperText"></div>
                             </div>
                     </div>
 
@@ -266,8 +261,8 @@
                         
                         <div class = "regulationsListBox">
                           <ul id = "regulationsList1" class="regulationsList checkbox-1Regulations">
-                            <li>przetwarzanie moich danych osobowych podanych podczas rezerwacji usługi e-Doradca NFZ – zgodnie z klauzulą informacyjną dotyczącą przetwarzania danych osobowych przez Narodowy Fundusz Zdrowia w sprawie realizacji zadań statutowych i obowiązków ustawowych - <a href="https://www.nfz.gov.pl/bip/informacja-ado-nfz/" target="_blank"><strong>klauzula</strong></a>,</li>
-                            <li>przetwarzanie dźwięku podczas spotkania online z e-Doradcą NFZ</li>
+                            <li>przetwarzanie moich danych osobowych podanych podczas rezerwacji usługi e-Doradca NFZ – zgodnie z klauzulą informacyjną dotyczącą przetwarzania danych osobowych przez Narodowy Fundusz Zdrowia w sprawie realizacji zadań statutowych i obowiązków ustawowych - <a class = "link" href="https://www.nfz.gov.pl/bip/informacja-ado-nfz/" target="_blank"><strong>klauzula</strong></a>,</li>
+                            <li>przetwarzanie dźwięku i wizerunku podczas spotkania online z e-Doradcą NFZ</li>
                           </ul>
                         </div>
   
@@ -303,47 +298,29 @@
                     </div>
                         <div id = "reservationBox">
                                 <button id = "saveButton" class="mdc-button mdc-button--raised">
-                                <span class="mdc-button__label"><input type = "submit" hidden>Zarezerwuj</span>
+                                <span class="mdc-button__label"><input type = "submit" hidden></input>Zarezerwuj</span>
                                 </button> 
                                
                         </div>
                         
                     </form>
             </div>
-        
-    
-
-        <div id= "okModal" class="modal okModal okModalInactive" tabindex="-1">
+        <div id= "okModal" class="modal okModal okModalInactive">
               <div class="okModalHeader">
                 <div id="title" class="title">
                   <img src = "./icons/confirm.png">
                 </div>
               </div>
               <div id="okModalBody" class="okModalBody">  
-                <!-- <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ. </p></n>
-                <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p></n>
-                <p>Termin spotkania: <strong>${selectDate.value}</strong>,</n><br> 
-                   Godzina: <strong>${selectTime.value}</strong></p></n>   
-                <p>Temat spotkania:<br>
-                <strong>${selectSubject.value}</strong></p></n>
-    
-                <p>Link do spotkania przyślemy do Ciebie na adres e-mail: <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<p></n>
-                <br>
-                <p>Do zobaczenia</p></n>
-    
-                <p><strong>Zespół e-Doradców NFZ</strong></p> -->
               </div>
-              <div>
-              <button id="okButton" class="mdc-button mdc-button--raised">
+              <div id = "okButtonBox">
+              <button id="okButton" class="mdc-button mdc-button--raised" tabindex="1">
                 <span class="mdc-button__label">OK</span>
               </button>
-              <!-- <button id="cancelButton" class="mdc-button mdc-button--raised">
-                <span class="mdc-button__label">Anuluj</span>
-              </button> -->
             </div>
         </div>
             
-        <div id= "errorModal" class="modal errorModal errorModalInactive" tabindex="-1">
+        <div id= "errorModal" class="modal errorModal errorModalInactive">
               <div class="errorModalHeader">
                 <div id="title" class="title">
                   <img src = "./icons/warning.png">
@@ -351,8 +328,8 @@
               </div>
               <div id="errorModalBody" class="errorModalBody">  
               </div>
-              <div>
-                <button id="errorButton" class="mdc-button mdc-button--raised">
+              <div id = "errorButtonBox">
+                <button id="errorButton" class="mdc-button mdc-button--raised" tabindex="1">
                   <span class="mdc-button__label">Anuluj</span>
                 </button>
               </div>

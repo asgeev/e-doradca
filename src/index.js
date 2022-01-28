@@ -10,7 +10,6 @@ import {selectSubject} from './components/createSelectSubject';
 import {checkbox_1, checkbox_2} from './components/createCheckbox';
 import {openErrorModal} from './components/modal';
 import {helperText} from './components/helperText';
-import { delay } from 'lodash';
 
 
 window.addEventListener('load', () => {
@@ -265,7 +264,7 @@ button.addEventListener('click', (event) => {
             
             animation(selectSubjectHelperText)
         
-        }else if (emailField.valid == false && emailField.value == ""){
+        }else if (emailField.valid == false){
 
             emailField.valid = false
 
@@ -313,6 +312,7 @@ button.addEventListener('click', (event) => {
 })
 
 
+
 const errorRegulationsCheckbox1 = document.getElementById('checkbox-1Input')
 
 const checkbox_1Box = document.getElementById("checkbox-1Box")
@@ -340,6 +340,9 @@ errorRegulationsCheckbox2.addEventListener("click", () => {
         }
         
 })
+
+
+
 
 
 export {

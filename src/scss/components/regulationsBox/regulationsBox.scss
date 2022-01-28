@@ -41,3 +41,8 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+a.link:focus{
+    border: 2px solid ;
+    border-color: black;
+}

@@ -1,6 +1,6 @@
 import { render } from "./index"
 
-// const API_URL = 'http://e-doradca.nfz.gov.pl:8080/Booking/getBranchListWithCalendar/'
+// const API_URL = 'https://e-doradca.nfz.gov.pl:8080/Booking/getBranchListWithCalendar/'
 const API_URL = 'https://e-doradca.nfz-lublin.pl:8080/Booking/getBranchListWithCalendar/'
 
 const getSuccess = (data) => {
