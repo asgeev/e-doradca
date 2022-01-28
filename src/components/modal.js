@@ -73,6 +73,7 @@ const openOkModal = () => {
                 <strong>${selectSubject.value}</strong></p></n>
 
                 <p>Link do spotkania przyślemy do Ciebie na adres e-mail: <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<p></n>
+                <p>Link do spotkania 
                 <br>
                 <p>Do zobaczenia</p></n>
 
