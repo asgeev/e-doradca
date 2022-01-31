@@ -18,11 +18,17 @@ const send = (data) => {
         xhr.onreadystatechange = () => {
             if(xhr.readyState === XMLHttpRequest.DONE){
                 const status = xhr.status
-                if(status === 0 || (status >= 200 && status < 400)){
+                if((status >= 200 && status < 400)){
 
                     openOkModal()
 
-                }else{
+                }else if(status === 0 || status == 500){
+                    
+                    const errorText = { message: "Proszę spróbować ponownie później"}
+                    
+                    openErrorModal(errorText)
+                }
+                else{
                     
                     const responseText = JSON.parse(xhr.responseText)
                     

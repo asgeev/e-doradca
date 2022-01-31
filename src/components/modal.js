@@ -27,7 +27,6 @@ const disableAllFields = (state) =>{
     }else if (state == false){
         link.removeAttribute("tabindex")
     }
-
 }
 
 
@@ -108,6 +107,8 @@ const openOkModal = () => {
 }
 
 const openErrorModal = (responseText) => {
+
+    console.log(responseText)
 
     overlay()
 

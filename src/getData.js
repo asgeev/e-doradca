@@ -16,9 +16,12 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = getSuccess
-    
-xhr.onerror = error
+
+if (xhr.status === 0 || (xhr.status >= 200 && xhr.status < 400)){
+    xhr.onload = getSuccess
+}else{
+    xhr.onerror = error
+}
 
 xhr.open('GET', API_URL)
 

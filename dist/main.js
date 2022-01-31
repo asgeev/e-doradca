@@ -28019,7 +28019,6 @@ const disableAllFields = (state) =>{
     }else if (state == false){
         link.removeAttribute("tabindex")
     }
-
 }
 
 
@@ -28100,6 +28099,8 @@ const openOkModal = () => {
 }
 
 const openErrorModal = (responseText) => {
+
+    console.log(responseText)
 
     overlay()
 
@@ -28203,9 +28204,12 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = getSuccess
-    
-xhr.onerror = error
+
+if (xhr.status === 0 || (xhr.status >= 200 && xhr.status < 400)){
+    xhr.onload = getSuccess
+}else{
+    xhr.onerror = error
+}
 
 xhr.open('GET', API_URL)
 
@@ -28676,11 +28680,17 @@ const send = (data) => {
         xhr.onreadystatechange = () => {
             if(xhr.readyState === XMLHttpRequest.DONE){
                 const status = xhr.status
-                if(status === 0 || (status >= 200 && status < 400)){
+                if((status >= 200 && status < 400)){
 
                     (0,_components_modal__WEBPACK_IMPORTED_MODULE_0__.openOkModal)()
 
-                }else{
+                }else if(status === 0 || status == 500){
+                    
+                    const errorText = { message: "Proszę spróbować ponownie później"}
+                    
+                    ;(0,_components_modal__WEBPACK_IMPORTED_MODULE_0__.openErrorModal)(errorText)
+                }
+                else{
                     
                     const responseText = JSON.parse(xhr.responseText)
                     
