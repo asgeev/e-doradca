@@ -5,7 +5,7 @@ import { selectDepartment } from "./createSelectDepartment"
 import { checkbox_1, checkbox_2} from "./createCheckbox"
 import { helperText } from "./helperText"
 import { selectSubject } from "./createSelectSubject"
-import { over } from "lodash"
+import { over, reverse } from "lodash"
 
 
 
@@ -62,21 +62,34 @@ const openOkModal = () => {
     const p = document.createElement('p')
                                     
     okModalBody.innerHTML = ""
-        
-    p.innerHTML = `
-                <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ. </p></n>
-                <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p></n>
-                <p>Termin spotkania: <strong>${selectDate.value}</strong>,</n><br> 
-                Godzina: <strong>${selectTime.value}</strong></p></n>   
-                <p>Temat spotkania:<br>
-                <strong>${selectSubject.value}</strong></p></n>
 
-                <p>Link do spotkania przyślemy do Ciebie na adres e-mail: <strong>${emailField.value}</strong> po wygenerowaniu w aplikacji Microsoft Teams.<p></n>
-                <p>Link do spotkania 
-                <br>
-                <p>Do zobaczenia</p></n>
+    p.innerHTML = `  
+            <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
+            <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
+            <div class="okModalBodyBox">
+            <img src = "./icons/calendar.png">
+            <p><strong>Termin spotkania: </strong>${selectDate.value}</p>
+            </div>
+            <div class="okModalBodyBox">
+            <img src = "./icons/clock.png">
+                <p><strong>Godzina: </strong>${selectTime.value}</p>
+            </div>
+            <div class="okModalBodyBox">
+            <img src = "./icons/email.png">
+                <p><strong>Adres e-mail: </strong>${emailField.value}</p>
+            </div>
+            <div class="okModalBodyBox">
+            <img src = "./icons/chat.png">
+                <p><strong>Temat spotkania: </strong></p>
+                <p>${selectSubject.value}</p>
+            </div>
+            <br>
+            <p>Link do spotkania przyślemy do Ciebie na wskazany adres po wygenerowaniu w aplikacji Microsoft Teams.<p>
 
-                <p><strong>Zespół e-Doradców NFZ</strong></p>`
+            <br>  
+            <p>Do zobaczenia</p>
+            <p><strong>Zespół e-Doradców NFZ</strong></p>
+        `
     
     okModalBody.appendChild(p)
 

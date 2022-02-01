@@ -32,12 +32,6 @@ body {
     height: 100%;
 }
 
-
-// #link:focus{
-//   outline: none;
-//   border: none;           
-// }
-
 a:focus,
 button:focus,
 input:focus,
@@ -45,13 +39,11 @@ input:focus,
   outline: none;
 }
 
-
 a:focus{  
   outline: solid 2px rgb(88, 88, 88);  
   border-radius: 2px;
   padding: 1px;
 }
-
 
 #container {
     display: flex;
