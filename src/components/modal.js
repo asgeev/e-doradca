@@ -64,7 +64,7 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
 
     p.innerHTML = `  
-            <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
+            <p><strong>Dzień dobry</strong>, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
             <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
             <div class="okModalBodyBox">
             <img src = "./icons/calendar.png">
@@ -76,16 +76,14 @@ const openOkModal = () => {
             </div>
             <div class="okModalBodyBox">
             <img src = "./icons/email.png">
-                <p><strong>Adres e-mail: </strong>${emailField.value}</p>
+                <p style = "text-align:left" ><strong>Adres e-mail: </strong>${emailField.value}</p>
             </div>
             <div class="okModalBodyBox">
             <img src = "./icons/chat.png">
-                <p><strong>Temat spotkania: </strong></p>
-                <p>${selectSubject.value}</p>
+                <p style = "text-align:left"><strong>Temat spotkania: </strong>${selectSubject.value}</p>
             </div>
             <br>
             <p>Link do spotkania przyślemy do Ciebie na wskazany adres po wygenerowaniu w aplikacji Microsoft Teams.<p>
-
             <br>  
             <p>Do zobaczenia</p>
             <p><strong>Zespół e-Doradców NFZ</strong></p>

@@ -318,32 +318,7 @@
           </div>
         </div>
         <div id="okModalBody" class="okModalBody">  
-          <!-- <p>Dzień dobry, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
-          <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
-          <div class="okModalBodyBox">
-            <img src = "./icons/calendar.png">
-            <p><strong>Termin spotkania: </strong>${selectDate.value}</p>
-          </div>
-          <div class="okModalBodyBox">
-            <img src = "./icons/clock.png">
-              <p><strong>Godzina: </strong>${selectTime.value}</p>
-          </div>
-          <div class="okModalBodyBox">
-            <img src = "./icons/email.png">
-              <p><strong>Adres e-mail: </strong>${emailField.value}</p>
-          </div>
-          <div class="okModalBodyBox">
-            <img src = "./icons/chat.png">
-              <p><strong>Temat spotkania:</strong></p>
-              <p>Zasady wypełniania i składania wniosków o EKUZ oraz certyfikatu zastępującego EKUZ</p>
-          </div>
-          <br>
-          <p>Link do spotkania przyślemy do Ciebie na wskazany adres po wygenerowaniu w aplikacji Microsoft Teams.<p>
-
-          <br>  
-          <p>Do zobaczenia</p>
-          <p><strong>Zespół e-Doradców NFZ</strong></p>
-         -->
+         
         </div>
 
         <div id = "okButtonBox">
@@ -355,18 +330,23 @@
       
   <div id= "errorModal" class="modal errorModal errorModalInactive">
         <div class="errorModalHeader">
-          <div id="title" class="title">
-            <img src = "./icons/warning.png">
+          
+          <div class = "errorModalHeaderBox"> 
+            <div id="title" class="title">
+              <img src = "./icons/warning (1).png">
+            </div>
+            <div id="errorModalBody" class="errorModalBody">
+            </div>
           </div>
+
+          <div class = "errorButtonBox">
+            <button id="errorButton" class="mdc-button mdc-button--raised" tabindex="1">
+              <span class="mdc-button__label">Anuluj</span>
+            </button>
+          </div>
+
         </div>
-        <div id="errorModalBody" class="errorModalBody">  
-        </div>
-        <div id = "errorButtonBox">
-          <button id="errorButton" class="mdc-button mdc-button--raised" tabindex="1">
-            <span class="mdc-button__label">Anuluj</span>
-          </button>
-        </div>
-  </div>
+  </div>  
 
   <div id = "overlay"></div> 
 
