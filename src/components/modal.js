@@ -59,11 +59,11 @@ const openOkModal = () => {
 
     okModal.classList.toggle("okModalInactive")
 
-    const p = document.createElement('p')
+    const div = document.createElement('div')
                                     
     okModalBody.innerHTML = ""
 
-    p.innerHTML = `  
+    div.innerHTML = `  
             <p><strong>Dzień dobry</strong>, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
             <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
             <div class="okModalBodyBox">
@@ -89,7 +89,7 @@ const openOkModal = () => {
             <p><strong>Zespół e-Doradców NFZ</strong></p>
         `
     
-    okModalBody.appendChild(p)
+    okModalBody.appendChild(div)
 
     const okButton = document.getElementById('okButton')
 

@@ -62,7 +62,7 @@ a:focus{
     margin-top: 10px;
 }
 
-img{
+#container > #logoBox > img{
     width: 60%;
 }
 
@@ -72,40 +72,16 @@ img{
     width: 75%;
 }
 
-select {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    padding: 0 1em 0 0;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-  }
-  select::-ms-expand {
-    display: none;
-  }
-  select {
-     outline: none;
-  }
-
-  #select {
-    width: 100%;
-    min-width: 15ch;
-    max-width: 30ch;
-    border: 1px solid var(--select-border);
-    border-radius: 0.25em;
-    padding: 0.25em 0.5em;
-    font-size: 1.25rem;
-    cursor: pointer;
-    line-height: 1.1;
-    background-color: #fff;
-    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+.mdc-list-item{
+  height: max-content;
+  min-height: 30px;
+  align-items: center;
 }
 
-
+#selectSubjectList > .mdc-list-item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 @media only screen and (max-width: 600px ) {
     body {
@@ -144,3 +120,6 @@ select {
   }
   
 }
+
+
+

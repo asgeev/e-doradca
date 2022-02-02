@@ -46,24 +46,26 @@ const render = (data) => {
 
         selectDepartment.listen('MDCSelect:change',  () => {
 
-
             selectDepartment.valid = true
 
-            selectDate.setSelectedIndex(0)
+            selectDate.setSelectedIndex(-1)
 
             selectDate.disabled = false
 
-            const currentId = selectDepartment.selectedIndex - 1
-            
-            const currentDepartment = data[currentId].dates
-            
-            if (currentDepartment == undefined){
-                return
-            }else{  
-                
-                selectTime.disabled = true
-                renderDate(currentDepartment)
+            const currentId = selectDepartment.selectedIndex -1
 
+            console.log(currentId)
+            console.log(selectDepartment.selectedIndex)
+                        
+            if ( selectDepartment.selectedIndex == 0){
+                selectDate.disabled = true
+                selectTime.disabled = true
+                selectTime.valid = true 
+            }
+            else{  
+                const currentDepartment = data[currentId].dates
+
+                renderDate(currentDepartment)
             }
 
     })
@@ -114,8 +116,9 @@ const renderDate = (currentDepartment)   => {
                 const selectedDate = currentDepartmentArray[selectedDateId]
 
                 if(selectedDate == undefined){
-                    return
+                    selectTime.valid = true 
                 }else{
+
                     renderTime(selectedDate)           
                 }
                 
