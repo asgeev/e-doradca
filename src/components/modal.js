@@ -5,8 +5,6 @@ import { selectDepartment } from "./createSelectDepartment"
 import { checkbox_1, checkbox_2} from "./createCheckbox"
 import { helperText } from "./helperText"
 import { selectSubject } from "./createSelectSubject"
-import { over, reverse } from "lodash"
-
 
 
 const disableAllFields = (state) =>{
@@ -64,7 +62,8 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
 
     div.innerHTML = `  
-            <p><strong>Dzień dobry</strong>, dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
+            <p><strong>Dzień dobry</strong>,</n>
+            dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
             <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
             <div class="okModalBodyBox">
             <img src = "./icons/calendar.png">
@@ -83,7 +82,7 @@ const openOkModal = () => {
                 <p style = "text-align:left"><strong>Temat spotkania: </strong>${selectSubject.value}</p>
             </div>
             <br>
-            <p>Link do spotkania przyślemy do Ciebie na wskazany adres po wygenerowaniu w aplikacji Microsoft Teams.<p>
+            <p>Link do spotkania przyślemy do Ciebie na wskazany adres e-mail po wygenerowaniu w aplikacji Microsoft Teams.<p>
             <br>  
             <p>Do zobaczenia</p>
             <p><strong>Zespół e-Doradców NFZ</strong></p>
@@ -143,10 +142,14 @@ const openErrorModal = (responseText) => {
         p.innerHTML = `${responseText.message}`
     }
 
-
-    
-    
     errorModalBody.appendChild(p)
+
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          errorModal.classList.add("errorModalInactive")
+          overlay()
+        }
+      })
 
        
 }

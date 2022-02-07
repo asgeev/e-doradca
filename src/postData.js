@@ -24,7 +24,7 @@ const send = (data) => {
 
                 }else if(status === 0 || status == 500){
                     
-                    const errorText = { message: "Wystąpił błąd przy próbie zarejestowania wizyty. Proszę spróbować ponownie później."}
+                    const errorText = { message: "Wystąpił błąd przy próbie zarezerwowania wizyty. Proszę spróbować ponownie później."}
                     
                     openErrorModal(errorText)
                 }

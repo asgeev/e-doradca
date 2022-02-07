@@ -78,10 +78,16 @@ a:focus{
   align-items: center;
 }
 
+.mdc-list li:first-child{
+  min-height: 0;
+}
+
+
 #selectSubjectList > .mdc-list-item{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 
 @media only screen and (max-width: 600px ) {
     body {
