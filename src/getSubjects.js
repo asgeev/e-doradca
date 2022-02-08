@@ -16,19 +16,16 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = getSuccessSubjects
+    xhr.onload = getSuccessSubjects
     
-xhr.onerror = error
+    xhr.onerror = error
 
-xhr.open('GET', API_URL)
+    xhr.open('GET', API_URL)
 
-xhr.send();
+    xhr.send();
 
 
 
 export {
     getSuccessSubjects,
 }
-
-
-

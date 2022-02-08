@@ -7,49 +7,60 @@ import { helperText } from "./helperText"
 import { selectSubject } from "./createSelectSubject"
 
 
-const disableAllFields = (state) =>{
+const disableAllFields = (fieldState) =>{
         
     const link = document.querySelector('a')
 
-    selectDepartment.disabled = state
-    selectDate.disabled = state
-    selectTime.disabled = state
-    selectSubject.disabled = state
-    emailField.disabled = state 
-    checkbox_1.disabled = state
-    checkbox_2.disabled = state
-    saveButton.disabled = state
+    selectDepartment.disabled = fieldState
+    selectDate.disabled = fieldState
+    selectTime.disabled = fieldState
+    selectSubject.disabled = fieldState
+    emailField.disabled = fieldState
+    checkbox_1.disabled = fieldState
+    checkbox_2.disabled = fieldState
+    saveButton.disabled = fieldState
 
-    if(state == true){
+    if(fieldState == true){
         link.setAttribute("tabindex", "-1")
-    }else if (state == false){
+    }else if (fieldState == false){
         link.removeAttribute("tabindex")
     }
 }
 
 
-const overlay = () => {
+const overlay = (overlayState) => {
 
     const overlay = document.getElementById("overlay")
 
     const body = document.querySelector('body')
+    
+    // overlay.classList.toggle("active")
 
-    overlay.classList.toggle("active")
+    // body.classList.toggle("modalOpen")
 
-    body.classList.toggle("modalOpen")
+    if(overlayState == true){
+        
+        overlay.classList.add("active")
+        
+        body.classList.add("modalOpen")
 
+        disableAllFields(true)
+
+    }else if(overlayState == false){
+
+        overlay.classList.remove("active")
+
+        body.classList.remove("modalOpen")
+
+        disableAllFields(false)
+    }
 }
-
-
-
-
-
 
 const openOkModal = () => {
     
-    overlay()
+    overlay(true)
 
-    disableAllFields(true)  
+    // disableAllFields(true)  
 
     const okModal = document.getElementById("okModal")
 
@@ -62,7 +73,7 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
 
     div.innerHTML = `  
-            <p><strong>Dzień dobry</strong>,</n>
+            <p><strong>Dzień dobry ,</strong><br>
             dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
             <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
             <div class="okModalBodyBox">
@@ -90,25 +101,14 @@ const openOkModal = () => {
     
     okModalBody.appendChild(div)
 
+
     const okButton = document.getElementById('okButton')
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape'){
-            
-            okModal.classList.add("okModalInactive")
-
-            overlay()
-        
-            window.location.reload(true)
-        }
-    })
-    
 
     okButton.addEventListener('click', () => {
         
         okModal.classList.toggle("okModalInactive")
 
-        overlay()
+        overlay(false)
         
         window.location.reload(true)
     })
@@ -116,13 +116,15 @@ const openOkModal = () => {
 
 }
 
+
+
 const openErrorModal = (responseText) => {
 
     console.log(responseText)
 
-    overlay()
+    overlay(true)
 
-    disableAllFields(true)
+    // disableAllFields(true)
     
     const errorModal = document.getElementById('errorModal')
 
@@ -136,53 +138,45 @@ const openErrorModal = (responseText) => {
     
     if( checkbox_1.checked == false || checkbox_2.checked == false){
         
-        p.innerHTML =`Proszę o akceptację wszystkich oświadczeń w celu rezerwacji wizyty!`
+        p.innerHTML =`Proszę o akceptację wszystkich oświadczeń w&nbsp;celu rezerwacji wizyty!`
 
     } else {
         p.innerHTML = `${responseText.message}`
     }
 
     errorModalBody.appendChild(p)
+    
+
+    const errorButton = document.getElementById("errorButton")
+
+    errorButton.addEventListener('click', () => {
+
+        errorModal.classList.add("errorModalInactive")
+
+        overlay(false)
+
+        // disableAllFields(false)
+    })    
 
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
-          errorModal.classList.add("errorModalInactive")
-          overlay()
-        }
-      })
-
+              
+            errorModal.classList.add("errorModalInactive")
        
+            overlay(false)
+       
+            // disableAllFields(false)
+           
+           }
+    })
+    
+
 }
 
 
-const errorButton = document.getElementById("errorButton")
-
-errorButton.addEventListener('click', () => {
-
-    errorModal.classList.add("errorModalInactive")
-
-    overlay()
-
-    disableAllFields(false)
-})
 
 
-//  document.addEventListener('keydown', (event) => {
-        
-//         if (event.key === 'Escape'){
 
-//             errorModal.classList.add("okModalInactive")
-    
-//             const overlay = document.getElementById("overlay")
-
-//             overlay.classList.remove('active')
-
-//             disableAllFields(false)
-
-//         }})
-
-
- 
 
 
 

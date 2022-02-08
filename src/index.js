@@ -13,9 +13,8 @@ import {helperText} from './components/helperText';
 
 
 window.addEventListener('load', () => {
-    const state = true
-    selectDate.disabled = state
-    selectTime.disabled = state
+    selectDate.disabled = true 
+    selectTime.disabled = true
 })
 
 const render = (data) => {
@@ -199,9 +198,6 @@ const renderSubjects = (subjectList) => {
             selectSubjectList.appendChild(fragment) 
             
             selectSubject.layoutOptions()
-
-
-    
         }
     }
 
@@ -219,8 +215,6 @@ const animation = (field) => {
 const button = document.getElementById('saveButton')
 
 button.addEventListener('click', (event) => {
-
-
 
         const top = document.getElementById('container') 
 

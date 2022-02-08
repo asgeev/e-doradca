@@ -10710,49 +10710,60 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const disableAllFields = (state) =>{
+const disableAllFields = (fieldState) =>{
         
     const link = document.querySelector('a')
 
-    _createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__.selectDepartment.disabled = state
-    _createSelectDate__WEBPACK_IMPORTED_MODULE_1__.selectDate.disabled = state
-    _createSelectTime__WEBPACK_IMPORTED_MODULE_2__.selectTime.disabled = state
-    _createSelectSubject__WEBPACK_IMPORTED_MODULE_6__.selectSubject.disabled = state
-    _createEmailField__WEBPACK_IMPORTED_MODULE_0__.emailField.disabled = state 
-    _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_1.disabled = state
-    _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_2.disabled = state
-    saveButton.disabled = state
+    _createSelectDepartment__WEBPACK_IMPORTED_MODULE_3__.selectDepartment.disabled = fieldState
+    _createSelectDate__WEBPACK_IMPORTED_MODULE_1__.selectDate.disabled = fieldState
+    _createSelectTime__WEBPACK_IMPORTED_MODULE_2__.selectTime.disabled = fieldState
+    _createSelectSubject__WEBPACK_IMPORTED_MODULE_6__.selectSubject.disabled = fieldState
+    _createEmailField__WEBPACK_IMPORTED_MODULE_0__.emailField.disabled = fieldState
+    _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_1.disabled = fieldState
+    _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_2.disabled = fieldState
+    saveButton.disabled = fieldState
 
-    if(state == true){
+    if(fieldState == true){
         link.setAttribute("tabindex", "-1")
-    }else if (state == false){
+    }else if (fieldState == false){
         link.removeAttribute("tabindex")
     }
 }
 
 
-const overlay = () => {
+const overlay = (overlayState) => {
 
     const overlay = document.getElementById("overlay")
 
     const body = document.querySelector('body')
+    
+    // overlay.classList.toggle("active")
 
-    overlay.classList.toggle("active")
+    // body.classList.toggle("modalOpen")
 
-    body.classList.toggle("modalOpen")
+    if(overlayState == true){
+        
+        overlay.classList.add("active")
+        
+        body.classList.add("modalOpen")
 
+        disableAllFields(true)
+
+    }else if(overlayState == false){
+
+        overlay.classList.remove("active")
+
+        body.classList.remove("modalOpen")
+
+        disableAllFields(false)
+    }
 }
-
-
-
-
-
 
 const openOkModal = () => {
     
-    overlay()
+    overlay(true)
 
-    disableAllFields(true)  
+    // disableAllFields(true)  
 
     const okModal = document.getElementById("okModal")
 
@@ -10765,7 +10776,7 @@ const openOkModal = () => {
     okModalBody.innerHTML = ""
 
     div.innerHTML = `  
-            <p><strong>Dzień dobry</strong>,</n>
+            <p><strong>Dzień dobry ,</strong><br>
             dziękujemy za zainteresowanie naszą usługą e-Doradcy NFZ.</p>
             <p>Umówimy dla Ciebie konsultację z pracownikiem oddziału NFZ poprzez wideo-spotkanie.</p>
             <div class="okModalBodyBox">
@@ -10793,25 +10804,14 @@ const openOkModal = () => {
     
     okModalBody.appendChild(div)
 
+
     const okButton = document.getElementById('okButton')
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape'){
-            
-            okModal.classList.add("okModalInactive")
-
-            overlay()
-        
-            window.location.reload(true)
-        }
-    })
-    
 
     okButton.addEventListener('click', () => {
         
         okModal.classList.toggle("okModalInactive")
 
-        overlay()
+        overlay(false)
         
         window.location.reload(true)
     })
@@ -10819,13 +10819,15 @@ const openOkModal = () => {
 
 }
 
+
+
 const openErrorModal = (responseText) => {
 
     console.log(responseText)
 
-    overlay()
+    overlay(true)
 
-    disableAllFields(true)
+    // disableAllFields(true)
     
     const errorModal = document.getElementById('errorModal')
 
@@ -10839,53 +10841,45 @@ const openErrorModal = (responseText) => {
     
     if( _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_1.checked == false || _createCheckbox__WEBPACK_IMPORTED_MODULE_4__.checkbox_2.checked == false){
         
-        p.innerHTML =`Proszę o akceptację wszystkich oświadczeń w celu rezerwacji wizyty!`
+        p.innerHTML =`Proszę o akceptację wszystkich oświadczeń w&nbsp;celu rezerwacji wizyty!`
 
     } else {
         p.innerHTML = `${responseText.message}`
     }
 
     errorModalBody.appendChild(p)
+    
+
+    const errorButton = document.getElementById("errorButton")
+
+    errorButton.addEventListener('click', () => {
+
+        errorModal.classList.add("errorModalInactive")
+
+        overlay(false)
+
+        // disableAllFields(false)
+    })    
 
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
-          errorModal.classList.add("errorModalInactive")
-          overlay()
-        }
-      })
-
+              
+            errorModal.classList.add("errorModalInactive")
        
+            overlay(false)
+       
+            // disableAllFields(false)
+           
+           }
+    })
+    
+
 }
 
 
-const errorButton = document.getElementById("errorButton")
-
-errorButton.addEventListener('click', () => {
-
-    errorModal.classList.add("errorModalInactive")
-
-    overlay()
-
-    disableAllFields(false)
-})
 
 
-//  document.addEventListener('keydown', (event) => {
-        
-//         if (event.key === 'Escape'){
 
-//             errorModal.classList.add("okModalInactive")
-    
-//             const overlay = document.getElementById("overlay")
-
-//             overlay.classList.remove('active')
-
-//             disableAllFields(false)
-
-//         }})
-
-
- 
 
 
 
@@ -10978,17 +10972,13 @@ const error = (err) => {
 
 const xhr = new XMLHttpRequest();
 
-xhr.onload = getSuccessSubjects
+    xhr.onload = getSuccessSubjects
     
-xhr.onerror = error
+    xhr.onerror = error
 
-xhr.open('GET', API_URL)
+    xhr.open('GET', API_URL)
 
-xhr.send();
-
-
-
-
+    xhr.send();
 
 
 
@@ -11034,9 +11024,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('load', () => {
-    const state = true
-    _components_createSelectDate__WEBPACK_IMPORTED_MODULE_5__.selectDate.disabled = state
-    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_6__.selectTime.disabled = state
+    _components_createSelectDate__WEBPACK_IMPORTED_MODULE_5__.selectDate.disabled = true 
+    _components_createSelectTime__WEBPACK_IMPORTED_MODULE_6__.selectTime.disabled = true
 })
 
 const render = (data) => {
@@ -11220,9 +11209,6 @@ const renderSubjects = (subjectList) => {
             selectSubjectList.appendChild(fragment) 
             
             _components_createSelectSubject__WEBPACK_IMPORTED_MODULE_8__.selectSubject.layoutOptions()
-
-
-    
         }
     }
 
@@ -11240,8 +11226,6 @@ const animation = (field) => {
 const button = document.getElementById('saveButton')
 
 button.addEventListener('click', (event) => {
-
-
 
         const top = document.getElementById('container') 
 
